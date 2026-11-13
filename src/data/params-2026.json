@@ -1,0 +1,27 @@
+{
+  "_lisezmoi": "Federal rules that apply in every state (migratory birds). State season dates and license prices live in seasons.json. Each value was read on the official source below on the date of retrieved_at.",
+  "year": 2026,
+  "retrieved_at": "2026-11-13",
+  "valid_from": "2026-08-01",
+  "valid_to": "2027-05-31",
+  "duckStamp": { "fee": 25, "age": 16 },
+  "shotgunShellsMax": 3,
+  "sources": {
+    "usc_718a": {
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title16/html/USCODE-2024-title16-chap7-subchapIV-sec718a.htm",
+      "label": { "en": "16 U.S.C. 718a: the federal duck stamp is required from age 16 (govinfo, 2024 edition, read November 13, 2026)" }
+    },
+    "usc_718b": {
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title16/html/USCODE-2024-title16-chap7-subchapIV-sec718b.htm",
+      "label": { "en": "16 U.S.C. 718b: cost of the federal duck stamp, $25 per hunting year (govinfo, read November 13, 2026)" }
+    },
+    "cfr_20_20": {
+      "url": "https://www.ecfr.gov/current/title-50/chapter-I/subchapter-B/part-20/subpart-C/section-20.20",
+      "label": { "en": "50 CFR 20.20: Migratory Bird Harvest Information Program (HIP) (eCFR, read November 13, 2026)" }
+    },
+    "cfr_20_21": {
+      "url": "https://www.ecfr.gov/current/title-50/chapter-I/subchapter-B/part-20/subpart-C/section-20.21",
+      "label": { "en": "50 CFR 20.21: illegal methods for migratory game birds, including the three-shell limit (eCFR, read November 13, 2026)" }
+    }
+  }
+}

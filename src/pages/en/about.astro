@@ -1,0 +1,31 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, AUTHOR_DESC, CONTACT_EMAIL } from '../../data/site-config';
+import { VALUE } from '../../content/home';
+import { KIT as K } from '../../lib/kit';
+import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('about', lang);
+const title = 'Hunt Season Map 2026-27: Who Publishes These Season Dates';
+const description = 'Hunt Season Map in 2026-27: who publishes this guide to the hunting season dates of 24 states, the agency pages behind it, and what it never sells or asks for.';
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path }])]} breadcrumbs={[{ label: 'About' }]}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>About Hunt Season Map</h1>
+    <p>{AUTHOR_DESC.en}</p>
+    <h2>Why this season guide exists</h2>
+    <p>A hunter planning a weekend asks plain questions: is it open on that date, when does gun season start, how long until the opener, what does a nonresident pay. The answers sit in {K.STATES.length}+ agency sites and PDFs, each cut into zones, and the pages that rank first often repeat last year's dates or sell an app.</p>
+    <p>{VALUE}</p>
+    <h2>Who publishes it</h2>
+    <p>The site is published by {AUTHOR_NAME}, a company that builds calculators and guides on public rules. It is an independent site, not a government site and not a wildlife agency. It sells no license, takes no commission, carries no affiliate link and asks for no contact details.</p>
+    <LegalIdentity lang={lang} />
+    <h2>What it relies on</h2>
+    <p>The 2026-27 season pages, regulation PDFs and license fee pages of {K.STATES.length} state wildlife agencies, the federal duck stamp law (16 U.S.C. 718a and 718b) and 50 CFR part 20, read on {K.day(K.READ)}.</p>
+    <h2>What it leaves out</h2>
+    <p>States whose agency pages we could not read; bag limits, legal weapons, hunting hours and land access beyond the name of a period; fishing seasons. The <a href={route('method', lang)}>method page</a> lists every limit and the <a href={route('editorial', lang)}>editorial policy</a> explains corrections.</p>
+    <h2>Contact</h2>
+    <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, for a date that changed or a period we read wrong. We answer questions about a published date, not about your license, which only your state agency can decide.</p>
+  </article>
+</PageLayout>

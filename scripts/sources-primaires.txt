@@ -1,0 +1,23 @@
+# Sources primaires de huntseasonmap.com hors domaines publics reconnus (.gov) — RECETTE §7 et §26.
+# Chaque domaine est le site officiel d'une agence d'État de la faune, lu le 2026-11-13.
+
+# Alabama Department of Conservation and Natural Resources, Wildlife and Freshwater Fisheries (site officiel)
+outdooralabama.com
+
+# Arkansas Game and Fish Commission, agence constitutionnelle de l'Arkansas (site officiel)
+agfc.com
+
+# Colorado Parks and Wildlife, domaine de l'État du Colorado (state.co.us)
+cpw.state.co.us
+
+# Georgia Department of Natural Resources, Wildlife Resources Division (site officiel)
+georgiawildlife.com
+
+# Mississippi Department of Wildlife, Fisheries, and Parks (site officiel)
+mdwfp.com
+
+# Oklahoma Department of Wildlife Conservation (site officiel)
+wildlifedepartment.com
+
+# Vermont Fish and Wildlife Department (site officiel)
+vtfishandwildlife.com

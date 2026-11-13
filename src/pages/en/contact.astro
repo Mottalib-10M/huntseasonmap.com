@@ -1,0 +1,24 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { CONTACT_EMAIL } from '../../data/site-config';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('contact', lang);
+const description = 'Write to Hunt Season Map about a season date, a zone or a license price that changed. E-mail only: no license sold, nothing passed on to anyone.';
+---
+<PageLayout title="Contact Hunt Season Map: report a season date that changed" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path, lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>Contact</h1>
+    <p>By e-mail: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. There is no form and no phone line, and nothing you write is passed on to anyone.</p>
+    <h2>What helps us most</h2>
+    <ul>
+      <li>A date the agency changed after we read it: quote the page or regulation that says so.</li>
+      <li>A period, zone or license price we read wrong.</li>
+      <li>The 2026-27 season page of a state we could not read, on the agency's own site.</li>
+      <li>Embedding the checker on a club, outfitter or store page: the code is on the <a href={route('widget', lang)}>embed page</a>.</li>
+    </ul>
+    <h2>What we cannot do</h2>
+    <p>We do not sell licenses or tags, enter draws, or say where you may hunt. Your state wildlife agency is the one who can.</p>
+  </article>
+</PageLayout>

@@ -1,0 +1,43 @@
+---
+/** Method: the documents, how each answer is computed, a worked example, the limits. Figures from the kit. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { src, table } from '../../lib/helpers';
+import { VALUE } from '../../content/home';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+import { METHOD_LABEL, STATES, methodOf } from '../../lib/engine/seasons';
+const lang = 'en';
+const path = route('method', lang);
+const title = 'Hunting Season Method 2026-27: How Agency Dates Were Read';
+const description = 'Hunting season method for 2026-27: how the dates of 24 state wildlife agencies were read, how periods are classified, how open or closed is decided, and limits.';
+const all = STATES.flatMap((s) => [...s.deer, ...(s.turkey ?? []), ...(s.duck ?? [])]);
+const count = (m: string) => STATES.flatMap((s) => s.deer).filter((x) => methodOf(x) === m).length;
+const rows = (['archery', 'muzzleloader', 'gun', 'youth', 'other'] as const).map((m) => [METHOD_LABEL[m], String(count(m))]);
+const ex = K.S(K.EX.st);
+const exS = K.status(ex, 'deer', '2026-11-13');
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'How the dates were read', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'How the dates were read', path }])]} breadcrumbs={[{ label: 'How the dates were read' }]}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>How the hunting season dates were read</h1>
+    <p><strong>Every hunting season answer on this site comes from one record per state, built from the 2026-27 season page or regulation PDF of its wildlife agency, read on {K.day(K.READ)}. The checker compares the date you pick with those periods; nothing is estimated.</strong></p>
+    <p>{VALUE}</p>
+    <h2>1. The documents</h2>
+    <p>For each of the {STATES.length} states, the record holds the agency, every deer period printed with its area and dates, turkey and duck periods where printed, and license prices where the fee page was read, each with the address of the page. {all.length} periods were recorded in all. Pages were fetched with an ordinary request; agencies that refused it (403 errors, bot protection, time-outs) were not bypassed, and their states are left out rather than filled from other sites. Federal rules were read on govinfo and eCFR: <Fragment set:html={src('usc_718a', '16 U.S.C. 718a')} />, <Fragment set:html={src('usc_718b', '16 U.S.C. 718b')} />, <Fragment set:html={src('cfr_20_20', '50 CFR 20.20')} /> and <Fragment set:html={src('cfr_20_21', '50 CFR 20.21')} />.</p>
+    <h2>2. How periods are classified</h2>
+    <p>Each deer period is filed under one method from the words of its name: youth, junior, apprentice, veteran or disabled first; then muzzleloader, blackpowder, primitive or flintlock; then archery, bow or crossbow; then firearms, rifle, shotgun, general, regular and similar. One gun period per state is marked as the headline season, the one most hunters mean by opening day.</p>
+    <Fragment set:html={table(['Method', 'Deer periods'], rows, `Deer periods of ${STATES.length} states by method, read on ${K.day(K.READ)}`, ['l', 'r'])} />
+    <h2>3. Open, closed and countdowns</h2>
+    <p>A date is open when it falls between the first and last day of a period, both included. In Maine every Sunday is closed, and in Pennsylvania Sundays are closed for ducks. The next opener is the first start date after the date picked; the countdown counts calendar days to it. The date fields start on the build day of the site and move to your own date once the page has loaded.</p>
+    <h2>4. A worked example</h2>
+    <p>{ex.name} on Nov. 13, 2026: {exS.open.length ? `open, with ${exS.open.map((x) => `${x.s} (${x.a})`).join('; ')}` : 'closed'}{exS.next ? `; the next period to open is ${exS.next.season.s} on ${K.d(exS.next.start)}, in ${exS.next.inDays} days` : ''}.</p>
+    <h2>5. Limits</h2>
+    <ul>
+      <li>Only states whose agency pages could be read are covered; dates are never copied from blogs, apps or other sites.</li>
+      <li>Agencies change dates and federal duck frameworks can change late: the regulations of your state govern.</li>
+      <li>Bag limits, legal weapons, hunting hours, land access and license validity are not checked.</li>
+      <li>License totals add the base license and the deer license or tag as printed; agent fees, habitat stamps not listed and federal stamps are left out.</li>
+    </ul>
+    <p>Corrections: <a href={route('contact', lang)}>contact page</a>.</p>
+  </article>
+</PageLayout>

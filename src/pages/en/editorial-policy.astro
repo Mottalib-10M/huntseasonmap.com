@@ -1,0 +1,21 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME } from '../../data/site-config';
+const lang = 'en';
+---
+<PageLayout title="Editorial policy of Hunt Season Map: agency dates only" description="How Hunt Season Map writes its pages: each season date read on the page or regulation of the state wildlife agency, cited with its date, and no state filled from other sites." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>Editorial policy</h1>
+    <h2>Where the dates come from</h2>
+    <p>A season date, a zone or a license price enters the site only when it was read on the page or regulation PDF of the state wildlife agency, or in the federal rules cited. Each state is stored with the address of its pages and the date they were read. Blogs, apps and other season sites are read to see what hunters ask, never to take a date.</p>
+    <h2>How pages are written</h2>
+    <p>No date or price is typed into the text: they live in one data file, and every page computes its figures from it when the site is built, with the same engine as the checker. A state we could not read is left out rather than guessed.</p>
+    <h2>What we do not write about</h2>
+    <p>Where to hunt, weapons and ammunition beyond the name of a period, and products of any kind.</p>
+    <h2>Money</h2>
+    <p>{AUTHOR_NAME} receives nothing from outfitters, license vendors, app makers or gear brands and links to none of them as a sponsor.</p>
+    <h2>Updates and corrections</h2>
+    <p>Nothing updates by itself. Each page shows the date its sources were last read. A reported error is checked against the official document and, once fixed, moves that date. Write through the <a href={route('contact', lang)}>contact page</a>; the rules are on the <a href={route('method', lang)}>method page</a>.</p>
+  </article>
+</PageLayout>

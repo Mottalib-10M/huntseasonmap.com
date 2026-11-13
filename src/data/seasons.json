@@ -1,0 +1,3001 @@
+{
+ "read": "2026-11-13",
+ "note": "2026-27 season dates and license prices read on the web pages and PDFs of the state wildlife agencies on 2026-11-13 (curl). Dates as published; zones and units vary inside each state.",
+ "states": [
+  {
+   "code": "AL",
+   "name": "Alabama",
+   "agency": "Alabama Department of Conservation and Natural Resources, Wildlife and Freshwater Fisheries",
+   "short": "Outdoor Alabama",
+   "deer": [
+    {
+     "s": "Archery (stalk hunting)",
+     "a": "Zone A",
+     "r": [
+      [
+       "2026-10-15",
+       "2027-02-10"
+      ]
+     ]
+    },
+    {
+     "s": "Special youth gun (under 16)",
+     "a": "Zones A, B, C and CMZ",
+     "r": [
+      [
+       "2026-11-13",
+       "2026-11-16"
+      ]
+     ]
+    },
+    {
+     "s": "Special muzzleloader and air rifle",
+     "a": "Zone A",
+     "r": [
+      [
+       "2026-11-16",
+       "2026-11-20"
+      ]
+     ]
+    },
+    {
+     "s": "Gun, stalk hunting, private or leased land",
+     "a": "Zone A",
+     "r": [
+      [
+       "2026-11-21",
+       "2027-02-10"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Gun, dog deer hunting, private or leased land",
+     "a": "Zone A, where allowed",
+     "r": [
+      [
+       "2026-11-21",
+       "2027-01-15"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Alabama has five deer zones (A to E) plus a CWD management zone; the dates above are Zone A. Public land (open permit) gun seasons switch between bucks only and either sex.",
+   "turkey": [
+    {
+     "s": "Fall",
+     "a": "Zone 3 counties",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-11-22"
+      ],
+      [
+       "2026-12-12",
+       "2026-12-27"
+      ]
+     ]
+    },
+    {
+     "s": "Spring",
+     "a": "Zones 1 and 3",
+     "r": [
+      [
+       "2027-03-20",
+       "2027-05-03"
+      ]
+     ]
+    },
+    {
+     "s": "Spring",
+     "a": "Zone 2",
+     "r": [
+      [
+       "2027-03-27",
+       "2027-05-03"
+      ]
+     ]
+    }
+   ],
+   "duck": [
+    {
+     "s": "Duck, coot and merganser",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-27",
+       "2026-11-28"
+      ],
+      [
+       "2026-12-05",
+       "2027-01-31"
+      ]
+     ]
+    }
+   ],
+   "duckNote": "The agency page says federal frameworks were not final when it was printed.",
+   "src": [
+    {
+     "t": "Deer Season 2026-2027",
+     "u": "https://www.outdooralabama.com/seasons-and-bag-limits/deer-season"
+    },
+    {
+     "t": "Turkey Season 2026-2027",
+     "u": "https://www.outdooralabama.com/seasons-and-bag-limits/turkey-season"
+    },
+    {
+     "t": "Waterfowl Seasons 2026-2027",
+     "u": "https://www.outdooralabama.com/seasons-and-bag-limits/waterfowl-season"
+    }
+   ],
+   "slug": "alabama-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "AR",
+   "name": "Arkansas",
+   "agency": "Arkansas Game and Fish Commission",
+   "short": "AGFC",
+   "deer": [
+    {
+     "s": "Early buck-only archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-08-29",
+       "2026-08-31"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-26",
+       "2027-02-28"
+      ]
+     ]
+    },
+    {
+     "s": "Alternative firearms (muzzleloader)",
+     "a": "Zone 1",
+     "r": [
+      [
+       "2026-10-17",
+       "2026-10-25"
+      ],
+      [
+       "2026-12-12",
+       "2026-12-14"
+      ]
+     ]
+    },
+    {
+     "s": "Youth modern gun hunt",
+     "a": "Statewide (private land; WMAs vary)",
+     "r": [
+      [
+       "2026-11-07",
+       "2026-11-08"
+      ],
+      [
+       "2027-01-02",
+       "2027-01-03"
+      ]
+     ]
+    },
+    {
+     "s": "Modern gun",
+     "a": "Zone 1",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-12-06"
+      ],
+      [
+       "2026-12-26",
+       "2026-12-28"
+      ]
+     ],
+     "main": true
+    }
+   ],
+   "deerNote": "Arkansas has 17 deer zones; the modern-gun and alternative-firearms dates above are Zone 1. Some zones close the November modern-gun hunt on Nov. 22, others run to Dec. 13.",
+   "src": [
+    {
+     "t": "Deer seasons and limits by zone",
+     "u": "https://www.agfc.com/hunting/deer/deer-seasons-and-limits-by-zone/"
+    }
+   ],
+   "lic": {
+    "base": {
+     "res": 25,
+     "non": 410,
+     "t": "Resident Sportsman's License (RS) / Nonresident Annual All Game Hunting License (NBG); six deer tags included"
+    },
+    "deer": {
+     "res": 0,
+     "non": 0,
+     "t": "Deer tags come with the license"
+    },
+    "fish": {
+     "res": 10.5,
+     "non": 60,
+     "t": "Resident Fisheries Conservation License / Nonresident Annual Fishing License"
+    },
+    "src": [
+     {
+      "t": "Hunting license descriptions and fees",
+      "u": "https://www.agfc.com/resources/licensing/hunting-license-descriptions-and-fees/"
+     },
+     {
+      "t": "Fishing license descriptions and fees",
+      "u": "https://www.agfc.com/resources/licensing/fishing-license-descriptions-and-fees/"
+     }
+    ]
+   },
+   "slug": "arkansas-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "CO",
+   "name": "Colorado",
+   "agency": "Colorado Parks and Wildlife",
+   "short": "CPW",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "West of I-25 and GMU 140",
+     "r": [
+      [
+       "2026-09-02",
+       "2026-09-30"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "West of I-25 and GMU 140",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-09-20"
+      ]
+     ]
+    },
+    {
+     "s": "High country deer (limited, antlered)",
+     "a": "Select high-country units",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-09-20"
+      ]
+     ]
+    },
+    {
+     "s": "Plains archery",
+     "a": "East of I-25 (most common split)",
+     "r": [
+      [
+       "2026-10-01",
+       "2026-10-23"
+      ],
+      [
+       "2026-11-04",
+       "2026-11-30"
+      ],
+      [
+       "2026-12-15",
+       "2026-12-31"
+      ]
+     ]
+    },
+    {
+     "s": "Plains muzzleloader",
+     "a": "East of I-25",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-18"
+      ]
+     ]
+    },
+    {
+     "s": "Second regular rifle (deer and elk)",
+     "a": "West of I-25",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-11-01"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Plains rifle",
+     "a": "East of I-25",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-11-03"
+      ]
+     ]
+    },
+    {
+     "s": "Third regular rifle (deer and elk)",
+     "a": "West of I-25",
+     "r": [
+      [
+       "2026-11-07",
+       "2026-11-15"
+      ]
+     ]
+    },
+    {
+     "s": "Fourth regular rifle (deer and elk)",
+     "a": "West of I-25",
+     "r": [
+      [
+       "2026-11-18",
+       "2026-11-22"
+      ]
+     ]
+    },
+    {
+     "s": "Late plains rifle",
+     "a": "East of I-25, where offered",
+     "r": [
+      [
+       "2026-12-01",
+       "2026-12-14"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "All Colorado deer licenses are limited and issued by game management unit through the draw. Dates come from the 2025-2029 Big Game Season Structure adopted by the Parks and Wildlife Commission; the late plains rifle season follows its rule (Dec. 1 to 14).",
+   "src": [
+    {
+     "t": "2025-2029 Big Game Season Structure (PDF)",
+     "u": "https://cpw.state.co.us/sites/default/files/dam/ifgylu070o/final_bgss2025-2029.pdf"
+    }
+   ],
+   "slug": "colorado-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "CT",
+   "name": "Connecticut",
+   "agency": "Connecticut Department of Energy and Environmental Protection, Wildlife Division",
+   "short": "CT DEEP",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "Private land, all zones",
+     "r": [
+      [
+       "2026-09-15",
+       "2026-12-31"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "State land",
+     "r": [
+      [
+       "2026-09-15",
+       "2026-11-17"
+      ],
+      [
+       "2026-12-23",
+       "2026-12-31"
+      ]
+     ]
+    },
+    {
+     "s": "Shotgun / rifle / revolver",
+     "a": "Private land",
+     "r": [
+      [
+       "2026-11-18",
+       "2026-12-08"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Shotgun (no-lottery permit)",
+     "a": "State land",
+     "r": [
+      [
+       "2026-11-18",
+       "2026-12-08"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Private land",
+     "r": [
+      [
+       "2026-12-09",
+       "2026-12-31"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "On Sundays, deer hunting is allowed on private land only, and not within 40 yards of blazed public trails. Junior deer hunter training days run Nov. 7 to 14, 2026.",
+   "src": [
+    {
+     "t": "2026 Connecticut Hunting and Trapping Guide: deer hunting",
+     "u": "https://portal.ct.gov/deep/hunting/2026-connecticut-hunting-and-trapping-guide/deer-hunting"
+    }
+   ],
+   "slug": "connecticut-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "GA",
+   "name": "Georgia",
+   "agency": "Georgia Department of Natural Resources, Wildlife Resources Division",
+   "short": "Georgia WRD",
+   "deer": [
+    {
+     "s": "Archery (allowed through the whole season)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-12",
+       "2027-01-10"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms",
+     "a": "Statewide, most counties",
+     "r": [
+      [
+       "2026-10-17",
+       "2027-01-10"
+      ]
+     ],
+     "main": true
+    }
+   ],
+   "deerNote": "Georgia WRD says the season ends Jan. 10, 2027 for most hunters; some counties have extended firearms or archery dates listed in the 2026-27 regulations guidebook. The limit is 10 antlerless and 2 antlered deer, one of which must have at least four points of one inch on one side or a 15-inch outside spread.",
+   "src": [
+    {
+     "t": "Statewide archery deer season opens Saturday, Sept. 12 (Sept. 8, 2026)",
+     "u": "https://georgiawildlife.com/sight-those-bows-georgia-archery-deer-hunting-season-opens-saturday-sept-12"
+    },
+    {
+     "t": "Statewide deer firearms season opens Sat. Oct. 17 (Oct. 13, 2026)",
+     "u": "https://georgiawildlife.com/time-here-statewide-deer-firearms-season-opens-sat-oct-17"
+    }
+   ],
+   "slug": "georgia-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "IL",
+   "name": "Illinois",
+   "agency": "Illinois Department of Natural Resources",
+   "short": "IDNR",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "Counties with a firearm season",
+     "r": [
+      [
+       "2026-10-01",
+       "2026-11-19"
+      ],
+      [
+       "2026-11-23",
+       "2026-12-02"
+      ],
+      [
+       "2026-12-07",
+       "2027-01-17"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Cook, DuPage, Lake and east Kane counties",
+     "r": [
+      [
+       "2026-10-01",
+       "2027-01-17"
+      ]
+     ]
+    },
+    {
+     "s": "Youth deer hunt",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-12"
+      ]
+     ]
+    },
+    {
+     "s": "First firearm",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-20",
+       "2026-11-22"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Second firearm",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-03",
+       "2026-12-06"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader-only",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-11",
+       "2026-12-13"
+      ]
+     ]
+    },
+    {
+     "s": "Late winter and CWD seasons",
+     "a": "Designated counties",
+     "r": [
+      [
+       "2026-12-31",
+       "2027-01-03"
+      ],
+      [
+       "2027-01-15",
+       "2027-01-17"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "Deer firearm and muzzleloader hunting information",
+     "u": "https://dnr.illinois.gov/hunting/deerfirearmmuzzleloader.html"
+    },
+    {
+     "t": "Deer archery information",
+     "u": "https://dnr.illinois.gov/hunting/deerarcheryinformation.html"
+    },
+    {
+     "t": "Youth deer hunt information",
+     "u": "https://dnr.illinois.gov/hunting/youth-deer-information.html"
+    },
+    {
+     "t": "Deer hunting",
+     "u": "https://dnr.illinois.gov/hunting/deerhunting.html"
+    }
+   ],
+   "slug": "illinois-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "IA",
+   "name": "Iowa",
+   "agency": "Iowa Department of Natural Resources",
+   "short": "Iowa DNR",
+   "deer": [
+    {
+     "s": "Youth",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-19",
+       "2026-10-04"
+      ]
+     ]
+    },
+    {
+     "s": "Disabled hunter",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-19",
+       "2026-10-04"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-01",
+       "2026-12-04"
+      ],
+      [
+       "2026-12-21",
+       "2027-01-10"
+      ]
+     ]
+    },
+    {
+     "s": "Early muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-17",
+       "2026-10-25"
+      ]
+     ]
+    },
+    {
+     "s": "Regular gun, first season",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-05",
+       "2026-12-09"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Regular gun, second season",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-12",
+       "2026-12-20"
+      ]
+     ]
+    },
+    {
+     "s": "Late muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-21",
+       "2027-01-10"
+      ]
+     ]
+    },
+    {
+     "s": "Nonresident holiday",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-24",
+       "2027-01-02"
+      ]
+     ]
+    },
+    {
+     "s": "January antlerless (population management and excess tags)",
+     "a": "Where quotas remain",
+     "r": [
+      [
+       "2027-01-11",
+       "2027-01-24"
+      ]
+     ]
+    }
+   ],
+   "turkey": [
+    {
+     "s": "Fall archery only",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-01",
+       "2026-12-04"
+      ],
+      [
+       "2026-12-21",
+       "2027-01-10"
+      ]
+     ]
+    },
+    {
+     "s": "Fall gun/bow",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-12",
+       "2026-12-04"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "Iowa Hunting Seasons & Limits 2026-2027 (PDF)",
+     "u": "https://www.iowadnr.gov/media/1701/download?inline="
+    }
+   ],
+   "lic": {
+    "base": {
+     "res": 35,
+     "non": 146,
+     "t": "Hunting / Habitat (nonresident: hunting license $131 + habitat fee $15)"
+    },
+    "deer": {
+     "res": 33,
+     "non": 498,
+     "t": "Resident any-sex tag / nonresident any-sex and antlerless tag combination (drawn)"
+    },
+    "fish": null,
+    "src": [
+     {
+      "t": "Hunting licenses & fees",
+      "u": "https://www.iowadnr.gov/things-do/hunting-trapping/hunting-licenses-fees"
+     },
+     {
+      "t": "Nonresident hunting licenses",
+      "u": "https://www.iowadnr.gov/things-do/hunting-trapping/hunting-licenses-fees/nonresident-hunting-licenses"
+     }
+    ]
+   },
+   "slug": "iowa-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "LA",
+   "name": "Louisiana",
+   "agency": "Louisiana Department of Wildlife and Fisheries",
+   "short": "LDWF",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "Area 3",
+     "r": [
+      [
+       "2026-09-19",
+       "2027-01-15"
+      ]
+     ]
+    },
+    {
+     "s": "Youth and honorably discharged veterans",
+     "a": "Area 3",
+     "r": [
+      [
+       "2026-09-26",
+       "2026-10-02"
+      ]
+     ]
+    },
+    {
+     "s": "Primitive firearms",
+     "a": "Area 3",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-16"
+      ],
+      [
+       "2027-01-04",
+       "2027-01-10"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms (still-hunt only)",
+     "a": "Area 3",
+     "r": [
+      [
+       "2026-10-17",
+       "2026-11-29"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms (with or without dogs)",
+     "a": "Area 3",
+     "r": [
+      [
+       "2026-11-30",
+       "2027-01-03"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Areas 1 and 2",
+     "r": [
+      [
+       "2026-10-01",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Youth and honorably discharged veterans",
+     "a": "Area 2",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-16"
+      ]
+     ]
+    },
+    {
+     "s": "Primitive firearms",
+     "a": "Area 2",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-10-30"
+      ],
+      [
+       "2027-01-18",
+       "2027-01-24"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms (still-hunt only)",
+     "a": "Area 2",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-12-09"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Firearms (with or without dogs)",
+     "a": "Area 2",
+     "r": [
+      [
+       "2026-12-10",
+       "2027-01-17"
+      ]
+     ]
+    },
+    {
+     "s": "Youth and honorably discharged veterans",
+     "a": "Area 1",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-11-06"
+      ]
+     ]
+    },
+    {
+     "s": "Primitive firearms",
+     "a": "Area 1",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-11-20"
+      ],
+      [
+       "2027-01-25",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms (still-hunt only)",
+     "a": "Area 1",
+     "r": [
+      [
+       "2026-11-21",
+       "2026-12-11"
+      ],
+      [
+       "2027-01-04",
+       "2027-01-24"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms (with or without dogs)",
+     "a": "Area 1",
+     "r": [
+      [
+       "2026-12-12",
+       "2027-01-03"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Louisiana has ten deer areas; Area 1 covers Concordia, East Carroll, Franklin, Madison, Richland, Tensas and West Carroll parishes, Area 2 the north-west parishes such as Caddo, Bossier and Natchitoches. Some periods are bucks only.",
+   "src": [
+    {
+     "t": "Louisiana 2026-2027 Hunting & WMA Regulations, updated Oct. 16, 2026 (PDF)",
+     "u": "https://www.wlf.louisiana.gov/assets/Resources/Publications/Regulations/26LAHD.pdf"
+    }
+   ],
+   "lic": {
+    "base": {
+     "res": 20,
+     "non": 200,
+     "t": "Basic Hunting license"
+    },
+    "deer": {
+     "res": 15,
+     "non": 100,
+     "t": "Deer license (includes tags, archery and primitive)"
+    },
+    "fish": null,
+    "src": [
+     {
+      "t": "Louisiana 2026-2027 Hunting & WMA Regulations, license table (PDF)",
+      "u": "https://www.wlf.louisiana.gov/assets/Resources/Publications/Regulations/26LAHD.pdf"
+     }
+    ]
+   },
+   "slug": "louisiana-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "ME",
+   "name": "Maine",
+   "agency": "Maine Department of Inland Fisheries and Wildlife",
+   "short": "MDIFW",
+   "noSunday": true,
+   "deer": [
+    {
+     "s": "Expanded archery",
+     "a": "Designated areas only",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-12-12"
+      ]
+     ]
+    },
+    {
+     "s": "Regular archery",
+     "a": "All WMDs",
+     "r": [
+      [
+       "2026-10-03",
+       "2026-10-30"
+      ]
+     ]
+    },
+    {
+     "s": "Youth deer hunt",
+     "a": "All WMDs",
+     "r": [
+      [
+       "2026-10-23",
+       "2026-10-24"
+      ]
+     ]
+    },
+    {
+     "s": "Maine resident only day",
+     "a": "All WMDs",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-10-31"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms",
+     "a": "All WMDs",
+     "r": [
+      [
+       "2026-11-02",
+       "2026-11-28"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-30",
+       "2026-12-05"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader (second week)",
+     "a": "WMDs 12-18 and 20-29",
+     "r": [
+      [
+       "2026-12-07",
+       "2026-12-12"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Hunting is prohibited on Sunday in Maine: the dates are inclusive except Sundays. Only one antlered deer may be taken a year.",
+   "turkey": [
+    {
+     "s": "Fall (archery or shotgun)",
+     "a": "WMDs 3, 6-8, 10-29",
+     "r": [
+      [
+       "2026-09-14",
+       "2026-11-07"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "Season dates and bag limits",
+     "u": "https://www.maine.gov/ifw/hunting-trapping/hunting/laws-rules/season-dates-bag-limits.html"
+    }
+   ],
+   "slug": "maine-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "MS",
+   "name": "Mississippi",
+   "agency": "Mississippi Department of Wildlife, Fisheries, and Parks",
+   "short": "MDWFP",
+   "deer": [
+    {
+     "s": "Archery velvet (permit, one legal buck)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-11",
+       "2026-09-13"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Delta, North Central and Hills units",
+     "r": [
+      [
+       "2026-10-01",
+       "2026-11-20"
+      ]
+     ]
+    },
+    {
+     "s": "Youth season (15 and under)",
+     "a": "Statewide (private land to Jan. 31)",
+     "r": [
+      [
+       "2026-11-07",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Antlerless primitive weapon (private land)",
+     "a": "Delta, North Central and Hills units",
+     "r": [
+      [
+       "2026-11-09",
+       "2026-11-20"
+      ]
+     ]
+    },
+    {
+     "s": "Gun with dogs",
+     "a": "Delta, North Central and Hills units",
+     "r": [
+      [
+       "2026-11-21",
+       "2026-12-01"
+      ],
+      [
+       "2026-12-24",
+       "2027-01-20"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Primitive weapon",
+     "a": "Delta, North Central and Hills units",
+     "r": [
+      [
+       "2026-12-02",
+       "2026-12-15"
+      ]
+     ]
+    },
+    {
+     "s": "Gun without dogs",
+     "a": "Delta, North Central and Hills units",
+     "r": [
+      [
+       "2026-12-16",
+       "2026-12-23"
+      ]
+     ]
+    },
+    {
+     "s": "Archery / primitive weapon",
+     "a": "Delta, North Central and Hills units",
+     "r": [
+      [
+       "2027-01-21",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Southeast unit",
+     "r": [
+      [
+       "2026-10-15",
+       "2026-11-20"
+      ]
+     ]
+    },
+    {
+     "s": "Archery / primitive weapon, legal bucks",
+     "a": "Southeast unit",
+     "r": [
+      [
+       "2027-02-01",
+       "2027-02-15"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "The Southeast unit follows the same gun calendar but opens archery on Oct. 15 and adds Feb. 1-15 for legal bucks. Antler rules differ by unit.",
+   "turkey": [
+    {
+     "s": "Spring youth (15 and under)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-03-08",
+       "2027-03-14"
+      ]
+     ]
+    },
+    {
+     "s": "Spring",
+     "a": "Statewide (nonresidents on public land from April 1)",
+     "r": [
+      [
+       "2027-03-15",
+       "2027-05-02"
+      ]
+     ]
+    }
+   ],
+   "duck": [
+    {
+     "s": "Ducks, mergansers and coots",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-27",
+       "2026-11-29"
+      ],
+      [
+       "2026-12-04",
+       "2026-12-06"
+      ],
+      [
+       "2026-12-09",
+       "2027-01-31"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "2026-2027 Hunting Seasons (PDF)",
+     "u": "https://www.mdwfp.com/sites/default/files/2026-06/2026-2027%20hunting%20seasons.pdf"
+    }
+   ],
+   "slug": "mississippi-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "MO",
+   "name": "Missouri",
+   "agency": "Missouri Department of Conservation",
+   "short": "MDC",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-15",
+       "2026-11-13"
+      ],
+      [
+       "2026-11-25",
+       "2027-01-15"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms: antlerless portions",
+     "a": "Select counties",
+     "r": [
+      [
+       "2026-10-09",
+       "2026-10-11"
+      ],
+      [
+       "2026-12-05",
+       "2026-12-13"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms: youth portions",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-10-25"
+      ],
+      [
+       "2026-11-27",
+       "2026-11-29"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms: November portion",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-11-24"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Firearms: alternative methods",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-26",
+       "2027-01-05"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "White-tailed deer: seasons",
+     "u": "https://mdc.mo.gov/hunting-trapping/species/deer"
+    }
+   ],
+   "lic": {
+    "base": null,
+    "deer": {
+     "res": 19.5,
+     "non": 360,
+     "t": "Firearms Any-Deer Hunting Permit (no separate base license)"
+    },
+    "fish": {
+     "res": 14,
+     "non": 57,
+     "t": "Fishing Permit"
+    },
+    "src": [
+     {
+      "t": "Hunting permits",
+      "u": "https://mdc.mo.gov/permits/hunting-permits"
+     },
+     {
+      "t": "Fishing permits",
+      "u": "https://mdc.mo.gov/permits/fishing-permits"
+     }
+    ]
+   },
+   "slug": "missouri-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "MT",
+   "name": "Montana",
+   "agency": "Montana Fish, Wildlife & Parks",
+   "short": "FWP",
+   "deer": [
+    {
+     "s": "Archery-only",
+     "a": "Most hunting districts",
+     "r": [
+      [
+       "2026-09-05",
+       "2026-10-18"
+      ]
+     ]
+    },
+    {
+     "s": "Youth (deer only)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-15",
+       "2026-10-16"
+      ]
+     ]
+    },
+    {
+     "s": "General (rifle)",
+     "a": "Most hunting districts",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-11-29"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-12",
+       "2026-12-20"
+      ]
+     ]
+    },
+    {
+     "s": "Backcountry general",
+     "a": "Hunting districts 150, 280 and 316",
+     "r": [
+      [
+       "2026-09-15",
+       "2026-11-29"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Montana FWP gives these dates as a general reference; shoulder seasons run between Aug. 15 and Feb. 15 in some districts. Check the district in the 2026 regulations.",
+   "src": [
+    {
+     "t": "Hunt by species: deer (2026 season and fees)",
+     "u": "https://fwp.mt.gov/hunt/regulations/deer"
+    }
+   ],
+   "lic": {
+    "base": null,
+    "deer": {
+     "res": null,
+     "non": 704,
+     "t": "Nonresident Deer Combination, General (includes a general deer license, fishing and upland birds); residents pay $16 for the general deer license on top of base licenses"
+    },
+    "fish": null,
+    "src": [
+     {
+      "t": "Hunt by species: deer (licenses & fees)",
+      "u": "https://fwp.mt.gov/hunt/regulations/deer"
+     }
+    ]
+   },
+   "slug": "montana-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "NC",
+   "name": "North Carolina",
+   "agency": "North Carolina Wildlife Resources Commission",
+   "short": "NCWRC",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "Northeastern and Southeastern zones",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-10-02"
+      ]
+     ]
+    },
+    {
+     "s": "Blackpowder",
+     "a": "Northeastern and Southeastern zones",
+     "r": [
+      [
+       "2026-10-03",
+       "2026-10-16"
+      ]
+     ]
+    },
+    {
+     "s": "Gun",
+     "a": "Northeastern and Southeastern zones",
+     "r": [
+      [
+       "2026-10-17",
+       "2027-01-01"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Central zone",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-10-30"
+      ]
+     ]
+    },
+    {
+     "s": "Blackpowder",
+     "a": "Central zone",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-11-13"
+      ]
+     ]
+    },
+    {
+     "s": "Gun",
+     "a": "Central zone",
+     "r": [
+      [
+       "2026-11-14",
+       "2027-01-01"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Archery",
+     "a": "Northwestern zone",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-11-06"
+      ]
+     ]
+    },
+    {
+     "s": "Blackpowder",
+     "a": "Northwestern zone",
+     "r": [
+      [
+       "2026-11-07",
+       "2026-11-20"
+      ]
+     ]
+    },
+    {
+     "s": "Gun",
+     "a": "Northwestern zone",
+     "r": [
+      [
+       "2026-11-21",
+       "2027-01-01"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Western zone",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-11-13"
+      ]
+     ]
+    },
+    {
+     "s": "Blackpowder",
+     "a": "Western zone",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-11-27"
+      ]
+     ]
+    },
+    {
+     "s": "Gun",
+     "a": "Western zone",
+     "r": [
+      [
+       "2026-11-28",
+       "2027-01-01"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Antlerless dates match the antlered ones in most counties but are shorter in several western mountain counties. The CWD management areas (Cumberland and Sampson; Forsyth, Stokes, Surry, Wilkes and Yadkin) add an early season on Aug. 22-23, 2026.",
+   "turkey": [
+    {
+     "s": "Spring youth (male or bearded)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-04-10",
+       "2027-04-11"
+      ]
+     ]
+    },
+    {
+     "s": "Spring (male or bearded)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-04-17",
+       "2027-05-15"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "Hunting and Trapping Season Dates, July 1, 2026 to June 30, 2027 (PDF)",
+     "u": "https://www.ncwildlife.gov/regulations/2026-2027-season-dates-glance/download?attachment="
+    }
+   ],
+   "slug": "north-carolina-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "ND",
+   "name": "North Dakota",
+   "agency": "North Dakota Game and Fish Department",
+   "short": "NDGF",
+   "deer": [
+    {
+     "s": "Bow (residents and nonresidents)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-04",
+       "2027-01-03"
+      ]
+     ]
+    },
+    {
+     "s": "Youth season (residents only)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-18",
+       "2026-09-27"
+      ]
+     ]
+    },
+    {
+     "s": "Regular gun",
+     "a": "All units",
+     "r": [
+      [
+       "2026-11-06",
+       "2026-11-22"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Muzzleloader (white-tailed only)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-27",
+       "2026-12-13"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Nonresident bowhunters may hunt only on private land (not PLOTS) during the first nine and a half days of the bow season. Gun and muzzleloader licenses are drawn by lottery.",
+   "src": [
+    {
+     "t": "Deer hunting: season dates (marked Finalized)",
+     "u": "https://gf.nd.gov/hunting/deer"
+    },
+    {
+     "t": "Deer season set, apply online",
+     "u": "https://gf.nd.gov/news/9228"
+    }
+   ],
+   "lic": {
+    "base": null,
+    "deer": {
+     "res": 35,
+     "non": 350,
+     "t": "Deer gun or muzzleloader license (nonresident gun applicants also pay a $5 application fee)"
+    },
+    "fish": null,
+    "note": "North Dakota deer hunters also need a fishing, hunting and furbearer certificate ($2 resident, $5 nonresident) and, per the guide, a general game and habitat license ($20) or a combination license.",
+    "src": [
+     {
+      "t": "2026 North Dakota Deer Hunting Guide (PDF)",
+      "u": "https://gf.nd.gov/gnf/regulations/docs/deer/2026-Deer-Guide.pdf"
+     }
+    ]
+   },
+   "slug": "north-dakota-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "OH",
+   "name": "Ohio",
+   "agency": "Ohio Department of Natural Resources, Division of Wildlife",
+   "short": "ODNR",
+   "deer": [
+    {
+     "s": "Early archery",
+     "a": "Disease surveillance area",
+     "r": [
+      [
+       "2026-09-12",
+       "2027-02-07"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-26",
+       "2027-02-07"
+      ]
+     ]
+    },
+    {
+     "s": "Early gun",
+     "a": "Disease surveillance area",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-12"
+      ]
+     ]
+    },
+    {
+     "s": "Youth gun",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-21",
+       "2026-11-22"
+      ]
+     ]
+    },
+    {
+     "s": "Gun",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-30",
+       "2026-12-06"
+      ],
+      [
+       "2026-12-19",
+       "2026-12-20"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-01-02",
+       "2027-01-05"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Only one antlered deer may be taken in Ohio, whatever the method. County bag limits rose to three in Defiance, Paulding and Warren, and are two in Athens, Meigs and Washington.",
+   "src": [
+    {
+     "t": "Ohio Wildlife Council Approves 2026-27 Hunting Seasons (May 4, 2026)",
+     "u": "https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/ohio-wildlife-council-approves-2026-27-hunting-seasons"
+    }
+   ],
+   "slug": "ohio-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "OK",
+   "name": "Oklahoma",
+   "agency": "Oklahoma Department of Wildlife Conservation",
+   "short": "ODWC",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-01",
+       "2027-01-15"
+      ]
+     ]
+    },
+    {
+     "s": "Youth deer gun",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-16",
+       "2026-10-18"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-11-01"
+      ]
+     ]
+    },
+    {
+     "s": "Gun",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-21",
+       "2026-12-06"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Holiday antlerless gun",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-18",
+       "2026-12-31"
+      ]
+     ]
+    }
+   ],
+   "turkey": [
+    {
+     "s": "Fall archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-01",
+       "2027-01-15"
+      ]
+     ]
+    },
+    {
+     "s": "Fall gun",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-11-20"
+      ]
+     ]
+    },
+    {
+     "s": "Youth spring",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-04-10",
+       "2027-04-11"
+      ]
+     ]
+    },
+    {
+     "s": "Spring",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-04-16",
+       "2027-05-16"
+      ]
+     ]
+    }
+   ],
+   "duck": [
+    {
+     "s": "Duck, merganser and coot",
+     "a": "Zones 1 and 2",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-12-06"
+      ],
+      [
+       "2026-12-12",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Duck, merganser and coot",
+     "a": "Panhandle",
+     "r": [
+      [
+       "2026-10-10",
+       "2027-01-13"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "Hunting seasons",
+     "u": "https://www.wildlifedepartment.com/hunting/seasons"
+    }
+   ],
+   "lic": {
+    "base": {
+     "res": 36,
+     "non": 209,
+     "t": "Annual Hunting (18 or older)"
+    },
+    "deer": {
+     "res": 36,
+     "non": 501,
+     "t": "Deer Gun license (includes season bag limit)"
+    },
+    "fish": {
+     "res": 31,
+     "non": 81,
+     "t": "Annual Fishing (18 or older)"
+    },
+    "src": [
+     {
+      "t": "License fees",
+      "u": "https://www.wildlifedepartment.com/licensing/regs/license-fees"
+     }
+    ]
+   },
+   "slug": "oklahoma-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "PA",
+   "name": "Pennsylvania",
+   "agency": "Pennsylvania Game Commission",
+   "short": "PGC",
+   "deer": [
+    {
+     "s": "Archery (antlered and antlerless)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-03",
+       "2026-11-20"
+      ],
+      [
+       "2026-12-26",
+       "2027-01-24"
+      ]
+     ]
+    },
+    {
+     "s": "Archery (antlered and antlerless)",
+     "a": "WMUs 2B, 5C and 5D",
+     "r": [
+      [
+       "2026-09-19",
+       "2026-11-27"
+      ],
+      [
+       "2026-12-26",
+       "2027-01-24"
+      ]
+     ]
+    },
+    {
+     "s": "Antlerless muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-17",
+       "2026-10-25"
+      ]
+     ]
+    },
+    {
+     "s": "Antlerless special firearms (junior, senior, disabled permit, active duty)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-22",
+       "2026-10-25"
+      ]
+     ]
+    },
+    {
+     "s": "Regular firearms (antlered and antlerless)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-28",
+       "2026-12-13"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Flintlock (antlered or antlerless)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-26",
+       "2027-01-24"
+      ]
+     ]
+    },
+    {
+     "s": "Antlerless extended regular firearms",
+     "a": "WMUs 2B, 5C and 5D",
+     "r": [
+      [
+       "2026-12-26",
+       "2027-01-24"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "The Game Commission says 2026-27 seasons include the Sundays that fall inside their dates, except migratory game birds.",
+   "turkey": [
+    {
+     "s": "Fall (male or female)",
+     "a": "WMUs 1A, 2G, 3A, 4A, 4B and 4D",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-11-15"
+      ]
+     ]
+    },
+    {
+     "s": "Fall (male or female)",
+     "a": "WMUs 2B, 2C, 2D and 2E",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-11-20"
+      ],
+      [
+       "2026-11-25",
+       "2026-11-27"
+      ]
+     ]
+    },
+    {
+     "s": "Spring gobbler, junior and mentored youth",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-04-24",
+       "2027-04-25"
+      ]
+     ]
+    },
+    {
+     "s": "Spring gobbler",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-05-01",
+       "2027-05-31"
+      ]
+     ]
+    }
+   ],
+   "turkeyNote": "Fall turkey dates differ by Wildlife Management Unit (WMUs 5C and 5D are closed to fall turkey). Spring hours end at noon from May 1 to 15.",
+   "duck": [
+    {
+     "s": "Ducks, sea ducks, coots and mergansers",
+     "a": "North Zone",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-24"
+      ],
+      [
+       "2026-11-17",
+       "2027-01-09"
+      ]
+     ]
+    },
+    {
+     "s": "Ducks, sea ducks, coots and mergansers",
+     "a": "South Zone",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-17"
+      ],
+      [
+       "2026-11-18",
+       "2027-01-18"
+      ]
+     ]
+    },
+    {
+     "s": "Ducks, sea ducks, coots and mergansers",
+     "a": "Northwest Zone",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-11-27"
+      ],
+      [
+       "2026-12-21",
+       "2027-01-09"
+      ]
+     ]
+    },
+    {
+     "s": "Ducks, sea ducks, coots and mergansers",
+     "a": "Lake Erie Zone",
+     "r": [
+      [
+       "2026-11-02",
+       "2027-01-09"
+      ]
+     ]
+    }
+   ],
+   "duckNote": "Sunday hunting stays prohibited for migratory game birds in Pennsylvania.",
+   "duckNoSunday": true,
+   "src": [
+    {
+     "t": "2026-27 Seasons and Bag Limits",
+     "u": "https://www.pa.gov/agencies/pgc/huntingandtrapping/regulations/seasons-and-bag-limits.html"
+    }
+   ],
+   "lic": {
+    "base": {
+     "res": 20.97,
+     "non": 101.97,
+     "t": "General hunting license (adult), which carries the antlered deer harvest tag"
+    },
+    "deer": {
+     "res": 0,
+     "non": 0,
+     "t": "Antlered deer tag comes with the general license; antlerless licenses cost $6.97 resident and $26.97 nonresident"
+    },
+    "fish": null,
+    "src": [
+     {
+      "t": "2026-27 hunting licenses to go on sale June 22",
+      "u": "https://www.pa.gov/agencies/pgc/newsroom/2026-27-hunting-licenses-to-go-on-sale-june-22"
+     }
+    ]
+   },
+   "slug": "pennsylvania-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "SD",
+   "name": "South Dakota",
+   "agency": "South Dakota Game, Fish and Parks",
+   "short": "SD GFP",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-01",
+       "2027-01-01"
+      ]
+     ]
+    },
+    {
+     "s": "Apprentice and mentored",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-12",
+       "2027-01-01"
+      ]
+     ]
+    },
+    {
+     "s": "Black Hills firearms",
+     "a": "Black Hills",
+     "r": [
+      [
+       "2026-11-01",
+       "2026-11-30"
+      ]
+     ]
+    },
+    {
+     "s": "West River firearms",
+     "a": "West River units",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-11-29"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "East River firearms",
+     "a": "East River units",
+     "r": [
+      [
+       "2026-11-21",
+       "2026-12-06"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-01",
+       "2027-01-01"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Firearm and muzzleloader seasons need a license drawn in June; archery licenses stay on sale through the season.",
+   "turkey": [
+    {
+     "s": "Fall prairie",
+     "a": "Prairie units",
+     "r": [
+      [
+       "2026-11-01",
+       "2027-01-31"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "Key dates (season and application calendar)",
+     "u": "https://gfp.sd.gov/events/keydates/"
+    }
+   ],
+   "lic": {
+    "base": null,
+    "deer": {
+     "res": 45,
+     "non": 375,
+     "t": "Archery license, 1 any deer"
+    },
+    "fish": null,
+    "src": [
+     {
+      "t": "License types & costs",
+      "u": "https://gfp.sd.gov/license-types/"
+     }
+    ]
+   },
+   "slug": "south-dakota-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "TX",
+   "name": "Texas",
+   "agency": "Texas Parks and Wildlife Department",
+   "short": "TPWD",
+   "deer": [
+    {
+     "s": "Archery",
+     "a": "252 of 254 counties",
+     "r": [
+      [
+       "2026-10-03",
+       "2026-11-06"
+      ]
+     ]
+    },
+    {
+     "s": "Youth-only early",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-30",
+       "2026-11-01"
+      ]
+     ]
+    },
+    {
+     "s": "General (gun)",
+     "a": "North Zone",
+     "r": [
+      [
+       "2026-11-07",
+       "2027-01-03"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "General (gun)",
+     "a": "South Zone",
+     "r": [
+      [
+       "2026-11-07",
+       "2027-01-17"
+      ]
+     ]
+    },
+    {
+     "s": "Special late",
+     "a": "North Zone",
+     "r": [
+      [
+       "2027-01-04",
+       "2027-01-17"
+      ]
+     ]
+    },
+    {
+     "s": "Special late",
+     "a": "South Zone",
+     "r": [
+      [
+       "2027-01-18",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader-only",
+     "a": "90 of 254 counties",
+     "r": [
+      [
+       "2027-01-04",
+       "2027-01-17"
+      ]
+     ]
+    }
+   ],
+   "turkey": [
+    {
+     "s": "Fall archery-only",
+     "a": "Fall counties",
+     "r": [
+      [
+       "2026-10-03",
+       "2026-11-06"
+      ]
+     ]
+    },
+    {
+     "s": "Fall",
+     "a": "North Zone",
+     "r": [
+      [
+       "2026-11-07",
+       "2027-01-03"
+      ]
+     ]
+    },
+    {
+     "s": "Fall",
+     "a": "South Zone",
+     "r": [
+      [
+       "2026-11-07",
+       "2027-01-17"
+      ]
+     ]
+    },
+    {
+     "s": "Spring",
+     "a": "South Zone",
+     "r": [
+      [
+       "2027-03-20",
+       "2027-05-02"
+      ]
+     ]
+    },
+    {
+     "s": "Spring",
+     "a": "North Zone",
+     "r": [
+      [
+       "2027-04-03",
+       "2027-05-16"
+      ]
+     ]
+    },
+    {
+     "s": "Spring",
+     "a": "East Zone",
+     "r": [
+      [
+       "2027-04-22",
+       "2027-05-14"
+      ]
+     ]
+    }
+   ],
+   "duck": [
+    {
+     "s": "Regular",
+     "a": "High Plains Mallard Management Unit",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-10-25"
+      ],
+      [
+       "2026-10-30",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Regular",
+     "a": "North Zone",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-11-29"
+      ],
+      [
+       "2026-12-05",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Regular",
+     "a": "South Zone",
+     "r": [
+      [
+       "2026-11-07",
+       "2026-11-29"
+      ],
+      [
+       "2026-12-12",
+       "2027-01-31"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "2026-2027 Hunting Season Dates (Outdoor Annual)",
+     "u": "https://tpwd.texas.gov/regulations/outdoor-annual/hunting/2026-2027-hunting-season-dates"
+    }
+   ],
+   "lic": {
+    "base": {
+     "res": 25,
+     "non": 315,
+     "t": "Resident Hunting License (item 101) / Non-resident General Hunting License (item 105); both cover deer, with tags"
+    },
+    "deer": {
+     "res": 0,
+     "non": 0,
+     "t": "Deer tags come with the hunting license"
+    },
+    "fish": {
+     "res": 30,
+     "non": 58,
+     "t": "Freshwater Package"
+    },
+    "src": [
+     {
+      "t": "Hunting licenses (Outdoor Annual)",
+      "u": "https://tpwd.texas.gov/regulations/outdoor-annual/licenses/hunting-licenses-and-permits/hunting-licenses"
+     },
+     {
+      "t": "Fishing licenses and packages (Outdoor Annual)",
+      "u": "https://tpwd.texas.gov/regulations/outdoor-annual/licenses/fishing-licenses-stamps-tags-packages/fishing-licenses-and-packages"
+     }
+    ]
+   },
+   "slug": "texas-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "UT",
+   "name": "Utah",
+   "agency": "Utah Division of Wildlife Resources",
+   "short": "Utah DWR",
+   "deer": [
+    {
+     "s": "Archery (general-season buck)",
+     "a": "General-season units",
+     "r": [
+      [
+       "2026-08-15",
+       "2026-09-11"
+      ]
+     ]
+    },
+    {
+     "s": "Extended archery (either sex)",
+     "a": "Box Elder, Ogden, Uinta Basin, Utah Lake, Wasatch Front, West Cache and other areas",
+     "r": [
+      [
+       "2026-09-12",
+       "2026-11-30"
+      ]
+     ]
+    },
+    {
+     "s": "Muzzleloader (general-season buck)",
+     "a": "General-season units",
+     "r": [
+      [
+       "2026-09-23",
+       "2026-10-01"
+      ]
+     ]
+    },
+    {
+     "s": "Early any legal weapon (rifle)",
+     "a": "General-season units",
+     "r": [
+      [
+       "2026-10-07",
+       "2026-10-11"
+      ]
+     ]
+    },
+    {
+     "s": "Any legal weapon (rifle)",
+     "a": "General-season units",
+     "r": [
+      [
+       "2026-10-17",
+       "2026-10-25"
+      ]
+     ],
+     "main": true
+    }
+   ],
+   "deerNote": "Utah general-season buck deer permits are drawn; limited-entry hunts have their own dates in the Big Game Application Guidebook. Extended archery in Nine Mile, Sanpete Valley and South Wasatch ends Oct. 15.",
+   "src": [
+    {
+     "t": "2026 Utah Field Regulations Guidebook, season dates (PDF)",
+     "u": "https://wildlife.utah.gov/guidebooks/field_regs.pdf"
+    }
+   ],
+   "slug": "utah-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "VT",
+   "name": "Vermont",
+   "agency": "Vermont Fish and Wildlife Department",
+   "short": "Vermont Fish & Wildlife",
+   "deer": [
+    {
+     "s": "Expanded archery",
+     "a": "Designated areas",
+     "r": [
+      [
+       "2026-09-15",
+       "2026-09-30"
+      ]
+     ]
+    },
+    {
+     "s": "Archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-01",
+       "2026-12-15"
+      ]
+     ]
+    },
+    {
+     "s": "October muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-29",
+       "2026-11-01"
+      ]
+     ]
+    },
+    {
+     "s": "Youth and novice weekend",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-07",
+       "2026-11-08"
+      ]
+     ]
+    },
+    {
+     "s": "Regular (16-day rifle)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-11-29"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "December muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-30",
+       "2026-12-13"
+      ]
+     ]
+    }
+   ],
+   "turkey": [
+    {
+     "s": "Fall, bow and arrow only",
+     "a": "All WMUs",
+     "r": [
+      [
+       "2026-10-01",
+       "2026-11-13"
+      ]
+     ]
+    },
+    {
+     "s": "Fall, shotgun or bow",
+     "a": "WMUs B, D, G, H, I, J, L, M, O, P and Q",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-11-01"
+      ]
+     ]
+    },
+    {
+     "s": "Fall, shotgun or bow",
+     "a": "WMUs F, K and N",
+     "r": [
+      [
+       "2026-10-24",
+       "2026-11-08"
+      ]
+     ]
+    }
+   ],
+   "turkeyNote": "The 2026 calendar we read gives the spring 2026 turkey season; spring 2027 dates were not on it.",
+   "src": [
+    {
+     "t": "2026 Vermont Hunting & Trapping Seasons (PDF)",
+     "u": "https://www.vtfishandwildlife.com/sites/fishandwildlife/files/documents/Seasons/2026-hunt-trap-dates.pdf.pdf"
+    }
+   ],
+   "slug": "vermont-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "VA",
+   "name": "Virginia",
+   "agency": "Virginia Department of Wildlife Resources",
+   "short": "DWR",
+   "deer": [
+    {
+     "s": "Urban archery (early)",
+     "a": "Participating cities and towns",
+     "r": [
+      [
+       "2026-09-05",
+       "2026-10-02"
+      ]
+     ]
+    },
+    {
+     "s": "Youth and apprentice deer hunting weekend",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-26",
+       "2026-09-27"
+      ]
+     ]
+    },
+    {
+     "s": "Early archery",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-03",
+       "2026-11-13"
+      ]
+     ]
+    },
+    {
+     "s": "Early muzzleloader",
+     "a": "Where muzzleloader hunting is allowed",
+     "r": [
+      [
+       "2026-10-31",
+       "2026-11-13"
+      ]
+     ]
+    },
+    {
+     "s": "Firearms (private lands)",
+     "a": "Western counties such as Augusta, Rockbridge, Smyth and Washington",
+     "r": [
+      [
+       "2026-11-14",
+       "2026-12-12"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Firearms (private lands)",
+     "a": "Eastern counties such as Caroline, Amelia, Cumberland and Gloucester",
+     "r": [
+      [
+       "2026-11-14",
+       "2027-01-02"
+      ]
+     ]
+    },
+    {
+     "s": "Late archery",
+     "a": "Statewide, with county exceptions",
+     "r": [
+      [
+       "2026-11-29",
+       "2027-01-02"
+      ]
+     ]
+    },
+    {
+     "s": "Late muzzleloader",
+     "a": "West of the Blue Ridge",
+     "r": [
+      [
+       "2026-12-12",
+       "2027-01-02"
+      ]
+     ]
+    }
+   ],
+   "deerNote": "Virginia sets the firearms closing date and the either-sex days county by county; Chesapeake, Suffolk (east of the Dismal Swamp line) and Virginia Beach have their own calendar.",
+   "src": [
+    {
+     "t": "Deer hunting regulations",
+     "u": "https://dwr.virginia.gov/hunting/regulations/deer/"
+    }
+   ],
+   "lic": {
+    "base": {
+     "res": 28,
+     "non": 136,
+     "t": "One-year License to Hunt (16 or older)"
+    },
+    "deer": {
+     "res": 28,
+     "non": 136,
+     "t": "Deer and Turkey Hunting License (16 or older)"
+    },
+    "fish": {
+     "res": 28,
+     "non": 72,
+     "t": "License to Freshwater Fish (one year)"
+    },
+    "src": [
+     {
+      "t": "Hunting licenses & fees",
+      "u": "https://dwr.virginia.gov/hunting/regulations/licenses/"
+     },
+     {
+      "t": "Fishing license information & fees",
+      "u": "https://dwr.virginia.gov/fishing/regulations/licenses/"
+     }
+    ]
+   },
+   "slug": "virginia-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "WV",
+   "name": "West Virginia",
+   "agency": "West Virginia Division of Natural Resources",
+   "short": "WVDNR",
+   "deer": [
+    {
+     "s": "Archery and crossbow",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-26",
+       "2026-12-31"
+      ]
+     ]
+    },
+    {
+     "s": "Youth / Class Q / Class XS",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-17",
+       "2026-10-18"
+      ],
+      [
+       "2026-12-26",
+       "2026-12-27"
+      ]
+     ]
+    },
+    {
+     "s": "Antlerless (split season)",
+     "a": "Selected counties",
+     "r": [
+      [
+       "2026-10-22",
+       "2026-10-25"
+      ],
+      [
+       "2026-11-23",
+       "2026-12-06"
+      ],
+      [
+       "2026-12-10",
+       "2026-12-13"
+      ],
+      [
+       "2026-12-28",
+       "2026-12-31"
+      ]
+     ]
+    },
+    {
+     "s": "Buck firearms",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-23",
+       "2026-12-06"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-14",
+       "2026-12-20"
+      ]
+     ]
+    },
+    {
+     "s": "Mountaineer Heritage (deer, bear, turkey)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-01-14",
+       "2027-01-17"
+      ]
+     ]
+    }
+   ],
+   "turkey": [
+    {
+     "s": "Fall (split season)",
+     "a": "Select counties",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-18"
+      ],
+      [
+       "2026-10-26",
+       "2026-11-01"
+      ]
+     ]
+    },
+    {
+     "s": "Spring youth",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-04-17",
+       "2027-04-18"
+      ]
+     ]
+    },
+    {
+     "s": "Spring (bearded only)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2027-04-19",
+       "2027-05-23"
+      ]
+     ]
+    }
+   ],
+   "turkeyNote": "Some fall-turkey counties run the second part to Nov. 15 instead of Nov. 1.",
+   "src": [
+    {
+     "t": "West Virginia 2026-2027 Hunting Season Dates",
+     "u": "https://wvdnr.gov/hunting/hunting-seasons/"
+    }
+   ],
+   "slug": "west-virginia-deer-season",
+   "read": "2026-11-13"
+  },
+  {
+   "code": "WI",
+   "name": "Wisconsin",
+   "agency": "Wisconsin Department of Natural Resources",
+   "short": "Wisconsin DNR",
+   "deer": [
+    {
+     "s": "Archery and crossbow",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-12",
+       "2027-01-03"
+      ]
+     ]
+    },
+    {
+     "s": "Archery and crossbow (extended)",
+     "a": "Metro sub-units and extended-archery counties",
+     "r": [
+      [
+       "2026-09-12",
+       "2027-01-31"
+      ]
+     ]
+    },
+    {
+     "s": "Youth / disabled gun hunt",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-10-10",
+       "2026-10-11"
+      ]
+     ]
+    },
+    {
+     "s": "Gun (nine-day)",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-21",
+       "2026-11-29"
+      ]
+     ],
+     "main": true
+    },
+    {
+     "s": "Muzzleloader",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-11-30",
+       "2026-12-09"
+      ]
+     ]
+    },
+    {
+     "s": "December antlerless-only hunt",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-12-10",
+       "2026-12-13"
+      ]
+     ]
+    },
+    {
+     "s": "Antlerless-only holiday hunt",
+     "a": "Select Farmland (Zone 2) counties",
+     "r": [
+      [
+       "2026-12-24",
+       "2027-01-01"
+      ]
+     ]
+    }
+   ],
+   "turkey": [
+    {
+     "s": "Fall",
+     "a": "Statewide",
+     "r": [
+      [
+       "2026-09-12",
+       "2027-01-03"
+      ]
+     ]
+    }
+   ],
+   "turkeyNote": "Spring 2027 periods were not yet posted on the season-dates page we read (it still showed the spring 2026 periods); the spring permit application deadline is December 10.",
+   "duck": [
+    {
+     "s": "Regular",
+     "a": "Northern Duck Zone",
+     "r": [
+      [
+       "2026-09-26",
+       "2026-11-24"
+      ]
+     ]
+    },
+    {
+     "s": "Regular",
+     "a": "Southern Duck Zone",
+     "r": [
+      [
+       "2026-10-03",
+       "2026-10-11"
+      ],
+      [
+       "2026-10-17",
+       "2026-12-06"
+      ]
+     ]
+    },
+    {
+     "s": "Regular",
+     "a": "Open Water Duck Zone",
+     "r": [
+      [
+       "2026-10-17",
+       "2026-12-15"
+      ]
+     ]
+    }
+   ],
+   "src": [
+    {
+     "t": "Season dates and application deadlines",
+     "u": "https://dnr.wisconsin.gov/topic/hunt/dates"
+    }
+   ],
+   "lic": {
+    "base": null,
+    "deer": {
+     "res": 24,
+     "non": 200,
+     "t": "Gun deer license"
+    },
+    "fish": null,
+    "src": [
+     {
+      "t": "License fees",
+      "u": "https://dnr.wisconsin.gov/node/119906"
+     }
+    ]
+   },
+   "slug": "wisconsin-deer-season",
+   "read": "2026-11-13"
+  }
+ ]
+}
