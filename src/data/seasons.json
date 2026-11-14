@@ -20,7 +20,7 @@
     },
     {
      "s": "Special youth gun (under 16)",
-     "a": "Zones A, B, C and CMZ",
+     "a": "Zones A, B, C and the chronic wasting disease (CWD) zone",
      "r": [
       [
        "2026-11-13",
@@ -60,7 +60,7 @@
      ]
     }
    ],
-   "deerNote": "Alabama has five deer zones (A to E) plus a CWD management zone; the dates above are Zone A. Public land (open permit) gun seasons switch between bucks only and either sex.",
+   "deerNote": "Alabama has five deer zones (A to E) plus a management zone for chronic wasting disease (CWD), a deer illness; the dates on this site are those of Zone A. Public land (open permit) gun seasons switch between bucks only and either sex.",
    "turkey": [
     {
      "s": "Fall",
@@ -173,7 +173,7 @@
     },
     {
      "s": "Youth modern gun hunt",
-     "a": "Statewide (private land; WMAs vary)",
+     "a": "Statewide on private land; wildlife management areas set their own dates",
      "r": [
       [
        "2026-11-07",
@@ -201,7 +201,7 @@
      "main": true
     }
    ],
-   "deerNote": "Arkansas has 17 deer zones; the modern-gun and alternative-firearms dates above are Zone 1. Some zones close the November modern-gun hunt on Nov. 22, others run to Dec. 13.",
+   "deerNote": "Arkansas has 17 deer zones; the modern-gun and alternative-firearms dates on this site are those of Zone 1. Some zones close the November modern-gun hunt on Nov. 22, others run to Dec. 13.",
    "src": [
     {
      "t": "Deer seasons and limits by zone",
@@ -246,7 +246,7 @@
    "deer": [
     {
      "s": "Archery",
-     "a": "West of I-25 and GMU 140",
+     "a": "West of Interstate 25 and unit 140",
      "r": [
       [
        "2026-09-02",
@@ -256,7 +256,7 @@
     },
     {
      "s": "Muzzleloader",
-     "a": "West of I-25 and GMU 140",
+     "a": "West of Interstate 25 and unit 140",
      "r": [
       [
        "2026-09-12",
@@ -276,7 +276,7 @@
     },
     {
      "s": "Plains archery",
-     "a": "East of I-25 (most common split)",
+     "a": "East of Interstate 25, most plains units",
      "r": [
       [
        "2026-10-01",
@@ -294,7 +294,7 @@
     },
     {
      "s": "Plains muzzleloader",
-     "a": "East of I-25",
+     "a": "East of Interstate 25",
      "r": [
       [
        "2026-10-10",
@@ -304,7 +304,7 @@
     },
     {
      "s": "Second regular rifle (deer and elk)",
-     "a": "West of I-25",
+     "a": "West of Interstate 25",
      "r": [
       [
        "2026-10-24",
@@ -315,7 +315,7 @@
     },
     {
      "s": "Plains rifle",
-     "a": "East of I-25",
+     "a": "East of Interstate 25",
      "r": [
       [
        "2026-10-24",
@@ -325,7 +325,7 @@
     },
     {
      "s": "Third regular rifle (deer and elk)",
-     "a": "West of I-25",
+     "a": "West of Interstate 25",
      "r": [
       [
        "2026-11-07",
@@ -335,7 +335,7 @@
     },
     {
      "s": "Fourth regular rifle (deer and elk)",
-     "a": "West of I-25",
+     "a": "West of Interstate 25",
      "r": [
       [
        "2026-11-18",
@@ -345,7 +345,7 @@
     },
     {
      "s": "Late plains rifle",
-     "a": "East of I-25, where offered",
+     "a": "East of Interstate 25, where offered",
      "r": [
       [
        "2026-12-01",
@@ -391,6 +391,16 @@
       [
        "2026-12-23",
        "2026-12-31"
+      ]
+     ]
+    },
+    {
+     "s": "Junior deer hunter training days",
+     "a": "Junior hunters (rules in the guide)",
+     "r": [
+      [
+       "2026-11-07",
+       "2026-11-14"
       ]
      ]
     },
@@ -464,7 +474,7 @@
      "main": true
     }
    ],
-   "deerNote": "Georgia WRD says the season ends Jan. 10, 2027 for most hunters; some counties have extended firearms or archery dates listed in the 2026-27 regulations guidebook. The limit is 10 antlerless and 2 antlered deer, one of which must have at least four points of one inch on one side or a 15-inch outside spread.",
+   "deerNote": "The Wildlife Resources Division (WRD) says the season ends Jan. 10, 2027 for most hunters; some counties have extended firearms or archery dates listed in the 2026-27 regulations guidebook. The limit is 10 antlerless and 2 antlered deer, one of which must have at least four points of one inch on one side or a 15-inch outside spread.",
    "src": [
     {
      "t": "Statewide archery deer season opens Saturday, Sept. 12 (Sept. 8, 2026)",
@@ -961,7 +971,7 @@
     },
     {
      "s": "Regular archery",
-     "a": "All WMDs",
+     "a": "All wildlife management districts",
      "r": [
       [
        "2026-10-03",
@@ -971,7 +981,7 @@
     },
     {
      "s": "Youth deer hunt",
-     "a": "All WMDs",
+     "a": "All wildlife management districts",
      "r": [
       [
        "2026-10-23",
@@ -981,7 +991,7 @@
     },
     {
      "s": "Maine resident only day",
-     "a": "All WMDs",
+     "a": "All wildlife management districts",
      "r": [
       [
        "2026-10-31",
@@ -991,7 +1001,7 @@
     },
     {
      "s": "Firearms",
-     "a": "All WMDs",
+     "a": "All wildlife management districts",
      "r": [
       [
        "2026-11-02",
@@ -1012,7 +1022,7 @@
     },
     {
      "s": "Muzzleloader (second week)",
-     "a": "WMDs 12-18 and 20-29",
+     "a": "Wildlife management districts 12-18 and 20-29",
      "r": [
       [
        "2026-12-07",
@@ -1025,7 +1035,7 @@
    "turkey": [
     {
      "s": "Fall (archery or shotgun)",
-     "a": "WMDs 3, 6-8, 10-29",
+     "a": "Wildlife management districts 3, 6-8, 10-29",
      "r": [
       [
        "2026-09-14",
@@ -1367,7 +1377,7 @@
      ]
     }
    ],
-   "deerNote": "Montana FWP gives these dates as a general reference; shoulder seasons run between Aug. 15 and Feb. 15 in some districts. Check the district in the 2026 regulations.",
+   "deerNote": "Montana Fish, Wildlife and Parks (FWP) gives these dates as a general reference; shoulder seasons run between Aug. 15 and Feb. 15 in some districts. Check the district in the 2026 regulations.",
    "src": [
     {
      "t": "Hunt by species: deer (2026 season and fees)",
@@ -1520,7 +1530,7 @@
      ]
     }
    ],
-   "deerNote": "Antlerless dates match the antlered ones in most counties but are shorter in several western mountain counties. The CWD management areas (Cumberland and Sampson; Forsyth, Stokes, Surry, Wilkes and Yadkin) add an early season on Aug. 22-23, 2026.",
+   "deerNote": "Antlerless dates match the antlered ones in most counties but are shorter in several western mountain counties. The chronic wasting disease (CWD) management areas (Cumberland and Sampson; Forsyth, Stokes, Surry, Wilkes and Yadkin) add an early season on Aug. 22-23, 2026.",
    "turkey": [
     {
      "s": "Spring youth (male or bearded)",
@@ -1600,7 +1610,7 @@
      ]
     }
    ],
-   "deerNote": "Nonresident bowhunters may hunt only on private land (not PLOTS) during the first nine and a half days of the bow season. Gun and muzzleloader licenses are drawn by lottery.",
+   "deerNote": "Nonresident bowhunters may hunt only on private land (not the PLOTS walk-in areas, Private Land Open To Sportsmen) during the first nine and a half days of the bow season. Gun and muzzleloader licenses are drawn by lottery.",
    "src": [
     {
      "t": "Deer hunting: season dates (marked Finalized)",

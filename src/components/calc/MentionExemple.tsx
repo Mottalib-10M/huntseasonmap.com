@@ -13,14 +13,20 @@
  */
 import { libellesTrame, resultatExemple } from '../../lib/libelles-trame';
 
-interface Props { lang?: string; touched?: Record<string, boolean>; className?: string; suppose?: string; modifiables?: number }
+interface Props { lang?: string; touched?: Record<string, boolean>; className?: string; suppose?: string; modifiables?: number;
+  /** Same as `suppose` (name used by SpecTool and SpecMini, which passed it unread until 2026-11-14: the generic
+   *  "Example with typical figures" showed on a date checker, where there is no figure). */
+  texte?: string;
+  /** Replaces "change any figure to see your own result" (a date tool has no figure to change). */
+  aide?: string }
 
-export default function MentionExemple({ lang, touched, className = '', suppose, modifiables }: Props) {
+export default function MentionExemple({ lang, touched, className = '', suppose, modifiables, texte, aide }: Props) {
   if (modifiables === 0 || !resultatExemple(touched)) return null;
   const l = libellesTrame(lang);
+  suppose = suppose ?? texte;
   return (
     <p data-exemple className={`mb-2 rounded-md border border-amber-300 bg-amber-50 px-2 py-1 text-xs leading-snug text-amber-900 ${className}`}>
-      <strong className="font-semibold">{suppose?.trim() || l.exemple}</strong> — {l.exempleAide}
+      <strong className="font-semibold">{suppose?.trim() || l.exemple}</strong> — {aide?.trim() || l.exempleAide}
     </p>
   );
 }

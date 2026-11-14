@@ -3,7 +3,7 @@ const en = {
   updatedOn: 'Checked on', editorialPolicy: 'Editorial policy', contactLabel: 'Contact', reviewedBy: 'Compiled by',
   skipToContent: 'Skip to content', mainNav: 'Main navigation', breadcrumbLabel: 'Breadcrumb', breadcrumbHome: 'Home', menuOpen: 'Open menu',
   faqTitle: 'Questions hunters ask', relatedCalculators: 'Next steps', sourcesTitle: 'State agency pages and federal rules behind this page', writtenBy: 'Compiled by',
-  asOf: 'Season dates as read on', lastUpdated: 'sources last read on', footerValidated: 'Data: the 2026-27 hunting season pages and regulation PDFs of 24 state wildlife agencies, the federal duck stamp law (16 U.S.C. 718a and 718b, govinfo) and 50 CFR part 20 (eCFR), all read on November 13, 2026',
+  asOf: 'Hunting season dates', lastUpdated: 'sources last read on', footerValidated: 'Data: the 2026-27 hunting season pages and regulation PDFs of 24 state wildlife agencies, the federal duck stamp law (16 U.S.C. 718a and 718b, govinfo) and 50 CFR part 20 (eCFR), all read on November 13, 2026',
   footerBrowser: 'The checker runs in your browser · no name, phone or e-mail asked · no license sold',
   footerDisclaimer: 'Independent site published by Radif Partners: not a government site, not a state wildlife agency, and not affiliated with any state agency or the U.S. Fish and Wildlife Service. Information for guidance only, not legal advice: the regulations of your state agency govern.',
   footerPopular: 'Seasons and licenses',

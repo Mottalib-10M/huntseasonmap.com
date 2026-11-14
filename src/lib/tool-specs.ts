@@ -7,8 +7,8 @@
 import type { ToolSpec, V, Input, ToolOut } from './tool-types';
 import {
   STATES, STATES_LIC, READ, SPECIES_LABEL, MONTH_OPTIONS, METHOD_LABEL, byCode, speciesOf, statesWith, seasonsOf, statusOn, isoOf,
-  inWindow, longDay, dayText, rangesText, coversDate, licenseCost, methodOf, daysBetween, sundayClosed, mainGun,
-  type Species, type Method, type State,
+  inWindow, longDay, dayText, rangesText, licenseCost, daysBetween, sundayClosed, mainGun, periodName, periodList, periodState, totalDays,
+  type Species, type Method, type State, type Season,
 } from './engine/seasons';
 import { formatMoney } from './format';
 import { LSTATES, LREAD, READ_STATES, lByCode, price, ranked, comboSaving, type LState, type Who } from './engine/licenses';
@@ -31,7 +31,7 @@ const sources = (st: State) => st.src.map((x) => x.t).join('; ');
 const official = (st: State) => `Dates as published by the ${st.agency} (${sources(st)}), read on ${longDay(st.read)}. Zones, units, permits and bag limits decide where and what you may hunt: check the regulations of your area before you go.`;
 
 const STATE_OPTS = STATES.map((x) => ({ value: x.code, label: x.name }));
-const STATE = (def: string = EX.st, id = 'st', label = 'State'): Input => ({ kind: 'select', id, label, def, options: STATE_OPTS, help: `${STATES.length} states read so far` });
+const STATE = (def: string = EX.st, id = 'st', label = 'State'): Input => ({ kind: 'select', id, label, def, options: STATE_OPTS, help: `${STATES.length} states covered so far (list in the menu)` });
 const SPECIES = (def: string = EX.sp): Input => ({
   kind: 'select', id: 'sp', label: 'Game', def,
   options: (['deer', 'turkey', 'duck'] as Species[]).map((x) => ({ value: x, label: SPECIES_LABEL[x] })),
@@ -40,11 +40,15 @@ const SPECIES = (def: string = EX.sp): Input => ({
 const SPECIES_ALL = (def: string = 'deer'): Input => ({ kind: 'select', id: 'sp', label: 'Game', def, options: (['deer', 'turkey', 'duck'] as Species[]).map((x) => ({ value: x, label: `${SPECIES_LABEL[x]} (${statesWith(x).length} states read)` })) });
 const MONTH = (def: string = EX.mo): Input => ({ kind: 'select', id: 'mo', label: 'Month', def, options: MONTH_OPTIONS });
 const DAY = (def: number = EX.d): Input => ({ id: 'd', label: 'Day', def, max: 31, help: 'Day of the month' });
-const METHODS: Array<Method | 'any'> = ['any', 'archery', 'muzzleloader', 'gun', 'youth'];
-const METHOD = (def = 'any', adv = true): Input => ({
-  kind: 'select', id: 'm', label: 'Method', short: 'method', def, adv,
-  options: METHODS.map((x) => ({ value: x, label: x === 'any' ? 'Any method' : METHOD_LABEL[x] })),
-  dyn: (v) => (s(v, 'sp') === 'deer' ? METHODS : ['any']).map((x) => ({ value: x, label: x === 'any' ? 'Any method' : METHOD_LABEL[x as Method] })),
+// Gun first: "deer season" means the gun season for most hunters, and a status for "any method" said Open in
+// Alabama while only archery and the youth gun weekend were (naive testers, 2026-11-14). The method is asked up front.
+const METHODS: Array<Method | 'any'> = ['gun', 'archery', 'muzzleloader', 'youth', 'any'];
+const mOpt = (x: Method | 'any') => ({ value: x, label: x === 'any' ? 'Any method' : METHOD_LABEL[x] });
+const METHOD = (def: Method | 'any' = 'gun', adv = false): Input => ({
+  kind: 'select', id: 'm', label: 'Your method', short: 'method', def, adv,
+  options: METHODS.map(mOpt),
+  dyn: (v) => (s(v, 'sp') === 'deer' ? METHODS.map(mOpt) : [{ value: 'any', label: 'All methods' }]),
+  help: 'Deer only: other game shows every period',
 });
 const dateOf = (v: V) => isoOf(s(v, 'mo'), n(v, 'd'));
 const today = (iso: string): V => { const d = inWindow(iso); return { mo: d.slice(0, 7), d: Number(d.slice(8, 10)) }; };
@@ -59,37 +63,57 @@ function spec(inputs: Input[], arg: Arg, run: (v: V) => ToolOut, withToday = tru
   };
 }
 
-/** Is it open on that date, in that state, for that game? */
+/** "gun / rifle", "archery", "any method". */
+const mWord = (m: Method | 'any') => (m === 'any' ? 'any method' : METHOD_LABEL[m].toLowerCase());
+const PSTATE = (st: State, sp: Species, x: Season, iso: string): string => {
+  const p = periodState(st, sp, x, iso);
+  return p.k === 'open' ? 'Open' : p.k === 'sunday' ? 'Sunday: closed' : p.k === 'notyet' ? 'Not yet' : p.k === 'paused' ? `Paused, back ${dayText(p.back!)}` : 'Over';
+};
+/** "opens Jan. 4, 2027, in 51 days" */
+const opensIn = (start: string, k: number, again = false) => `${again ? 'reopens' : 'opens'} ${dayText(start)}, in ${plural(k, 'day', 'days')}`;
+/** The next period, said "reopens" when it is a later stretch of a period open today (Arkansas modern gun, Dec. 26). */
+const nextText = (S: { open: Season[]; next: { season: Season; start: string; inDays: number } | null }) =>
+  S.next ? `${periodName(S.next.season)}: ${opensIn(S.next.start, S.next.inDays, S.open.includes(S.next.season))}` : '';
+/** First sentence of the state's deer note, shown in the result (the Colorado draw, the Alabama zone). */
+const keyNote = (st: State, sp: Species) => (sp === 'deer' && st.deerNote ? `${st.deerNote.split(/(?<=\.)\s+(?=[A-Z])/)[0]} ` : '');
+
+/** Is it open on that date, in that state, for that game and method? Every date names the period and area it applies to. */
 function openAnswer(v: V): ToolOut {
   const st = byCode(s(v, 'st'));
   const sp = (speciesOf(st).includes(s(v, 'sp') as Species) ? s(v, 'sp') : 'deer') as Species;
   const method = (sp === 'deer' ? s(v, 'm') : 'any') as Method | 'any';
   const iso = dateOf(v);
   const S = statusOn(st, sp, iso, method);
-  const names = S.open.map((x) => `${x.s} (${x.a})`);
-  const methodWord = method === 'any' ? '' : ` (${METHOD_LABEL[method].toLowerCase()})`;
-  const nextLine = S.next ? `${S.next.season.s}, ${S.next.season.a}: ${dayText(S.next.start)}, in ${plural(S.next.inDays, 'day', 'days')}` : `none left in 2026-27 (last day ${dayText(S.last)})`;
-  const all = seasonsOf(st, sp).filter((x) => method === 'any' || methodOf(x) === method);
+  const methodWord = method === 'any' ? '' : `, ${mWord(method)}`;
+  const what = method === 'any' ? `${spLabel(sp)} season` : `${METHOD_LABEL[method]} ${spLabel(sp)} season`;
+  const nextVal = S.next ? nextText(S) : `none left in 2026-27`;
+  const othersTxt = S.others.length ? `Open that day for other methods only: ${periodList(S.others)}.` : '';
+  let sub: string;
+  if (S.sundayOnly) sub = `No ${sp === 'duck' && !st.noSunday ? 'migratory bird ' : ''}hunting on Sundays in ${st.name}.${S.next ? ` Next new period: ${periodName(S.next.season)}, ${dayText(S.next.start)}.` : ''}`;
+  else if (S.open.length === 1) sub = `${periodName(S.ends[0].season)}: open until ${dayText(S.ends[0].end)}.`;
+  else if (S.open.length) sub = `${S.open.length} periods open that day, each with its own last day below.`;
+  else sub = S.next ? `${what} ${opensIn(S.next.start, S.next.inDays)} (${periodName(S.next.season)}). ${othersTxt}`.trim() : `No ${mWord(method)} period left in 2026-27 in ${st.name}. ${othersTxt}`.trim();
+  const every = seasonsOf(st, sp);
   return {
-    label: `${st.name} ${spLabel(sp)} season${methodWord} on ${longDay(iso)}`,
+    label: `${st.name} ${spLabel(sp)} season${methodWord}, on ${longDay(iso)}`,
     value: S.open.length ? 'Open' : 'Closed',
-    sub: S.sundayOnly ? `Closed: no ${sp === 'duck' && !st.noSunday ? 'migratory bird ' : ''}hunting on Sundays in ${st.name}` : S.open.length ? `${plural(S.open.length, 'period', 'periods')} open that day: ${names.join('; ')}` : `Next opening: ${nextLine}`,
+    sub,
     rows: [
-      ['Open that day', S.open.length ? names.join('; ') : 'nothing'],
-      ['Open period ends', S.closesOn ? dayText(S.closesOn) : 'n/a'],
-      ['Next opening', nextLine],
-      ['All 2026-27 periods', S.first ? `${dayText(S.first)} to ${dayText(S.last)}` : 'none read'],
+      ...S.ends.map((e) => [periodName(e.season), `open until ${dayText(e.end)}`] as [string, string]),
+      [S.open.length ? 'Next new period' : 'Next opening', nextVal],
+      ...(S.open.length && S.others.length ? [['Other methods open that day', periodList(S.others)] as [string, string]] : []),
+      [method === 'any' ? `All ${spLabel(sp)} periods, 2026-27` : `All ${mWord(method)} periods, 2026-27`, S.first ? `${dayText(S.first)} to ${dayText(S.last)}` : 'none read'],
       ...(sundayClosed(st, sp) ? [['Sundays', `closed for ${sp === 'duck' && !st.noSunday ? 'migratory birds' : 'all hunting'}`] as [string, string]] : []),
     ],
     table: {
-      caption: `${st.name}, ${spLabel(sp)}${methodWord}: every 2026-27 period we read, and its status on ${dayText(iso)}`,
-      headers: ['Season', 'Area', 'Dates', `On ${dayText(iso)}`],
-      rows: all.map((x) => [x.s, x.a, rangesText(x), coversDate(x, iso) ? (sundayClosed(st, sp) && new Date(`${iso}T00:00:00Z`).getUTCDay() === 0 ? 'Sunday: closed' : 'Open') : x.r.some((r) => r[0] > iso) ? 'Not yet' : 'Over']),
-      align: ['l', 'l', 'l', 'l'],
+      caption: `${st.name}, ${spLabel(sp)}: every 2026-27 period we read, all methods, and its status on ${dayText(iso)}`,
+      headers: ['Season', 'Area', 'Dates', 'Days', `On ${dayText(iso)}`],
+      rows: every.map((x) => [x.s, x.a, rangesText(x), String(totalDays(x)), PSTATE(st, sp, x, iso)]),
+      align: ['l', 'l', 'l', 'r', 'l'],
     },
-    note: official(st),
-    example: `Example: ${spLabel(sp)} season in ${st.name} on ${longDay(iso)}`,
-    exampleAide: "Today's date is filled in once the page has loaded. Pick another state, game or date to check it.",
+    note: `${keyNote(st, sp)}${official(st)}`,
+    example: `Shown for ${longDay(iso)}`,
+    exampleAide: 'pick your state, game, method or another date to check it',
   };
 }
 
@@ -100,49 +124,58 @@ function mapAnswer(v: V): ToolOut {
   const list = statesWith(sp).map((st) => ({ st, S: statusOn(st, sp, iso, method) }));
   const open = list.filter((x) => x.S.open.length), closed = list.filter((x) => !x.S.open.length);
   const soonest = closed.filter((x) => x.S.next).sort((a, b) => a.S.next!.start.localeCompare(b.S.next!.start))[0];
-  const methodWord = method === 'any' ? '' : ` (${METHOD_LABEL[method].toLowerCase()})`;
+  const methodWord = method === 'any' ? '' : ` (${mWord(method)})`;
   return {
     label: `States with a ${spLabel(sp)} season${methodWord} open on ${longDay(iso)}`,
     value: `${open.length} of ${list.length}`,
     sub: `Among the ${list.length} states whose 2026-27 ${spLabel(sp)} dates we read`,
     rows: [
-      ['Open', open.length ? open.map((x) => x.st.code).join(', ') : 'none'],
-      ['Closed', closed.length ? closed.map((x) => x.st.code).join(', ') : 'none'],
+      ['Open', open.length ? open.map((x) => x.st.name).join(', ') : 'none'],
+      ['Closed', closed.length ? closed.map((x) => x.st.name).join(', ') : 'none'],
       ['Next state to open', soonest ? `${soonest.st.name}, ${dayText(soonest.S.next!.start)} (${soonest.S.next!.season.s})` : 'none'],
     ],
     table: {
       caption: `${SPECIES_LABEL[sp]}${methodWord} on ${dayText(iso)}, state by state`,
-      headers: ['State', 'On that date', 'Next opening'],
-      rows: list.map(({ st, S }) => [st.name, S.open.length ? `Open: ${S.open.map((x) => x.s).join('; ')}` : S.sundayOnly ? 'Closed (Sunday)' : 'Closed', S.next ? `${dayText(S.next.start)}: ${S.next.season.s}` : 'none left']),
+      headers: ['State', 'On that date', 'Next new period'],
+      rows: list.map(({ st, S }) => [
+        st.name,
+        S.open.length ? `Open: ${S.ends.map((e) => `${periodName(e.season)}, until ${dayText(e.end)}`).join('; ')}` : S.sundayOnly ? 'Closed (Sunday)' : 'Closed',
+        S.next ? `${dayText(S.next.start)}: ${periodName(S.next.season)}${S.open.includes(S.next.season) ? ' (reopens)' : ''}` : `no other ${method === 'any' ? '' : `${mWord(method)} `}period in 2026-27`,
+      ]),
       align: ['l', 'l', 'l'],
     },
-    note: `Dates as published by each state wildlife agency, read on ${longDay(READ)}. A state shown open may be open only in some zones or units: the state page lists the areas.`,
-    example: `Example: ${spLabel(sp)} on ${longDay(iso)}`,
-    exampleAide: "Today's date is filled in once the page has loaded. Pick another date or game.",
+    note: `Dates as published by each state wildlife agency, read on ${longDay(READ)}. A state shown open may be open only in some zones or units: each period is named with its area.`,
+    example: `Shown for ${longDay(iso)}`,
+    exampleAide: 'pick another date, game or method to check it',
   };
 }
 
-/** Days until a method opens in a state (or how long the open period still runs). */
+/** Days until a method opens in a state (or how long each open period still runs). */
 function countdownAnswer(v: V): ToolOut {
   const st = byCode(s(v, 'st')), iso = dateOf(v);
   const method = s(v, 'm') as Method;
   const S = statusOn(st, 'deer', iso, method);
-  const label = `${st.name} ${METHOD_LABEL[method].toLowerCase()} deer season, seen from ${longDay(iso)}`;
+  const label = `${st.name} ${mWord(method)} deer season, seen from ${longDay(iso)}`;
+  const example = `Shown for ${longDay(iso)}`, exampleAide = 'pick your state, method or another date';
   if (S.open.length) {
-    const left = daysBetween(iso, S.closesOn!);
+    const e0 = S.ends[0];
     return {
-      label, value: 'Open now', sub: `Open until ${dayText(S.closesOn!)}: ${plural(left, 'day', 'days')} after this one`,
-      rows: [['Open period', S.open.map((x) => `${x.s} (${x.a})`).join('; ')], ['Last day', dayText(S.closesOn!)], ['Next opening after that', S.next ? `${dayText(S.next.start)}: ${S.next.season.s}` : 'none']],
-      note: official(st), example: `Example: ${st.name}, ${METHOD_LABEL[method].toLowerCase()}, on ${longDay(iso)}`,
-      exampleAide: "Today's date is filled in once the page has loaded.",
+      label, value: 'Open now',
+      sub: S.ends.length === 1
+        ? `${periodName(e0.season)}: last day ${dayText(e0.end)}, ${plural(e0.left, 'more day', 'more days')} after today`
+        : `${S.ends.length} periods open, each with its own last day below`,
+      rows: [
+        ...S.ends.map((e) => [periodName(e.season), `last day ${dayText(e.end)} (${plural(e.left, 'more day', 'more days')})`] as [string, string]),
+        ['Next new period', S.next ? nextText(S) : `no other ${mWord(method)} period in 2026-27`],
+      ],
+      note: official(st), example, exampleAide,
     };
   }
   return {
     label, value: S.next ? plural(S.next.inDays, 'day', 'days') : 'Over',
-    sub: S.next ? `until ${S.next.season.s} opens on ${dayText(S.next.start)} (${S.next.season.a})` : `No ${METHOD_LABEL[method].toLowerCase()} deer period left in 2026-27 in ${st.name}`,
-    rows: [['Opens', S.next ? dayText(S.next.start) : 'n/a'], ['Area', S.next ? S.next.season.a : 'n/a'], ['All periods of that method', S.first ? `${dayText(S.first)} to ${dayText(S.last)}` : 'none read']],
-    note: official(st), example: `Example: ${st.name}, ${METHOD_LABEL[method].toLowerCase()}, on ${longDay(iso)}`,
-    exampleAide: "Today's date is filled in once the page has loaded.",
+    sub: S.next ? `until ${S.next.season.s} opens on ${dayText(S.next.start)} (${S.next.season.a})` : `No ${mWord(method)} deer period left in 2026-27 in ${st.name}`,
+    rows: [['Opens', S.next ? dayText(S.next.start) : 'n/a'], ['Area', S.next ? S.next.season.a : 'n/a'], [`All ${mWord(method)} periods, 2026-27`, S.first ? `${dayText(S.first)} to ${dayText(S.last)}` : 'none read']],
+    note: official(st), example, exampleAide,
   };
 }
 
@@ -284,11 +317,11 @@ const SPECS: Record<string, (arg?: Arg) => ToolSpec> = {
   /** Deer license or tag. */
   tags: (arg = {}) => spec([L_STATE('NM'), WHO('non')], arg, tagAnswer, false),
   /** Home and state pages: is it open on that date? */
-  open: (arg = {}) => spec([STATE(), SPECIES(), MONTH(), DAY(), METHOD()], arg, openAnswer),
+  open: (arg = {}) => spec([STATE(), SPECIES(), METHOD(), MONTH(), DAY()], arg, openAnswer),
   /** Species pages: every state on one date. */
-  map: (arg = {}) => spec([SPECIES_ALL(), MONTH(), DAY(), METHOD()], arg, mapAnswer),
+  map: (arg = {}) => spec([SPECIES_ALL(), METHOD('any'), MONTH(), DAY()], arg, mapAnswer),
   /** Countdown to a method's opener. */
-  countdown: (arg = {}) => spec([STATE(), { ...METHOD('gun', false), dyn: undefined, options: (['archery', 'muzzleloader', 'gun'] as Method[]).map((x) => ({ value: x, label: METHOD_LABEL[x] })) }, MONTH(), DAY()], arg, countdownAnswer),
+  countdown: (arg = {}) => spec([STATE(), { ...METHOD('gun'), dyn: undefined, help: undefined, options: (['archery', 'muzzleloader', 'gun'] as Method[]).map((x) => ({ value: x, label: METHOD_LABEL[x] })) }, MONTH(), DAY()], arg, countdownAnswer),
   /** Two states side by side. */
   compare: (arg = {}) => spec([STATE(EX.st, 'st', 'First state'), STATE('OK', 'st2', 'Second state')], arg, compareAnswer, false),
   /** License cost. */

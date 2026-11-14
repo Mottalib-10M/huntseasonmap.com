@@ -89,28 +89,46 @@ export const totalDays = (s: Season) => s.r.reduce((n, [a, b]) => n + daysBetwee
 export const firstStart = (ss: Season[]) => ss.flatMap((s) => s.r.map((r) => r[0])).sort()[0];
 export const lastEnd = (ss: Season[]) => ss.flatMap((s) => s.r.map((r) => r[1])).sort().slice(-1)[0];
 
+/** One open period and the last day of the stretch that covers the date (each date says what it applies to). */
+export interface OpenEnd { season: Season; end: string; left: number }
 export interface Status {
   open: Season[];
+  /** Each open period with its own last day, earliest end first (never one date for several zones or methods). */
+  ends: OpenEnd[];
   /** A date inside a season but on a closed Sunday. */
   sundayOnly: boolean;
-  /** Next start strictly after the date, with its season. */
+  /** Next start strictly after the date, with its season (a new period: it may start while another zone is still open). */
   next: { season: Season; start: string; inDays: number } | null;
-  /** Last day of the periods open on that date (the latest one). */
+  /** Last day of the open periods, the latest one; only meaningful with `ends` (one row per period). */
   closesOn: string | null;
+  /** Periods of OTHER methods open that day (deer, when a method is chosen): "open for archery only". */
+  others: Season[];
   first: string; last: string;
 }
+/** Status of one period on a date: Open, Not yet, Over, or between two stretches ("Paused, back Dec. 12, 2026"). */
+export type PeriodState = { k: 'open' | 'sunday' | 'notyet' | 'paused' | 'over'; back?: string };
+export function periodState(st: State, sp: Species, s: Season, iso: string): PeriodState {
+  if (coversDate(s, iso)) return { k: sundayClosed(st, sp) && isSunday(iso) ? 'sunday' : 'open' };
+  const after = s.r.filter((r) => r[0] > iso).map((r) => r[0]).sort()[0];
+  if (!after) return { k: 'over' };
+  return s.r.some((r) => r[1] < iso) ? { k: 'paused', back: after } : { k: 'notyet' };
+}
 export function statusOn(st: State, sp: Species, iso: string, method: Method | 'any' = 'any'): Status {
-  const all = seasonsOf(st, sp).filter((s) => method === 'any' || methodOf(s) === method);
+  const every = seasonsOf(st, sp);
+  const all = every.filter((s) => method === 'any' || methodOf(s) === method);
   const covering = all.filter((s) => coversDate(s, iso));
   const sun = sundayClosed(st, sp) && isSunday(iso);
   const open = sun ? [] : covering;
   const starts = all.flatMap((s) => s.r.filter((r) => r[0] > iso).map((r) => ({ season: s, start: r[0] }))).sort((a, b) => a.start.localeCompare(b.start));
   const nx = starts[0];
-  const ends = covering.flatMap((s) => s.r.filter(([a, b]) => a <= iso && iso <= b).map((r) => r[1])).sort();
+  const ends: OpenEnd[] = open.map((s) => { const end = s.r.find(([a, b]) => a <= iso && iso <= b)![1]; return { season: s, end, left: daysBetween(iso, end) }; })
+    .sort((a, b) => a.end.localeCompare(b.end));
+  const others = method === 'any' || sun ? [] : every.filter((s) => methodOf(s) !== method && coversDate(s, iso));
   return {
-    open, sundayOnly: sun && covering.length > 0,
+    open, ends, sundayOnly: sun && covering.length > 0,
     next: nx ? { ...nx, inDays: daysBetween(iso, nx.start) } : null,
-    closesOn: ends.length ? ends[ends.length - 1] : null,
+    closesOn: ends.length ? ends[ends.length - 1].end : null,
+    others,
     first: all.length ? firstStart(all) : '', last: all.length ? lastEnd(all) : '',
   };
 }
@@ -153,3 +171,12 @@ export function licenseCost(st: State, who: Residency, what: 'deer' | 'fish'): C
 }
 export const STATES_LIC = STATES.filter((s) => s.lic);
 export const STATES_FISH = STATES.filter((s) => s.lic?.fish);
+
+/** "General (gun) · North Zone": a period always named with its area, never in nested brackets. */
+export const periodName = (s: Season) => `${s.s} · ${s.a}`;
+/** The same period names once each ("Archery; Archery" read like a bug): the area is added only when two names repeat. */
+export function periodList(ss: Season[]): string {
+  const seen = new Map<string, number>();
+  for (const x of ss) seen.set(x.s, (seen.get(x.s) ?? 0) + 1);
+  return [...new Set(ss.map((x) => (seen.get(x.s)! > 1 ? periodName(x) : x.s)))].join('; ');
+}

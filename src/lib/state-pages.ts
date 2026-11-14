@@ -87,7 +87,7 @@ export function statePages(): PageDef[] {
     const deerCost = licenseCost(st, 'res', 'deer'), deerCostNon = licenseCost(st, 'non', 'deer');
     const faqOpen: FAQ = {
       q: `When does gun season for deer open in ${st.name} in 2026?`,
-      a: `The headline period, ${lower(g.s)}, opens on ${dayText(g.r[0][0])} in ${lower(g.a)} and runs ${rangesText(g)}. ${methods.filter((y) => y.m !== 'gun').map((y) => `${METHOD_LABEL[y.m]} opens ${dayText(y.o!.start)} (${lower(y.o!.season.a)})`).join('; ')}${methods.some((y) => y.m !== 'gun') ? '.' : ''} The last deer period of 2026-27 in ${st.name} ends on ${dayText(lastEnd(st.deer))}. Dates as printed by ${st.short}, read on Nov. 13, 2026; other zones may open on other days, as the table on this page shows.`.replace(/\s+/g, ' '),
+      a: `The headline period, ${lower(g.s)}, opens on ${dayText(g.r[0][0])} (${g.a}) and runs ${rangesText(g)}. ${methods.filter((y) => y.m !== 'gun').map((y) => `${METHOD_LABEL[y.m]} opens ${dayText(y.o!.start)} (${y.o!.season.a})`).join('; ')}${methods.some((y) => y.m !== 'gun') ? '.' : ''} The last deer period of 2026-27 in ${st.name} ends on ${dayText(lastEnd(st.deer))}. Dates as printed by ${st.short}, read on Nov. 13, 2026; other zones may open on other days, as the table on this page shows.`.replace(/\s+/g, ' '),
     };
     return {
       id: st.slug, group: 'states', order: 200 + i, slug: st.slug,
@@ -95,13 +95,12 @@ export function statePages(): PageDef[] {
       card: `${g.s}: ${rangesText(g)}.`,
       title: titleOf(st), description: descriptionOf(st),
       h1: `${kw} 2026-27: every period, zone and opening day`,
-      intro: `The ${kw} for 2026-27 starts with ${lower(first.x.s)} on ${dayText(first.d)}; the ${lower(g.s)} season (${lower(g.a)}) runs ${rangesText(g)}.`,
+      intro: `The ${kw} for 2026-27 starts with ${lower(first.x.s)} on ${dayText(first.d)}; the headline gun season, ${lower(g.s.replace(/\s*\(.*\)$/, ''))}, runs ${rangesText(g)} (${g.a}), one of ${st.deer.length} deer periods listed below.`,
       resume: `${note.resume} Source: ${st.agency}, read on November 13, 2026.`.replace(/\s+/g, ' '),
       faqs: [faqOpen, ...note.faqs],
       body: (h) => `
 <h2>${kw} by method and zone</h2>
 <p>${note.zones}</p>
-${seasonTable(st, 'deer', h)}
 ${st.deerNote ? `<p>${st.deerNote}</p>` : ''}
 ${h.mini('countdown', { t: `How many days until your ${st.name} opener?`, p: ['m'], d: { st: st.code } })}
 <h2>Before you go out in ${st.name}</h2>

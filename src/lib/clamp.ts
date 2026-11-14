@@ -14,7 +14,7 @@
 const FIN = /(?<=[.!?…])\s+(?=[\p{Lu}\p{N}«“"(¿¡])|(?<=[。！？])/u;
 // Points qui ne finissent pas une phrase : ordinal ou jour (« 1. April », « 3. Säule »), initiales
 // (« U.S. », « z. B. »), abréviations courantes.
-const ABREV = /(?:^|\s)(?:\d{1,2}|[\p{L}]|(?:[\p{L}]\.){1,3}[\p{L}]?|Mr|Mrs|Ms|Dr|Prof|St|Sr|Jr|Mt|Ft|vs|etc|approx|incl|ca|bzw|ggf|inkl|Nr|Abs|Art|art|Bd|av|env|cf|p|pp|No|no|n°|S|vgl|zB|Co|Inc|Ltd|Sra|Sto|Dott|Avv|Ing|sig)\.$/u;
+const ABREV = /(?:^|\s)(?:\d{1,2}|[\p{L}]|(?:[\p{L}]\.){1,3}[\p{L}]?|Mr|Mrs|Ms|Dr|Prof|St|Sr|Jr|Mt|Ft|vs|etc|approx|incl|ca|bzw|ggf|inkl|Nr|Abs|Art|art|Bd|av|env|cf|p|pp|No|no|n°|S|vgl|zB|Co|Inc|Ltd|Jan|Feb|Mar|Apr|Aug|Sep|Sept|Oct|Nov|Dec|Sra|Sto|Dott|Avv|Ing|sig)\.$/u;
 
 export function decouperPhrases(text: string): string[] {
   const brut = text.trim().split(FIN).filter(Boolean);
