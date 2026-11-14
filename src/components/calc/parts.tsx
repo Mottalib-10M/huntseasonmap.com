@@ -2,12 +2,15 @@
 import { useState, type ReactNode } from 'react';
 
 /** `mention`: shown above the result, e.g. "Example, not your result yet" while no field is changed (MentionExemple). */
-export function ResultCard({ label, value, sub, mention, children }: { label: string; value: string; sub?: ReactNode; mention?: ReactNode; children?: ReactNode }) {
+/** `flags`: short bold lines right under the value (naive testers 2026-11-14, second round: "Open today for: youth gun"
+ *  sat in a paragraph under a large "Closed"). A long value ("Closed for adult gun hunters in Zone A") is set smaller. */
+export function ResultCard({ label, value, sub, flags, mention, children }: { label: string; value: string; sub?: ReactNode; flags?: string[]; mention?: ReactNode; children?: ReactNode }) {
   return (
     <div data-resultat aria-live="polite" className="rounded-lg border border-accent-200 bg-accent-50 p-4 sm:p-5">
       {mention}
       <p className="text-sm font-medium text-navy-700">{label}</p>
-      <p className="tabular-nums mt-1 font-serif text-[2.4rem] font-bold leading-tight text-navy-900">{value}</p>
+      <p data-valeur className={`tabular-nums mt-1 font-serif font-bold leading-tight text-navy-900 ${value.length > 14 ? 'text-[1.7rem]' : 'text-[2.4rem]'}`}>{value}</p>
+      {flags?.map((f) => <p key={f} data-aussi className="mt-2 border-l-4 border-accent-600 pl-2 text-sm font-semibold text-navy-900">{f}</p>)}
       {sub && <p className="mt-1 text-sm text-navy-700">{sub}</p>}
       {children}
     </div>

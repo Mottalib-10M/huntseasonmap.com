@@ -74,7 +74,9 @@ export default function SpecTool({ kind, arg, methodHref, idPrefix = 't' }: Prop
     if (i.kind === 'select') return <SelectField key={i.id} id={id} label={i.label} value={String(v[i.id])} onChange={set(i.id)} options={i.dyn ? i.dyn(v) : i.options} help={i.help} className={cls} />;
     return <NumberField key={i.id} id={id} label={i.label} value={Number(v[i.id])} onChange={set(i.id)} unit={i.unit} max={i.max} decimals={i.decimals} help={i.help} className={cls} />;
   };
-  const main = spec.inputs.filter((i) => !i.adv), adv = spec.inputs.filter((i) => i.adv);
+  // A select with nothing to choose for the current state (no zones) is not shown.
+  const visible = spec.inputs.filter((i) => !(i.kind === 'select' && i.hidden?.(v)));
+  const main = visible.filter((i) => !i.adv), adv = visible.filter((i) => i.adv);
   return (
     <div className="rounded-xl border border-navy-200 bg-white p-4 sm:p-5">
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
@@ -100,7 +102,7 @@ export default function SpecTool({ kind, arg, methodHref, idPrefix = 't' }: Prop
             </details>
           )}
         </form>
-        <ResultCard label={out.label} value={out.value} sub={out.sub} mention={<MentionExemple lang="en" touched={touched} texte={out.example} aide={out.exampleAide} />}>
+        <ResultCard label={out.label} value={out.value} sub={out.sub} flags={out.flags} mention={<MentionExemple lang="en" touched={touched} texte={out.example} aide={out.exampleAide} />}>
           <Rows rows={out.rows} />
           {out.note && <p className="mt-2 text-xs text-navy-600">{out.note}</p>}
           <ShareRow methodHref={methodHref} />

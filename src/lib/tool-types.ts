@@ -2,10 +2,12 @@
 export type V = Record<string, number | string>;
 export interface NumIn { kind?: 'num'; id: string; label: string; def: number; unit?: string; max?: number; decimals?: number; help?: string; adv?: boolean; wide?: boolean; /** Short name in the summary of the folded fields. */ short?: string }
 export interface ChoiceIn { kind: 'choice'; id: string; label: string; def: string; options: Array<{ value: string; label: string }>; help?: string; adv?: boolean; wide?: boolean; short?: string }
-export interface SelectIn { kind: 'select'; id: string; label: string; def: string; options: Array<{ value: string; label: string }>; /** Options that depend on the other fields (states priced for the chosen trade). */ dyn?: (v: V) => Array<{ value: string; label: string }>; help?: string; adv?: boolean; wide?: boolean; short?: string }
+export interface SelectIn { kind: 'select'; id: string; label: string; def: string; options: Array<{ value: string; label: string }>; /** Options that depend on the other fields (states priced for the chosen trade). */ dyn?: (v: V) => Array<{ value: string; label: string }>; /** Not shown when it has nothing to choose (no zones in that state). */ hidden?: (v: V) => boolean; help?: string; adv?: boolean; wide?: boolean; short?: string }
 export type Input = NumIn | ChoiceIn | SelectIn;
 export interface ToolOut {
   label: string; value: string; sub?: string;
+  /** Short lines in bold right under the value: what else is open that day, a license drawn by lottery. */
+  flags?: string[];
   rows: Array<[string, string, number?]>;
   table?: { caption?: string; headers: string[]; rows: string[][]; align?: Array<'l' | 'r'> };
   note?: string;

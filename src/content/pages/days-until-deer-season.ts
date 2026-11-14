@@ -15,7 +15,7 @@ export default definePage({
   title: 'Days Until Deer Season 2026: Countdown to Your State Opener',
   description: 'Days until deer season in your state: a countdown to the 2026 archery, muzzleloader or gun opener of 24 states, counted from today or from any date you pick.',
   h1: 'Days until deer season: countdown to your 2026 opener',
-  intro: `Days until deer season, counted to the opener of your state and method. Gun openers read for 2026 are ${spread} days apart, from ${K.d(rows[0].gun)} to ${K.d(rows[rows.length - 1].gun)}.`,
+  intro: `Days until deer season, counted to the opener of your state and method. The first gun opener read for 2026 is on ${K.d(rows[0].gun)} (${rows[0].s.name}), the last on ${K.d(rows[rows.length - 1].gun)} (${rows[rows.length - 1].s.name}).`,
   resume: `The countdown above counts calendar days from the date shown, today once the page has loaded, to the first day of the next period of the method you pick in your state, using the 2026-27 dates the state agencies printed and we read on ${K.day(K.READ)}. When a period of that method is already open, it says so and counts the days left instead. The gun opener is the headline season of each state, the one most hunters mean by "opening day"; archery and muzzleloader count from the first period of that method, wherever it is open in the state. Among the states read, the first gun opener is ${rows[0].s.name}'s, on ${K.d(rows[0].gun)}, and the last ${rows[rows.length - 1].s.name}'s, on ${K.d(rows[rows.length - 1].gun)}, ${spread} days later.`,
   faqs: [
     { q: 'How many days until deer season opens?', a: 'It depends on your state and method. Pick both in the countdown: it counts from today to the next opener and switches to the days left when a season is already open. The table below lists every gun opener read, with the archery and muzzleloader openers of the same state.' },
@@ -24,8 +24,8 @@ export default definePage({
   ],
   body: (h) => `
 <h2>Days until deer season, state by state</h2>
-<p>The countdown above counts from today, or from the date you pick. The table gives the opening day of each method, and how many days archery opens before the gun season.</p>
-${h.table(['State', 'Gun opener', 'Archery opener', 'Archery opens before gun', 'Muzzleloader opener'], rows.map((r) => [h.a(r.s.slug, r.s.name), K.d(r.gun), r.arch ? K.d(r.arch) : 'none read', r.arch ? `${K.between(r.arch, r.gun)} days` : '-', r.ml ? K.d(r.ml) : 'none read']), `Deer openers 2026-27 in ${ST.length} states, read on ${K.day(K.READ)}`, ['l', 'l', 'l', 'r', 'l'])}
+<p>The countdown above counts from today, or from the date you pick. The table gives the opening day of each method, and how many days archery opens before the gun season. States are listed from the earliest gun opener to the latest.</p>
+${h.table(['State', 'Gun opener', 'Archery opener', 'Archery opens before gun', 'Muzzleloader opener'], rows.map((r) => [h.a(r.s.slug, r.s.name), K.d(r.gun), r.arch ? K.d(r.arch) : 'not in the dates read', r.arch ? `${K.between(r.arch, r.gun)} days` : '-', r.ml ? K.d(r.ml) : 'not in the dates read']), `Deer openers 2026-27 in ${ST.length} states, earliest gun opener first, read on ${K.day(K.READ)}`, ['l', 'l', 'l', 'r', 'l'])}
 <h2>Why opening day is a moving date</h2>
 <p>In 2026, Wisconsin's gun opener falls on the Saturday before Thanksgiving, West Virginia's on the Monday of Thanksgiving week and Pennsylvania's on the Saturday after it: openers follow the calendar of each year rather than a fixed date. Some states set dates in multi-year plans, like Colorado's 2025-2029 season structure, or by commission vote each spring, like the Ohio Wildlife Council's vote announced on May 4, 2026.</p>
 ${h.mini('countdown', { t: 'Days until the muzzleloader opener', p: ['st'], d: { m: 'muzzleloader', st: 'PA' } })}

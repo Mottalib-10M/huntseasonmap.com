@@ -354,7 +354,7 @@
      ]
     }
    ],
-   "deerNote": "All Colorado deer licenses are limited and issued by game management unit through the draw. Dates come from the 2025-2029 Big Game Season Structure adopted by the Parks and Wildlife Commission; the late plains rifle season follows its rule (Dec. 1 to 14).",
+   "deerNote": "All Colorado deer licenses are limited and issued by game management unit through the draw, a lottery: you apply and may or may not get a license. Dates come from the 2025-2029 Big Game Season Structure adopted by the Parks and Wildlife Commission; the late plains rifle season follows its rule (Dec. 1 to 14).",
    "src": [
     {
      "t": "2025-2029 Big Game Season Structure (PDF)",
@@ -416,7 +416,7 @@
      "main": true
     },
     {
-     "s": "Shotgun (no-lottery permit)",
+     "s": "Shotgun (permit sold without a lottery)",
      "a": "State land",
      "r": [
       [
@@ -1902,7 +1902,7 @@
     },
     {
      "s": "Archery (antlered and antlerless)",
-     "a": "WMUs 2B, 5C and 5D",
+     "a": "Wildlife management units (WMUs) 2B, 5C and 5D",
      "r": [
       [
        "2026-09-19",
@@ -1957,7 +1957,7 @@
     },
     {
      "s": "Antlerless extended regular firearms",
-     "a": "WMUs 2B, 5C and 5D",
+     "a": "Wildlife management units (WMUs) 2B, 5C and 5D",
      "r": [
       [
        "2026-12-26",
@@ -1980,7 +1980,7 @@
     },
     {
      "s": "Fall (male or female)",
-     "a": "WMUs 2B, 2C, 2D and 2E",
+     "a": "Wildlife management units (WMUs) 2B, 2C, 2D and 2E",
      "r": [
       [
        "2026-10-31",

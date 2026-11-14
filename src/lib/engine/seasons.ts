@@ -3,6 +3,7 @@
  * state wildlife agencies, read on 2026-11-13. Pure functions, no clock: the date to test is always passed in.
  */
 import D from '../../data/seasons.json';
+import { inZone } from './zones';
 
 export type Species = 'deer' | 'turkey' | 'duck';
 export type Method = 'archery' | 'muzzleloader' | 'gun' | 'youth' | 'other';
@@ -113,8 +114,13 @@ export function periodState(st: State, sp: Species, s: Season, iso: string): Per
   if (!after) return { k: 'over' };
   return s.r.some((r) => r[1] < iso) ? { k: 'paused', back: after } : { k: 'notyet' };
 }
-export function statusOn(st: State, sp: Species, iso: string, method: Method | 'any' = 'any'): Status {
-  const every = seasonsOf(st, sp);
+/** Deer periods that apply in a zone (lib/engine/zones.ts); 'all' keeps every period. Turkey and duck are not zoned here. */
+export const inZoneOf = (st: State, sp: Species, zone: string) => (s: Season) => sp !== 'deer' || inZone(st, s, methodOf(s), zone);
+/** Were dates of that method read for that zone? (Alabama Zone B gun: no, only Zone A's were printed.) */
+export const zoneRead = (st: State, method: Method | 'any', zone: string) =>
+  st.deer.some((s) => (method === 'any' || methodOf(s) === method) && inZone(st, s, methodOf(s), zone));
+export function statusOn(st: State, sp: Species, iso: string, method: Method | 'any' = 'any', zone = 'all'): Status {
+  const every = seasonsOf(st, sp).filter(inZoneOf(st, sp, zone));
   const all = every.filter((s) => method === 'any' || methodOf(s) === method);
   const covering = all.filter((s) => coversDate(s, iso));
   const sun = sundayClosed(st, sp) && isSunday(iso);

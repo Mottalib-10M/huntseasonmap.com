@@ -101,7 +101,6 @@ export function statePages(): PageDef[] {
       body: (h) => `
 <h2>${kw} by method and zone</h2>
 <p>${note.zones}</p>
-${st.deerNote ? `<p>${st.deerNote}</p>` : ''}
 ${h.mini('countdown', { t: `How many days until your ${st.name} opener?`, p: ['m'], d: { st: st.code } })}
 <h2>Before you go out in ${st.name}</h2>
 <p>${note.check}${sundayClosed(st, 'deer') ? ` ${st.name} closes hunting on Sundays: the checker counts a Sunday inside a season as closed.` : ''}</p>

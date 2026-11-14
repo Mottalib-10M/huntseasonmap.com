@@ -18,10 +18,15 @@ interface Props { kind: string; href?: string; /** JSON: { t: title, p: [input i
 export default function SpecMini({ kind, href, arg }: Props) {
   const a = useMemo(() => (arg ? JSON.parse(arg) : {}) as { t?: string; p?: string[]; d?: Record<string, number | string>; c?: string }, [arg]);
   const spec = useMemo(() => getTool(kind, a.d), [kind, a]);
-  const shown = spec.inputs.filter((i) => (a.p ?? [spec.inputs[0].id]).includes(i.id));
+  const all = spec.inputs.filter((i) => (a.p ?? [spec.inputs[0].id]).includes(i.id));
   const [v, setV] = useState<V>(() => Object.fromEntries(spec.inputs.map((i) => [i.id, i.def])));
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const out = useMemo(() => spec.run(v), [v, spec]);
+  const shown = all.filter((i) => !(i.kind === 'select' && i.hidden?.(v)));
+  // The mention names only the fields this mini shows (naive testers 2026-11-14, second round: "pick your state,
+  // method or another date" above a mini with one "Your method" field).
+  const mots = shown.map((i) => (i.short ?? i.label).replace(/^Your /, '').toLowerCase());
+  const aide = `pick another ${mots.length > 1 ? `${mots.slice(0, -1).join(', ')} or ${mots[mots.length - 1]}` : mots[0]} to update it`;
   const fit = (o: V): V => {
     const next = { ...o };
     for (const i of spec.inputs) if (i.kind === 'select' && i.dyn) { const opts = i.dyn(next); if (!opts.some((x) => x.value === String(next[i.id]))) next[i.id] = opts[0]?.value ?? ''; }
@@ -38,9 +43,10 @@ export default function SpecMini({ kind, href, arg }: Props) {
             : <NumberField key={i.id} id={`m-${kind}-${i.id}`} label={i.label} value={Number(v[i.id])} onChange={set(i.id)} unit={i.unit} max={i.max} decimals={i.decimals} />)}
         </form>
         <div aria-live="polite" className="rounded-lg bg-navy-50 p-4">
-          <MentionExemple lang="en" touched={touched} texte={out.example} aide={out.exampleAide} />
+          <MentionExemple lang="en" touched={touched} texte={out.example} aide={aide} />
           <p className="text-sm font-medium text-navy-600">{out.label}</p>
-          <p className="tabular-nums mt-1 text-3xl font-bold text-navy-900">{out.value}</p>
+          <p className={`tabular-nums mt-1 font-bold text-navy-900 ${out.value.length > 14 ? 'text-2xl' : 'text-3xl'}`}>{out.value}</p>
+          {out.flags?.map((f) => <p key={f} data-aussi className="mt-2 border-l-4 border-accent-600 pl-2 text-sm font-semibold text-navy-900">{f}</p>)}
           {out.sub && <p className="mt-1 text-sm text-navy-700">{out.sub}</p>}
           <table className="mt-3 w-full text-sm"><tbody className="divide-y divide-navy-200">
             {out.rows.slice(0, 4).map(([l, x]) => <tr key={l}><td className="py-1.5 pr-3 text-navy-600 [overflow-wrap:break-word]">{l}</td><td className="tabular-nums py-1.5 text-right text-navy-900 [overflow-wrap:break-word]">{x}</td></tr>)}

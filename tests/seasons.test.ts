@@ -76,16 +76,19 @@ describe('status follows the method, each date names its period', () => {
     expect(m.def).toBe('gun');
     expect(m.adv).toBeFalsy();
   });
-  it('Texas, Nov. 14: North Zone ends Jan. 3, South Zone Jan. 17, each on its own row', () => {
+  it('Texas, Nov. 14: North Zone ends Jan. 3, South Zone Jan. 17, each on its own line', () => {
     const S = statusOn(byCode('TX'), 'deer', '2026-11-14', 'gun');
     expect(S.ends.map((e) => [e.season.a, e.end])).toEqual([['North Zone', '2027-01-03'], ['South Zone', '2027-01-17']]);
     const out = run('TX');
-    expect(out.value).toBe('Open');
-    expect(out.rows).toContainEqual(['General (gun) · North Zone', 'open until Jan. 3, 2027']);
-    expect(out.rows).toContainEqual(['General (gun) · South Zone', 'open until Jan. 17, 2027']);
-    // The next new period (Jan. 4) names its zone: it follows the North Zone close, not the South Zone one.
-    expect(out.rows.find((r) => r[0] === 'Next new period')?.[1]).toBe('Special late · North Zone: opens Jan. 4, 2027, in 51 days');
-    expect(out.rows.some((r) => r[0] === 'Open period ends' || r[0] === 'Last day')).toBe(false);
+    expect(out.value).toBe('Open for gun hunters in both zones');
+    expect(out.rows).toContainEqual(['North Zone', 'open: General (gun) until Jan. 3, 2027']);
+    expect(out.rows).toContainEqual(['South Zone', 'open: General (gun) until Jan. 17, 2027']);
+    // One zone chosen: its own last day and the next new period of that zone.
+    const n = run('TX', { z: 'N' });
+    expect(n.value).toBe('Open for gun hunters in the North Zone');
+    expect(n.rows).toContainEqual(['General (gun) · North Zone', 'open until Jan. 3, 2027']);
+    expect(n.rows.find((r) => r[0] === 'Next new period')?.[1]).toBe('Special late · North Zone: opens Jan. 4, 2027, in 51 days');
+    expect(n.rows.some((r) => r[0].includes('South Zone'))).toBe(false);
   });
   it('Texas countdown: each open period has its own last day, no "next" before a "last day" without its zone', () => {
     const t = getTool('countdown', { st: 'TX', m: 'gun', mo: '2026-11', d: 14 });
@@ -94,28 +97,70 @@ describe('status follows the method, each date names its period', () => {
     expect(out.rows).toContainEqual(['General (gun) · North Zone', 'last day Jan. 3, 2027 (50 more days)']);
     expect(out.rows).toContainEqual(['General (gun) · South Zone', 'last day Jan. 17, 2027 (64 more days)']);
   });
-  it('Arkansas, Nov. 14, gun: modern gun Zone 1 open until Dec. 6, never the archery Feb. 28', () => {
+  it('Arkansas, Nov. 14, gun: modern gun Zone 1 open until Dec. 6, said once, never the archery Feb. 28', () => {
     const out = run('AR');
-    expect(out.value).toBe('Open');
-    expect(out.sub).toBe('Modern gun · Zone 1: open until Dec. 6, 2026.');
+    // Only Zone 1 gun dates were read (AGFC): the title says so, the other 16 zones are "not on this site", not closed.
+    expect(out.value).toBe('Open for gun hunters in Zone 1');
+    expect(out.rows).toContainEqual(['Zone 1', 'open: Modern gun until Dec. 6, 2026']);
+    expect(out.rows).toContainEqual(['The other 16 zones', 'gun / rifle dates not on this site (AGFC sets them)']);
+    expect(out.sub).toBe('Pick your zone above for its own dates and next opener.');
     expect(JSON.stringify(out.rows)).not.toContain('Feb. 28');
+    expect(out.flags?.join(' ')).toMatch(/Also open (today|on Nov\. 14, 2026) for: Archery/);
+    // Zone 1 chosen: the end is a row, not repeated in a sentence above it (naive testers, second round).
+    const z1 = run('AR', { z: '1' });
+    expect(z1.value).toBe('Open for gun hunters in Zone 1');
+    expect(z1.sub).toBeUndefined();
+    expect(z1.rows).toContainEqual(['Modern gun · Zone 1', 'open until Dec. 6, 2026']);
+    expect(z1.rows.find((r) => r[0] === 'Next new period')?.[1]).toBe('Modern gun · Zone 1: reopens Dec. 26, 2026, in 42 days');
+    // Another zone: archery (statewide) is read, the gun dates are not.
+    const x = run('AR', { z: 'x' });
+    expect(x.value).toBe('Another of the 17 zones: gun / rifle dates not on this site');
+    expect(run('AR', { z: 'x', m: 'archery' }).value).toBe('Open for bowhunters in the other 16 zones');
     // With any method, each period keeps its own end: archery Feb. 28, modern gun Dec. 6.
-    const any = run('AR', { m: 'any' });
+    const any = run('AR', { m: 'any', z: '1' });
     expect(any.rows).toContainEqual(['Archery · Statewide', 'open until Feb. 28, 2027']);
     expect(any.rows).toContainEqual(['Modern gun · Zone 1', 'open until Dec. 6, 2026']);
     // The muzzleloader is between its two stretches, not "Not yet".
     expect(any.table!.rows.find((r) => r[0] === 'Alternative firearms (muzzleloader)')?.[4]).toBe('Paused, back Dec. 12, 2026');
+    expect(run('AR', { m: 'muzzleloader', z: '1' }).sub).toBe('Alternative firearms (muzzleloader) · Zone 1: reopens Dec. 12, 2026, in 28 days.');
   });
-  it('Alabama, Nov. 14, gun: Closed, the gun opens Nov. 21 in 7 days; archery and youth gun named as other methods', () => {
+  it('Alabama, Nov. 14, gun: closed for adult gun hunters in Zone A, the youth gun weekend open, said under the title', () => {
     const out = run('AL');
-    expect(out.value).toBe('Closed');
-    expect(out.rows.find((r) => r[0] === 'Next opening')?.[1]).toBe('Gun, stalk hunting, private or leased land · Zone A: opens Nov. 21, 2026, in 7 days');
-    expect(out.sub).toContain('Open that day for other methods only: Archery (stalk hunting); Special youth gun (under 16)');
-    const S = statusOn(byCode('AL'), 'deer', '2026-11-14', 'gun');
+    expect(out.value).toBe('Closed for adult gun hunters in Zone A');
+    expect(out.flags?.[0]).toMatch(/^Open (today|on Nov\. 14, 2026) for: /);
+    expect(out.flags?.[0]).toContain('Special youth gun (under 16)');
+    expect(out.flags?.[0]).toContain('Archery (stalk hunting)');
+    expect(out.rows).toContainEqual(['Zone A', 'closed, opens Nov. 21, 2026, in 7 days (Gun, stalk hunting, private or leased land)']);
+    expect(out.rows).toContainEqual(['Zones B, C, D, E and the CWD zone', 'gun / rifle dates not on this site (Outdoor Alabama sets them)']);
+    const S = statusOn(byCode('AL'), 'deer', '2026-11-14', 'gun', 'A');
     expect(S.open).toHaveLength(0);
     expect(S.next?.inDays).toBe(7);
+    // Zone A chosen: the next gun opener in the sub, the youth gun weekend in bold above it.
+    const a = run('AL', { z: 'A' });
+    expect(a.value).toBe('Closed for adult gun hunters in Zone A');
+    expect(a.sub).toBe('Gun, stalk hunting, private or leased land · Zone A: opens Nov. 21, 2026, in 7 days.');
+    // Zone B: the youth gun weekend is printed for it (Zones A, B, C and the CWD zone), the adult gun dates are not.
+    const b = run('AL', { z: 'B' });
+    expect(b.value).toBe('Zone B: gun / rifle dates not on this site');
+    expect(b.flags?.[0]).toMatch(/for: Special youth gun \(under 16\)$/);
+    expect(run('AL', { z: 'B', m: 'youth' }).value).toBe('Open for youth and special hunts in Zone B');
+    expect(run('AL', { z: 'D', m: 'youth' }).value).toBe('Zone D: youth and special hunts dates not on this site');
     // Archery alone is open, until Feb. 10, 2027 in Zone A.
-    expect(run('AL', { m: 'archery' }).rows).toContainEqual(['Archery (stalk hunting) · Zone A', 'open until Feb. 10, 2027']);
+    expect(run('AL', { m: 'archery', z: 'A' }).rows).toContainEqual(['Archery (stalk hunting) · Zone A', 'open until Feb. 10, 2027']);
+    // Nov. 21: the gun opener, Zone A open.
+    expect(run('AL', { d: 21 }).value).toBe('Open for gun hunters in Zone A');
+  });
+  it('North Carolina, Nov. 14, gun: open in 3 of 5 zones, one line per zone', () => {
+    const out = run('NC');
+    expect(out.value).toBe('Open in 3 of 5 zones for gun hunters');
+    expect(out.rows).toContainEqual(['Northwestern zone', 'closed, opens Nov. 21, 2026, in 7 days (Gun)']);
+  });
+  it('the zone field is shown only for deer in a state with zones', () => {
+    const z = getTool('open').inputs.find((i) => i.id === 'z')!;
+    expect(z.kind === 'select' && z.hidden?.({ st: 'TX', sp: 'deer' })).toBe(false);
+    expect(z.kind === 'select' && z.hidden?.({ st: 'GA', sp: 'deer' })).toBe(true);
+    expect(z.kind === 'select' && z.hidden?.({ st: 'TX', sp: 'duck' })).toBe(true);
+    expect(run('GA').value).toBe('Open for gun hunters');
   });
   it('archery map: no period name repeated without its area', () => {
     const t = getTool('map', { sp: 'deer', m: 'archery', mo: '2026-11', d: 14 });
