@@ -1,0 +1,1746 @@
+{
+ "read": "2026-11-14",
+ "note": "Adult annual license prices read on the license fee pages and regulation guides of the state wildlife agencies on 2026-11-14 (plain curl). Each price as printed; vendor and processing fees not included. Status blocked = the agency site refused the reader: prices to check, no figure published.",
+ "states": [
+  {
+   "code": "AK",
+   "name": "Alaska",
+   "agency": "Alaska Department of Fish and Game",
+   "short": "ADF&G",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "ADF&G Online Store",
+    "u": "https://www.adfg.alaska.gov/store/"
+   },
+   "hunt": {
+    "res": 45.0,
+    "non": 160.0,
+    "t": "Resident Annual Hunting / Nonresident Annual Hunting"
+   },
+   "combo": {
+    "res": 60.0,
+    "non": 260.0,
+    "t": "Resident Annual Sport Fishing and Hunting License / Nonresident Annual Hunting and Sport Fishing License"
+   },
+   "fish": {
+    "res": 20.0,
+    "non": 100.0,
+    "t": "Resident / Nonresident Annual Sport Fishing License"
+   },
+   "deer": {
+    "res": null,
+    "non": 300.0,
+    "t": "Nonresident Deer tag"
+   },
+   "tag": "Big game tags must be purchased for each animal in addition to the hunting license; the page lists a $300.00 nonresident deer tag and no resident deer tag.",
+   "online": "Licenses are sold through the ADF&G online store (Buy a License Online).",
+   "src": [
+    {
+     "t": "Licenses & Permits, Product Prices - ADF&G",
+     "u": "https://www.adfg.alaska.gov/index.cfm?adfg=license.prices"
+    }
+   ]
+  },
+  {
+   "code": "AL",
+   "name": "Alabama",
+   "agency": "Alabama Department of Conservation and Natural Resources",
+   "short": "ADCNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "MyOutdoorAlabama.com",
+    "u": "https://myoutdooralabama.com/"
+   },
+   "hunt": {
+    "res": 23.4,
+    "non": 134.1,
+    "t": "Small Game (All species - excluding deer and/or turkey) annual hunting license"
+   },
+   "combo": null,
+   "fish": {
+    "res": 17.45,
+    "non": 68.2,
+    "t": "Freshwater Fishing annual (non-resident: Annual All States, except Louisiana and Mississippi)"
+   },
+   "deer": {
+    "res": 35.3,
+    "non": 411.95,
+    "t": "All Game hunting license (All species - including deer and/or turkey)"
+   },
+   "tag": "Deer and turkey hunting requires the All Game license (the Small Game license excludes deer and turkey); the page refers hunters to the Harvest Record requirements for deer and turkey.",
+   "online": "Licenses can be purchased online, at the local Probate Office or License Commissioner, license agents, WFF District Offices or the Montgomery Office, and by calling 1-888-848-6887.",
+   "src": [
+    {
+     "t": "Hunting Recreational Licenses - Resident",
+     "u": "https://www.outdooralabama.com/hunting-licenses/hunt-rec-res"
+    },
+    {
+     "t": "Hunting Recreational Licenses- Non-Resident",
+     "u": "https://www.outdooralabama.com/hunting/hunting-rec-nr"
+    },
+    {
+     "t": "Freshwater Fishing Recreational Licenses-Resident",
+     "u": "https://www.outdooralabama.com/freshwater-fishing-licenses/fw-rec-fishing-licenses-resident"
+    },
+    {
+     "t": "Freshwater Fishing Recreational Licenses - Non-Resident",
+     "u": "https://www.outdooralabama.com/freshwater-fishing-lic/fw-fish--nr"
+    }
+   ]
+  },
+  {
+   "code": "AR",
+   "name": "Arkansas",
+   "agency": "Arkansas Game and Fish Commission",
+   "short": "AGFC",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "AGFC license sales (Buy a License or Permit)",
+    "u": "https://ar-web.s3licensing.com/"
+   },
+   "hunt": {
+    "res": 10.5,
+    "non": 110.0,
+    "t": "Resident Wildlife Conservation License (HNT) / Nonresident Annual Small Game Hunting License (NRH)"
+   },
+   "combo": {
+    "res": 35.5,
+    "non": null,
+    "t": "Combination Sportsman’s License (CS)"
+   },
+   "fish": null,
+   "deer": {
+    "res": 25.0,
+    "non": 410.0,
+    "t": "Resident Sportsman’s License (RS) / Nonresident Annual All Game Hunting License (NBG)"
+   },
+   "tag": "Deer tags are included with the license: six with the Resident Sportsman’s and Nonresident Annual All Game licenses, one with the Resident Wildlife Conservation License.",
+   "online": "Licenses are sold online, through license agents and at AGFC regional offices.",
+   "src": [
+    {
+     "t": "Hunting License Descriptions and Fees",
+     "u": "https://www.agfc.com/resources/licensing/hunting-license-descriptions-and-fees/"
+    },
+    {
+     "t": "Fishing License Descriptions and Fees",
+     "u": "https://www.agfc.com/resources/licensing/fishing-license-descriptions-and-fees/"
+    }
+   ]
+  },
+  {
+   "code": "AZ",
+   "name": "Arizona",
+   "agency": "Arizona Game and Fish Department",
+   "short": "AZGFD",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "CA",
+   "name": "California",
+   "agency": "California Department of Fish and Wildlife",
+   "short": "CDFW",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "CO",
+   "name": "Colorado",
+   "agency": "Colorado Parks and Wildlife",
+   "short": "CPW",
+   "status": "blocked",
+   "reason": "the fee tables could not be read without doubt",
+   "buy": {
+    "t": "CPWshop.com - Buy a License",
+    "u": "https://www.cpwshop.com/licensing.page"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": "Licenses are sold online at CPWshop.com.",
+   "src": [
+    {
+     "t": "Small Game | Colorado Parks and Wildlife",
+     "u": "https://cpw.state.co.us/activities/hunting/small-game"
+    }
+   ]
+  },
+  {
+   "code": "CT",
+   "name": "Connecticut",
+   "agency": "Connecticut Department of Energy and Environmental Protection",
+   "short": "DEEP",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Connecticut Online Outdoor Licensing System",
+    "u": "https://portal.ct.gov/CTOutdoorLicenses"
+   },
+   "hunt": {
+    "res": 19,
+    "non": 91,
+    "t": "Firearms Hunting (Adult Resident / Non-resident)"
+   },
+   "combo": {
+    "res": 38,
+    "non": 110,
+    "t": "Firearms Hunting and Inland Fishing"
+   },
+   "fish": null,
+   "deer": {
+    "res": 19,
+    "non": 68,
+    "t": "Private Land Shotgun/Rifle deer permit"
+   },
+   "tag": "Deer permits are sold separately; a current firearms hunting license is required to purchase firearms deer permits, and state land lottery permits are drawn.",
+   "online": "Licenses, permits, and stamps can be purchased online 24/7 through Connecticut’s Online Outdoor Licensing System and at select DEEP offices, participating town halls and outdoor equipment stores.",
+   "src": [
+    {
+     "t": "2026 Connecticut Hunting and Trapping Guide (PDF)",
+     "u": "https://portal.ct.gov/-/media/deep/hunting_trapping/pdf_files/2026-ct-hunting-guide.pdf"
+    }
+   ]
+  },
+  {
+   "code": "DE",
+   "name": "Delaware",
+   "agency": "Delaware Division of Fish and Wildlife (DNREC)",
+   "short": "DNREC",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "How to Buy a Hunting License",
+    "u": "https://dnrec.delaware.gov/fish-wildlife/licenses/"
+   },
+   "hunt": {
+    "res": 39.5,
+    "non": 199.5,
+    "t": "Resident Hunting License (Ages 16 to 64) / Non-Resident Hunting License (Age 16 and Over)"
+   },
+   "combo": null,
+   "fish": {
+    "res": 8.5,
+    "non": 20.0,
+    "t": "Resident Fishing License (Ages 16 to 64) / Non-Resident Fishing License (Age 16 and Over)"
+   },
+   "deer": {
+    "res": 20.0,
+    "non": 50.0,
+    "t": "Resident Hunters Choice/Quality Buck Tag Combo / Non-Resident Antlered Deer Tag"
+   },
+   "tag": "Deer tags are sold separately from the hunting license (Hunters Choice/Quality Buck tags, antlered and additional antlerless tags).",
+   "online": null,
+   "src": [
+    {
+     "t": "Fish and Wildlife License Fees",
+     "u": "https://dnrec.delaware.gov/fish-wildlife/licenses/fees/"
+    }
+   ]
+  },
+  {
+   "code": "FL",
+   "name": "Florida",
+   "agency": "Florida Fish and Wildlife Conservation Commission",
+   "short": "FWC",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors Florida",
+    "u": "https://gooutdoorsflorida.com/"
+   },
+   "hunt": null,
+   "combo": {
+    "res": 112.0,
+    "non": null,
+    "t": "Florida Sportsman package (resident)"
+   },
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": "Licenses and packages are sold online through Go Outdoors Florida, 24/7/365.",
+   "src": [
+    {
+     "t": "Official Florida Fishing and Hunting Licenses | Go Outdoors Florida",
+     "u": "https://gooutdoorsflorida.com/"
+    }
+   ]
+  },
+  {
+   "code": "GA",
+   "name": "Georgia",
+   "agency": "Georgia Department of Natural Resources, Wildlife Resources Division",
+   "short": "WRD",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors Georgia",
+    "u": "https://www.gooutdoorsgeorgia.com"
+   },
+   "hunt": {
+    "res": 15,
+    "non": 100,
+    "t": "Hunting License"
+   },
+   "combo": {
+    "res": 30,
+    "non": 150,
+    "t": "Combo Hunting & Fishing License"
+   },
+   "fish": {
+    "res": 15,
+    "non": 50,
+    "t": "Fishing License"
+   },
+   "deer": null,
+   "tag": "Hunting deer, bear and turkey requires a Big Game License plus a free Harvest Record; the Sportsman’s License includes Big Game privileges.",
+   "online": "Licenses are sold online through Go Outdoors Georgia and by phone at 800-366-2661.",
+   "src": [
+    {
+     "t": "What License Do I Need? - Georgia Wildlife",
+     "u": "https://georgiawildlife.com/licenses-permits-passes/choose"
+    }
+   ]
+  },
+  {
+   "code": "HI",
+   "name": "Hawaii",
+   "agency": "Hawaii Department of Land and Natural Resources, Division of Forestry and Wildlife",
+   "short": "DLNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Purchase a Hunting License",
+    "u": "https://hunting.ehawaii.gov/hunting/license.html"
+   },
+   "hunt": {
+    "res": 20.0,
+    "non": 105.0,
+    "t": "Hunting License including Wildlife Conservation Stamp"
+   },
+   "combo": null,
+   "fish": {
+    "res": 5,
+    "non": 25,
+    "t": "Freshwater Game Fishing License"
+   },
+   "deer": null,
+   "tag": null,
+   "online": "Hawaii hunting licenses are sold online and issued instantly after purchase; first-time non-resident buyers must first submit a Non-resident Exemption Request Form.",
+   "src": [
+    {
+     "t": "Purchase a Hunting License",
+     "u": "https://hunting.ehawaii.gov/hunting/license.html"
+    },
+    {
+     "t": "DAR Licenses and Permits",
+     "u": "https://dlnr.hawaii.gov/dar/fishing/licenses-and-permits/"
+    }
+   ]
+  },
+  {
+   "code": "IA",
+   "name": "Iowa",
+   "agency": "Iowa Department of Natural Resources",
+   "short": "Iowa DNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors Iowa",
+    "u": "https://www.gooutdoorsiowa.com/"
+   },
+   "hunt": {
+    "res": 35.0,
+    "non": 144.0,
+    "t": "Resident Hunting / Habitat; Nonresident Hunting / Habitat 18+"
+   },
+   "combo": {
+    "res": 55.0,
+    "non": null,
+    "t": "Outdoor Combo Hunting / Fishing / Habitat"
+   },
+   "fish": {
+    "res": 22.0,
+    "non": 48.0,
+    "t": "Resident Fishing; Nonresident Fishing"
+   },
+   "deer": {
+    "res": 33.0,
+    "non": 348.5,
+    "t": "Resident Any-Sex Tags; Nonresident Buck Tag (Pending Lottery Results)"
+   },
+   "tag": "Deer tags are sold separately from the hunting license; nonresident deer tags are allocated by lottery drawing (application period first Saturday in May through first Sunday in June).",
+   "online": "Licenses are sold through the Go Outdoors Iowa online portal or at Electronic Licensing System (ELSI) agents at retail locations.",
+   "src": [
+    {
+     "t": "Hunting Licenses & Fees",
+     "u": "https://www.iowadnr.gov/things-do/hunting-trapping/hunting-licenses-fees"
+    },
+    {
+     "t": "Nonresident Hunting Licenses",
+     "u": "https://www.iowadnr.gov/things-do/hunting-trapping/hunting-licenses-fees/nonresident-hunting-licenses"
+    },
+    {
+     "t": "Fishing Licenses & Permit Fees",
+     "u": "https://www.iowadnr.gov/things-do/fishing/fishing-licenses"
+    }
+   ]
+  },
+  {
+   "code": "ID",
+   "name": "Idaho",
+   "agency": "Idaho Department of Fish and Game",
+   "short": "IDFG",
+   "status": "blocked",
+   "reason": "the agency site did not answer",
+   "buy": {
+    "t": "Go Outdoors Idaho Online Licensing System",
+    "u": "https://www.gooutdoorsidaho.com/"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": [
+    {
+     "t": "Go Outdoors Idaho Online Licensing System",
+     "u": "https://license.gooutdoorsidaho.com/Licensing/CustomerLookup.aspx"
+    }
+   ]
+  },
+  {
+   "code": "IL",
+   "name": "Illinois",
+   "agency": "Illinois Department of Natural Resources",
+   "short": "IDNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "ExploreMoreIL (IDNR license sales)",
+    "u": "https://exploremoreil.com"
+   },
+   "hunt": {
+    "res": 12.5,
+    "non": 57.75,
+    "t": "Resident Hunting License; Non-Resident Hunting License"
+   },
+   "combo": {
+    "res": 26.25,
+    "non": null,
+    "t": "Resident Sportsmen's Combination Hunting/Fishing License"
+   },
+   "fish": {
+    "res": 15.0,
+    "non": 31.5,
+    "t": "Resident Fishing License; Non-Resident Fishing License"
+   },
+   "deer": {
+    "res": 25.5,
+    "non": 300.5,
+    "t": "Deer Firearm OTC County Permit (Either Sex)"
+   },
+   "tag": "Deer permits are sold separately from the hunting license, either as lottery permit applications or as over-the-counter (OTC) county permits.",
+   "online": "Licenses and permits are sold online through ExploreMoreIL or through license vendors; some permits by paper application.",
+   "src": [
+    {
+     "t": "Resident Licenses/Permits (data table)",
+     "u": "https://dnr.illinois.gov/lpr/residentlicensespermitsfees.html"
+    },
+    {
+     "t": "Non-Resident Licenses/Permits (data table)",
+     "u": "https://dnr.illinois.gov/lpr/non-residentlicensespermitsfees.html"
+    }
+   ]
+  },
+  {
+   "code": "IN",
+   "name": "Indiana",
+   "agency": "Indiana Department of Natural Resources, Division of Fish & Wildlife",
+   "short": "Indiana DNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors Indiana",
+    "u": "https://www.gooutdoorsin.com/"
+   },
+   "hunt": {
+    "res": 20,
+    "non": 90,
+    "t": "Annual Hunting (resident / non-resident)"
+   },
+   "combo": {
+    "res": 32,
+    "non": null,
+    "t": "Combination Licenses Hunting & Fishing"
+   },
+   "fish": {
+    "res": 23,
+    "non": 60,
+    "t": "Annual Fishing (resident / non-resident)"
+   },
+   "deer": {
+    "res": 39,
+    "non": 240,
+    "t": "Deer Firearm (Buck Only – Firearms Season)"
+   },
+   "tag": "Deer licenses (single-season licenses or the Deer License Bundle) are listed as licenses separate from the annual hunting license.",
+   "online": "Licenses are sold online (Go Outdoors Indiana site or GoOutdoorsIN smartphone app, $3 tech fee per license plus card processing fee) or at authorized retailers.",
+   "src": [
+    {
+     "t": "Fish and Wildlife: License Fees",
+     "u": "https://www.in.gov/dnr/fish-and-wildlife/licenses-and-permits/license-fees"
+    }
+   ]
+  },
+  {
+   "code": "KS",
+   "name": "Kansas",
+   "agency": "Kansas Department of Wildlife and Parks",
+   "short": "KDWP",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": {
+    "t": "Go Outdoors Kansas",
+    "u": "https://www.gooutdoorskansas.gov/"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": [
+    {
+     "t": "Go Outdoors Kansas",
+     "u": "https://www.gooutdoorskansas.gov/"
+    }
+   ]
+  },
+  {
+   "code": "KY",
+   "name": "Kentucky",
+   "agency": "Kentucky Department of Fish and Wildlife Resources",
+   "short": "KDFWR",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "LA",
+   "name": "Louisiana",
+   "agency": "Louisiana Department of Wildlife and Fisheries",
+   "short": "LDWF",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "MA",
+   "name": "Massachusetts",
+   "agency": "Massachusetts Division of Fisheries and Wildlife",
+   "short": "MassWildlife",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "MassFishHunt",
+    "u": "https://massfishhunt.mass.gov/"
+   },
+   "hunt": {
+    "res": 40.0,
+    "non": 112.0,
+    "t": "Resident Hunting; Non-resident (age 15 and over) Hunting, Big Game"
+   },
+   "combo": {
+    "res": 75.0,
+    "non": null,
+    "t": "Resident Sporting (combination hunting and freshwater fishing)"
+   },
+   "fish": {
+    "res": 40.0,
+    "non": 50.0,
+    "t": "Resident Fishing; Non-resident Fishing"
+   },
+   "deer": {
+    "res": 10.0,
+    "non": 30.0,
+    "t": "Antlerless Deer Permit (when issued)"
+   },
+   "tag": "Hunting, big game and sporting licenses include 2 antlered deer tags valid statewide; antlerless deer permits are sold separately when issued.",
+   "online": "Licenses are sold online through MassFishHunt.",
+   "src": [
+    {
+     "t": "License types and fees | Mass.gov",
+     "u": "https://www.mass.gov/info-details/license-types-and-fees"
+    },
+    {
+     "t": "Hunting licenses, permits, and stamps | Mass.gov",
+     "u": "https://www.mass.gov/info-details/hunting-licenses-permits-and-stamps"
+    }
+   ]
+  },
+  {
+   "code": "MD",
+   "name": "Maryland",
+   "agency": "Maryland Department of Natural Resources, Wildlife and Heritage Service",
+   "short": "Maryland DNR",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": {
+    "t": "Maryland Outdoors (COMPASS)",
+    "u": "https://mdoutdoors.maryland.gov/"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "ME",
+   "name": "Maine",
+   "agency": "Maine Department of Inland Fisheries and Wildlife",
+   "short": "MDIFW",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "MI",
+   "name": "Michigan",
+   "agency": "Michigan Department of Natural Resources",
+   "short": "DNR",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "MN",
+   "name": "Minnesota",
+   "agency": "Minnesota Department of Natural Resources",
+   "short": "MN DNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Minnesota DNR license sales (mndnr.gov/elsinfo)",
+    "u": "https://www.dnr.state.mn.us/elsinfo"
+   },
+   "hunt": {
+    "res": 22.0,
+    "non": 102.0,
+    "t": "Annual Small Game License (adult)"
+   },
+   "combo": {
+    "res": 41.0,
+    "non": null,
+    "t": "Individual Sports (individual angling and small game license)"
+   },
+   "fish": {
+    "res": 25.0,
+    "non": 51.0,
+    "t": "Annual Individual Angling"
+   },
+   "deer": {
+    "res": 34.0,
+    "non": 185.0,
+    "t": "Deer by Firearms (adult)"
+   },
+   "tag": null,
+   "online": "Licenses are sold online at mndnr.gov/elsinfo, through the MN DNR Licensing mobile app, and at more than 1,200 agent locations across Minnesota.",
+   "src": [
+    {
+     "t": "2026 Minnesota Hunting & Trapping Regulations (PDF)",
+     "u": "https://files.dnr.state.mn.us/rlp/regulations/hunting/full_regs.pdf"
+    },
+    {
+     "t": "Minnesota Fishing Regulations (PDF)",
+     "u": "https://files.dnr.state.mn.us/rlp/regulations/fishing/fishing_regs.pdf"
+    }
+   ]
+  },
+  {
+   "code": "MO",
+   "name": "Missouri",
+   "agency": "Missouri Department of Conservation",
+   "short": "MDC",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "MDC permit sales (Buy Permits Now)",
+    "u": "https://mdc-web.s3licensing.com/"
+   },
+   "hunt": {
+    "res": 11.5,
+    "non": 108.5,
+    "t": "Small Game Hunting Permit"
+   },
+   "combo": {
+    "res": 22.5,
+    "non": null,
+    "t": "Small Game Hunting and Fishing Permit (residents only)"
+   },
+   "fish": {
+    "res": 14.0,
+    "non": 57.0,
+    "t": "Fishing Permit"
+   },
+   "deer": {
+    "res": 19.5,
+    "non": 360.0,
+    "t": "Firearms Any-Deer Hunting Permit"
+   },
+   "tag": "Deer and turkey hunting privileges are not included in the Small Game Hunting Permit; deer require separate permits such as the Firearms Any-Deer Hunting Permit.",
+   "online": "Permits can be bought online, over the phone, at any MDC office, or from more than a thousand vendors around the state.",
+   "src": [
+    {
+     "t": "Hunting Permits | Missouri Department of Conservation",
+     "u": "https://mdc.mo.gov/permits/hunting-permits"
+    },
+    {
+     "t": "Hunting Permits (page 2) | Missouri Department of Conservation",
+     "u": "https://mdc.mo.gov/permits/hunting-permits?page=1"
+    },
+    {
+     "t": "Fishing Permits | Missouri Department of Conservation",
+     "u": "https://mdc.mo.gov/permits/fishing-permits"
+    }
+   ]
+  },
+  {
+   "code": "MS",
+   "name": "Mississippi",
+   "agency": "Mississippi Department of Wildlife, Fisheries, and Parks",
+   "short": "MDWFP",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Licenses and Permits | MDWFP",
+    "u": "https://www.mdwfp.com/licenses-permits"
+   },
+   "hunt": {
+    "res": 25.0,
+    "non": 300.0,
+    "t": "All Game Hunting/Freshwater Fishing (resident); All Game Hunting (non-resident)"
+   },
+   "combo": {
+    "res": 45.0,
+    "non": null,
+    "t": "Sportsman's License (resident; includes Archery/Primitive Weapon/Crossbow and Freshwater Fishing)"
+   },
+   "fish": {
+    "res": null,
+    "non": 68.0,
+    "t": "Small Game Hunting/Freshwater Fishing (resident, no fishing-only annual license listed); Freshwater Fishing (non-resident)"
+   },
+   "deer": {
+    "res": null,
+    "non": 100.0,
+    "t": "Deer Permit (non-resident)"
+   },
+   "tag": "All Deer, Turkey, and Hog hunters must buy either an All Game Hunting/Fishing or the Sportsman's License; non-residents must also buy a Deer Permit.",
+   "online": "Licenses are sold online via MDWFP's Purchase a License page and through vendors/agents; License Support: 1-800-5GOHUNT. Prices exclude agent and process fees.",
+   "src": [
+    {
+     "t": "Hunting & Fishing License Prices | MDWFP",
+     "u": "https://www.mdwfp.com/licenses-permits/hunting-and-fishing-license-prices"
+    }
+   ]
+  },
+  {
+   "code": "MT",
+   "name": "Montana",
+   "agency": "Montana Fish, Wildlife & Parks",
+   "short": "FWP",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Buy And Apply | Montana FWP",
+    "u": "https://fwp.mt.gov/buyandapply"
+   },
+   "hunt": {
+    "res": 10.0,
+    "non": 50.0,
+    "t": "Base Hunting (prerequisite; Conservation license and AISPP also required)"
+   },
+   "combo": null,
+   "fish": {
+    "res": 21.0,
+    "non": 100.0,
+    "t": "Base Fishing License Full Season (Conservation license and AISPP sold separately)"
+   },
+   "deer": {
+    "res": 16.0,
+    "non": null,
+    "t": "General Deer License"
+   },
+   "tag": "Residents can buy the General Deer License over the counter; nonresidents get deer through combination licenses such as the Deer Combination — General, available via special drawing.",
+   "online": "FWP sells licenses online (Online Licensing / MyFWP app) and through License Ambassadors.",
+   "src": [
+    {
+     "t": "HUNT :: Deer regulations | Montana FWP",
+     "u": "https://fwp.mt.gov/hunt/regulations/deer"
+    },
+    {
+     "t": "Buy And Apply | Montana FWP",
+     "u": "https://fwp.mt.gov/buyandapply"
+    },
+    {
+     "t": "2026 Licensing Fees (PDF) | Montana FWP",
+     "u": "https://fwp.mt.gov/binaries/content/assets/fwp/buyandapply/license-ambassador/license-fees-for-2026_web.pdf"
+    },
+    {
+     "t": "Fishing Licenses | Montana FWP",
+     "u": "https://fwp.mt.gov/buyandapply/fishinglicenses"
+    }
+   ]
+  },
+  {
+   "code": "NC",
+   "name": "North Carolina",
+   "agency": "North Carolina Wildlife Resources Commission",
+   "short": "NCWRC",
+   "status": "blocked",
+   "reason": "the fee page loads its prices by script only",
+   "buy": {
+    "t": "Go Outdoors North Carolina",
+    "u": "https://www.gooutdoorsnorthcarolina.com/"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": [
+    {
+     "t": "License Types and Fees | NC Wildlife",
+     "u": "https://www.ncwildlife.gov/hunting/license-types-and-fees"
+    }
+   ]
+  },
+  {
+   "code": "ND",
+   "name": "North Dakota",
+   "agency": "North Dakota Game and Fish Department",
+   "short": "NDGF",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Buy and Apply - North Dakota Game and Fish",
+    "u": "https://gf.nd.gov/buy-apply"
+   },
+   "hunt": {
+    "res": 20,
+    "non": 150,
+    "t": "Small Game License (age 16 or older) / Nonresident Small Game (ages 16 and older, 14-consecutive-day or two 7-day periods); Fishing, Hunting, Furbearer Certificate and General Game and Habitat License ($20) also required"
+   },
+   "combo": {
+    "res": 62,
+    "non": null,
+    "t": "Combination License (ages 16 and older) - includes fishing, general game and habitat, small game and furbearer licenses"
+   },
+   "fish": {
+    "res": 27,
+    "non": 68,
+    "t": "Fishing License (ages 16 and older) / Individual Season Fishing (ages 16 and older)"
+   },
+   "deer": {
+    "res": 35,
+    "non": 350,
+    "t": "Resident Deer Gun or Muzzleloader (16 years of age and older) / Nonresident Deer Gun, Muzzleloader or Landowner"
+   },
+   "tag": "Deer gun licenses are issued by lottery, and in addition to the deer license hunters must also hold a fishing, hunting and furbearer certificate and a general game and habitat license or combination license.",
+   "online": "Licenses are sold online through the Department's website, at Department district offices and at authorized license vendors.",
+   "src": [
+    {
+     "t": "Resident Licenses and Requirements - NDGF",
+     "u": "https://gf.nd.gov/licensing/resident"
+    },
+    {
+     "t": "Nonresident Licenses and Requirements - NDGF",
+     "u": "https://gf.nd.gov/licensing/nonresident"
+    },
+    {
+     "t": "2026 North Dakota Deer Hunting Guide",
+     "u": "https://gf.nd.gov/gnf/regulations/docs/deer/2026-Deer-Guide.pdf"
+    }
+   ]
+  },
+  {
+   "code": "NE",
+   "name": "Nebraska",
+   "agency": "Nebraska Game and Parks Commission",
+   "short": "NGPC",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "NH",
+   "name": "New Hampshire",
+   "agency": "New Hampshire Fish and Game Department",
+   "short": "NHFG",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": {
+    "t": "New Hampshire Fish and Game online license sales system",
+    "u": "https://www.nhfishandgame.com/"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "NJ",
+   "name": "New Jersey",
+   "agency": "New Jersey Division of Fish and Wildlife",
+   "short": "NJFW",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "NM",
+   "name": "New Mexico",
+   "agency": "New Mexico Department of Wildlife",
+   "short": "NMDOW",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Online License System - Buy A License",
+    "u": "https://onlinesales.wildlife.state.nm.us/"
+   },
+   "hunt": {
+    "res": 25,
+    "non": 90,
+    "t": "Game-Hunting License (valid for small game)"
+   },
+   "combo": {
+    "res": 42,
+    "non": null,
+    "t": "Game-Hunting & Fishing License"
+   },
+   "fish": {
+    "res": 35,
+    "non": 90,
+    "t": "Annual Fishing"
+   },
+   "deer": {
+    "res": 60,
+    "non": 398,
+    "t": "Deer License - Standard (S) (draw)"
+   },
+   "tag": "Public-land deer licenses are drawn (draw license fees include a nonrefundable application fee), while private-land-only deer licenses are sold over the counter; a carcass tag is required unless the E-Tag option is chosen.",
+   "online": "Licenses are sold through the department's online license system, at license vendors (a vendor fee applies to OTC transactions) and by phone at 1-888-248-6866.",
+   "src": [
+    {
+     "t": "2026-27 Over-the-Counter (OTC) License Fees (Big Game Rules p.16)",
+     "u": "https://wildlife.dgf.nm.gov/download/04-over-the-counter-otc-license-fees/?wpdmdl=52835"
+    },
+    {
+     "t": "2026-27 Draw Hunt License Fees (Big Game Rules p.17)",
+     "u": "https://wildlife.dgf.nm.gov/download/05-hunt-licenses-and-fees-2/?wpdmdl=52836"
+    },
+    {
+     "t": "2026-2027 New Mexico Fishing Rules & Info",
+     "u": "https://wildlife.dgf.nm.gov/fishing/licenses-permits/requirements-fees/"
+    }
+   ]
+  },
+  {
+   "code": "NV",
+   "name": "Nevada",
+   "agency": "Nevada Department of Wildlife",
+   "short": "NDOW",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Nevada licensing website (ndowlicensing.com)",
+    "u": "https://nevada.licensing.app/"
+   },
+   "hunt": {
+    "res": 38.0,
+    "non": null,
+    "t": "Annual Adult Hunting License (ages 18 & older)"
+   },
+   "combo": {
+    "res": 75.0,
+    "non": 155.0,
+    "t": "Annual Adult Combination License (ages 18 & older)"
+   },
+   "fish": {
+    "res": 40.0,
+    "non": 80.0,
+    "t": "Annual Adult Fishing License (ages 18 & older)"
+   },
+   "deer": {
+    "res": 30.0,
+    "non": 240.0,
+    "t": "Mule Deer Tag"
+   },
+   "tag": "Deer tags are separate from the license: big game tags may be obtained through the draw process, First-Come, First-Served program, eligible landowner programs, or auctions and raffles.",
+   "online": "Licenses are sold online through ndowlicensing.com and at licensing agents by county.",
+   "src": [
+    {
+     "t": "Hunting Licenses | NDOW",
+     "u": "https://www.ndow.org/apply-buy/apply-buy-hunting/"
+    },
+    {
+     "t": "Fishing Licenses | NDOW",
+     "u": "https://www.ndow.org/apply-buy/fishing/"
+    }
+   ]
+  },
+  {
+   "code": "NY",
+   "name": "New York",
+   "agency": "New York State Department of Environmental Conservation",
+   "short": "NYSDEC",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "DEC Automated Licensing System (DECALS)",
+    "u": "https://dec.ny.gov/regulatory/permits-licenses/sporting-and-use/sporting/decals"
+   },
+   "hunt": {
+    "res": 22,
+    "non": 100,
+    "t": "Annual Hunting License"
+   },
+   "combo": null,
+   "fish": {
+    "res": 25,
+    "non": 50,
+    "t": "Annual fishing license"
+   },
+   "deer": {
+    "res": 10,
+    "non": null,
+    "t": "Deer Management Permit (antlerless deer, select Wildlife Management Units)"
+   },
+   "tag": "The Annual Hunting License covers big game and small game and no separate bear tag is needed; antlerless deer in select Wildlife Management Units require a Deer Management Permit applied for separately.",
+   "online": "Licenses are sold online and by phone through DECALS, at License Issuing Agents, and e-licenses and e-tags can be carried in the HuntFishNY mobile app.",
+   "src": [
+    {
+     "t": "Hunting Licenses - NYSDEC",
+     "u": "https://dec.ny.gov/regulatory/permits-licenses/sporting-and-use/sporting/hunting-license"
+    },
+    {
+     "t": "Fishing Licenses - NYSDEC",
+     "u": "https://dec.ny.gov/regulatory/permits-licenses/sporting-and-use/sporting/fishing-license"
+    }
+   ],
+   "more": [
+    {
+     "t": "Bowhunting Privilege",
+     "res": 15,
+     "non": 30
+    },
+    {
+     "t": "Muzzleloading Privilege",
+     "res": 15,
+     "non": 30
+    },
+    {
+     "t": "Turkey Permit",
+     "res": 10,
+     "non": 20
+    },
+    {
+     "t": "Deer Management Permit (antlerless deer, select Wildlife Management Units)",
+     "res": 10,
+     "non": null
+    },
+    {
+     "t": "Federal Duck Stamp",
+     "res": 25,
+     "non": 25
+    }
+   ],
+   "he": "To buy a hunting license or privilege you show a hunter education certificate or a previous license or privilege; the Annual Hunting License must be bought before the bowhunting, muzzleloading and turkey privileges."
+  },
+  {
+   "code": "OH",
+   "name": "Ohio",
+   "agency": "Ohio Department of Natural Resources, Division of Wildlife",
+   "short": "ODNR",
+   "status": "blocked",
+   "reason": "the only fee table we could open is dated October 2021",
+   "buy": {
+    "t": "Ohio Wildlife Licensing System",
+    "u": "https://oh-licensing.s3licensing.com/"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": "Deer permits are listed separately from hunting licenses (either-sex and antlerless-only permits).",
+   "online": "Licenses are sold at license agents, at ODNR Division of Wildlife offices and online at wildohio.gov.",
+   "src": [
+    {
+     "t": "Publication 5113 License Offerings - ODNR Division of Wildlife",
+     "u": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/laws-regs-licenses/Pub%205113%20License%20Offerings.pdf"
+    }
+   ]
+  },
+  {
+   "code": "OK",
+   "name": "Oklahoma",
+   "agency": "Oklahoma Department of Wildlife Conservation",
+   "short": "ODWC",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors Oklahoma",
+    "u": "https://gooutdoorsoklahoma.com/"
+   },
+   "hunt": {
+    "res": 36,
+    "non": 209,
+    "t": "Annual Hunting / Nonresident Annual Hunting"
+   },
+   "combo": {
+    "res": 53,
+    "non": null,
+    "t": "Annual Combination Fishing & Hunting"
+   },
+   "fish": {
+    "res": 31,
+    "non": 81,
+    "t": "Annual Fishing / Nonresident Annual Fishing"
+   },
+   "deer": {
+    "res": 36,
+    "non": 501,
+    "t": "Deer Gun (includes season bag limit)"
+   },
+   "tag": "Deer archery, muzzleloader and gun licenses are additional licenses required in addition to the base hunting license.",
+   "online": "Licenses are sold online through Go Outdoors Oklahoma and in person at license agents.",
+   "src": [
+    {
+     "t": "License Fees - Oklahoma Department of Wildlife Conservation",
+     "u": "https://www.wildlifedepartment.com/licensing/regs/license-fees"
+    }
+   ]
+  },
+  {
+   "code": "OR",
+   "name": "Oregon",
+   "agency": "Oregon Department of Fish and Wildlife",
+   "short": "ODFW",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "ODFW Electronic Licensing System (Buy license)",
+    "u": "https://odfw.huntfishoregon.com/"
+   },
+   "hunt": {
+    "res": 39.0,
+    "non": 193.0,
+    "t": "Resident Hunter / Nonresident Hunter (column 'Effective 2026', costs include agent fee)"
+   },
+   "combo": {
+    "res": 86.0,
+    "non": null,
+    "t": "Combination (column 'Effective 2026')"
+   },
+   "fish": {
+    "res": 50.0,
+    "non": 138.0,
+    "t": "Resident Annual Angler / Nonresident Annual Angler (column 'Effective 2026')"
+   },
+   "deer": {
+    "res": 33.0,
+    "non": 500.0,
+    "t": "Resident Deer / Nonresident Deer tag (column 'Effective 2026')"
+   },
+   "tag": "Deer tags are listed separately from the hunting license in the fee schedule.",
+   "online": null,
+   "src": [
+    {
+     "t": "Oregon Department of Fish and Wildlife Recreational Fee Schedule",
+     "u": "https://myodfw.com/sites/default/files/2025-11/Rec_License_Fee_Schedule.pdf"
+    }
+   ]
+  },
+  {
+   "code": "PA",
+   "name": "Pennsylvania",
+   "agency": "Pennsylvania Game Commission",
+   "short": "PGC",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "HuntFish.PA.gov",
+    "u": "https://www.huntfish.pa.gov/"
+   },
+   "hunt": {
+    "res": 20.97,
+    "non": 101.97,
+    "t": "General hunting license (adult)"
+   },
+   "combo": null,
+   "fish": null,
+   "deer": {
+    "res": 6.97,
+    "non": 26.97,
+    "t": "Antlerless deer license"
+   },
+   "tag": "Antlerless deer licenses are sold separately by Wildlife Management Unit wherever hunting licenses are sold, and residents are guaranteed one for the WMU of their choice if bought before nonresident sales open.",
+   "online": "Licenses are sold at 500+ license issuing agents, including county treasurer and Game Commission offices, and online at HuntFish.PA.gov, with licenses and harvest tags mailed to online buyers.",
+   "src": [
+    {
+     "t": "2026-27 Hunting Licenses to Go on Sale June 22 - Pennsylvania Game Commission",
+     "u": "https://www.pa.gov/agencies/pgc/newsroom/2026-27-hunting-licenses-to-go-on-sale-june-22"
+    }
+   ]
+  },
+  {
+   "code": "RI",
+   "name": "Rhode Island",
+   "agency": "Rhode Island Department of Environmental Management, Division of Fish and Wildlife",
+   "short": "RIDEM",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": {
+    "t": "RIDEM Hunting & Fishing Licenses (not verified: 403 to curl)",
+    "u": "https://dem.ri.gov/huntfish"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": [
+    {
+     "t": "RIDEM Hunting license fees",
+     "u": "https://dem.ri.gov/programs/managementservices/licenses/wildfees.php"
+    }
+   ]
+  },
+  {
+   "code": "SC",
+   "name": "South Carolina",
+   "agency": "South Carolina Department of Natural Resources",
+   "short": "SCDNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors South Carolina",
+    "u": "https://www.gooutdoorssouthcarolina.com/"
+   },
+   "hunt": {
+    "res": 12.0,
+    "non": 125.0,
+    "t": "Annual State Hunting License"
+   },
+   "combo": {
+    "res": 25.0,
+    "non": null,
+    "t": "Annual Combination License (includes State Hunting, Big Game & Freshwater Fishing)"
+   },
+   "fish": {
+    "res": 10.0,
+    "non": 35.0,
+    "t": "Annual Freshwater Fishing License"
+   },
+   "deer": {
+    "res": 6.0,
+    "non": 100.0,
+    "t": "Annual Big Game Permit (required to hunt bear, deer or turkey)"
+   },
+   "tag": "Residents receive deer tags at no cost (5 tags: 2 antlerless and 3 unrestricted antlered), required in addition to a hunting license and big game permit; nonresidents must buy a $50.00 unrestricted antlered (buck) tag.",
+   "online": "SCDNR sells hunting and fishing licenses, permits and tags online through Go Outdoors SC, its online licensing system, also available as a mobile app.",
+   "src": [
+    {
+     "t": "SCDNR - Resident License Pricing",
+     "u": "https://dnr.sc.gov/licenses/pricingresident.html"
+    },
+    {
+     "t": "SCDNR - Nonresident License Pricing",
+     "u": "https://dnr.sc.gov/licenses/pricingnonresident.html"
+    },
+    {
+     "t": "SCDNR - Purchase a License",
+     "u": "https://dnr.sc.gov/purchase.html"
+    }
+   ]
+  },
+  {
+   "code": "SD",
+   "name": "South Dakota",
+   "agency": "South Dakota Game, Fish and Parks",
+   "short": "GFP",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors South Dakota licensing",
+    "u": "https://license.gooutdoorssouthdakota.com/Licensing/CustomerLookup.aspx"
+   },
+   "hunt": {
+    "res": 36,
+    "non": 142,
+    "t": "Resident Small Game / Nonresident Small Game (10-days, 2 5-day periods)"
+   },
+   "combo": {
+    "res": 60,
+    "non": null,
+    "t": "Resident Combination (Small game + fishing)"
+   },
+   "fish": {
+    "res": 31,
+    "non": 80,
+    "t": "Resident Annual Fishing / Nonresident Annual Fishing"
+   },
+   "deer": {
+    "res": 45,
+    "non": 375,
+    "t": "Deer | Archery 1 Any Deer"
+   },
+   "tag": null,
+   "online": "Licenses are bought online through the Go Outdoors South Dakota licensing site; fees marked * exclude the agent fee.",
+   "src": [
+    {
+     "t": "License Types & Costs | South Dakota Game, Fish, and Parks",
+     "u": "https://gfp.sd.gov/license-types/"
+    }
+   ]
+  },
+  {
+   "code": "TN",
+   "name": "Tennessee",
+   "agency": "Tennessee Wildlife Resources Agency",
+   "short": "TWRA",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": {
+    "t": "Go Outdoors Tennessee",
+    "u": "https://www.gooutdoorstennessee.com/"
+   },
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "TX",
+   "name": "Texas",
+   "agency": "Texas Parks and Wildlife Department",
+   "short": "TPWD",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Texas Hunting & Fishing License sales (TPWD online store)",
+    "u": "https://www.txfgsales.com/"
+   },
+   "hunt": {
+    "res": 25,
+    "non": 315,
+    "t": "Resident Hunting License / Non-resident General Hunting License"
+   },
+   "combo": {
+    "res": 68,
+    "non": null,
+    "t": "Super Combo (Texas residents only)"
+   },
+   "fish": {
+    "res": 30,
+    "non": 58,
+    "t": "Resident Freshwater Package / Non-resident Freshwater Package"
+   },
+   "deer": null,
+   "tag": null,
+   "online": "Licenses are sold online (Buy online) or through retailers; licenses are valid from date of purchase until August 31 and go on sale August 15.",
+   "src": [
+    {
+     "t": "Hunting Licenses — Outdoor Annual, TPWD",
+     "u": "https://tpwd.texas.gov/regulations/outdoor-annual/licenses/hunting-licenses-and-permits/hunting-licenses"
+    },
+    {
+     "t": "Fishing Licenses and Packages — TPWD",
+     "u": "https://tpwd.texas.gov/regulations/outdoor-annual/licenses/fishing-licenses-stamps-tags-packages/fishing-licenses-and-packages"
+    },
+    {
+     "t": "Super Combo & Combo License Packages — TPWD",
+     "u": "https://tpwd.texas.gov/regulations/outdoor-annual/licenses/combination-hunting-fishing/super-combo-combo-license-packages"
+    }
+   ]
+  },
+  {
+   "code": "UT",
+   "name": "Utah",
+   "agency": "Utah Division of Wildlife Resources",
+   "short": "DWR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Buy a hunting or fishing license (Utah DWR)",
+    "u": "https://wildlifelicense.utah.gov/hflo"
+   },
+   "hunt": {
+    "res": 40.0,
+    "non": 144.0,
+    "t": "1-year basic hunting license (age 18-64 resident / 18 and older nonresident)"
+   },
+   "combo": {
+    "res": 44.0,
+    "non": 190.0,
+    "t": "1-year combination license"
+   },
+   "fish": {
+    "res": 40.0,
+    "non": 120.0,
+    "t": "1-year fishing license (adult)"
+   },
+   "deer": {
+    "res": 46.0,
+    "non": 599.0,
+    "t": "General-season buck deer permit"
+   },
+   "tag": "Deer permits are separate documents from the hunting license; depending on the species, an additional permit is needed.",
+   "online": "Licenses can be bought online, at a local vendor/retail store, or over the phone.",
+   "src": [
+    {
+     "t": "Fees: licenses, permits & miscellaneous - Utah Division of Wildlife Resources",
+     "u": "https://wildlife.utah.gov/fees"
+    }
+   ]
+  },
+  {
+   "code": "VA",
+   "name": "Virginia",
+   "agency": "Virginia Department of Wildlife Resources",
+   "short": "DWR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Outdoors Virginia",
+    "u": "https://www.gooutdoorsvirginia.com/"
+   },
+   "hunt": {
+    "res": 28.0,
+    "non": 136.0,
+    "t": "One-year Resident License to Hunt / Nonresident License to Hunt (16 years of age or older)"
+   },
+   "combo": {
+    "res": 130.0,
+    "non": null,
+    "t": "Resident Sportsman License to Hunt and Freshwater Fish"
+   },
+   "fish": {
+    "res": 28.0,
+    "non": null,
+    "t": "Resident License to Freshwater Fish (one-year)"
+   },
+   "deer": {
+    "res": 28.0,
+    "non": 136.0,
+    "t": "Resident / Nonresident Deer and Turkey Hunting License (16 years of age or older)"
+   },
+   "tag": "A deer/turkey license is required in addition to a hunting license to hunt deer or turkey (valid July 1–June 30).",
+   "online": "Licenses are sold on GoOutdoorsVirginia.com, by phone, or through retail license agents.",
+   "src": [
+    {
+     "t": "Hunting Licenses | Virginia DWR",
+     "u": "https://dwr.virginia.gov/hunting/regulations/licenses/"
+    },
+    {
+     "t": "Fishing License Information & Fees | Virginia DWR",
+     "u": "https://dwr.virginia.gov/fishing/regulations/licenses/"
+    }
+   ]
+  },
+  {
+   "code": "VT",
+   "name": "Vermont",
+   "agency": "Vermont Fish and Wildlife Department",
+   "short": "VTF&W",
+   "status": "blocked",
+   "reason": "the agency site refused automated readers",
+   "buy": null,
+   "hunt": null,
+   "combo": null,
+   "fish": null,
+   "deer": null,
+   "tag": null,
+   "online": null,
+   "src": []
+  },
+  {
+   "code": "WA",
+   "name": "Washington",
+   "agency": "Washington Department of Fish and Wildlife",
+   "short": "WDFW",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "WILD licensing website (WDFW online licensing system)",
+    "u": "https://fishhunt.dfw.wa.gov/"
+   },
+   "hunt": {
+    "res": 55.13,
+    "non": 252.47,
+    "t": "Small Game (annual)"
+   },
+   "combo": {
+    "res": 330.54,
+    "non": null,
+    "t": "Get Outdoors (Fish Washington + Deer + Elk + Bear + Cougar w/ discounted Small game, resident package; non-resident not sold)"
+   },
+   "fish": {
+    "res": 39.95,
+    "non": 115.85,
+    "t": "Freshwater (includes a Vehicle Access Pass)"
+   },
+   "deer": {
+    "res": 61.7,
+    "non": 599.07,
+    "t": "Deer License"
+   },
+   "tag": "The Get Outdoors package lists deer, elk, bear and cougar tags as included; special hunt permits are by application (Special Hunt Permit Application $9.61 resident).",
+   "online": "Licenses are sold through WDFW's online licensing system (WILD), by phone at 360-902-2464, or at more than 300 license dealers around the state.",
+   "src": [
+    {
+     "t": "Hunting licenses | WDFW",
+     "u": "https://wdfw.wa.gov/licenses/hunting"
+    },
+    {
+     "t": "Big game hunting licenses | WDFW",
+     "u": "https://wdfw.wa.gov/licenses/hunting/big-game"
+    },
+    {
+     "t": "Small game hunting licenses | WDFW",
+     "u": "https://wdfw.wa.gov/licenses/hunting/small-game"
+    },
+    {
+     "t": "Fishing license types and fees | WDFW",
+     "u": "https://wdfw.wa.gov/licenses/fishing/types-fees"
+    }
+   ],
+   "more": [
+    {
+     "t": "Deer License",
+     "res": 61.7,
+     "non": 599.07
+    },
+    {
+     "t": "Elk License",
+     "res": 69.29,
+     "non": 685.6
+    },
+    {
+     "t": "Deer + Elk License",
+     "res": 116.85,
+     "non": 1020.06
+    },
+    {
+     "t": "Bear License",
+     "res": 32.86,
+     "non": 306.1
+    },
+    {
+     "t": "Deer + Elk + Bear + Cougar License",
+     "res": 133.03,
+     "non": 1188.04
+    },
+    {
+     "t": "Deer License with discounted small game license",
+     "res": 92.06,
+     "non": 732.66
+    },
+    {
+     "t": "Turkey Tag",
+     "res": 21.75,
+     "non": 61.22
+    },
+    {
+     "t": "Special Hunt Permit Application",
+     "res": 9.61,
+     "non": 152.3
+    }
+   ],
+   "he": "Anyone buying a license who was born after Jan. 1, 1972 must show proof of a hunter education class; a one-time deferral option is available."
+  },
+  {
+   "code": "WI",
+   "name": "Wisconsin",
+   "agency": "Wisconsin Department of Natural Resources",
+   "short": "DNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Go Wild",
+    "u": "https://gowild.wi.gov/"
+   },
+   "hunt": {
+    "res": 18,
+    "non": 90,
+    "t": "Small game hunting license"
+   },
+   "combo": {
+    "res": 165,
+    "non": 620,
+    "t": "Conservation patron license"
+   },
+   "fish": null,
+   "deer": {
+    "res": 24,
+    "non": 200,
+    "t": "Gun deer license"
+   },
+   "tag": null,
+   "online": "All licenses, stamps and permits can be purchased on Go Wild.",
+   "src": [
+    {
+     "t": "License Fees | Licensing Requirements | Wisconsin DNR",
+     "u": "https://dnr.wisconsin.gov/node/119906"
+    }
+   ]
+  },
+  {
+   "code": "WV",
+   "name": "West Virginia",
+   "agency": "West Virginia Division of Natural Resources",
+   "short": "WVDNR",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "WVhunt.com (Official WVDNR website)",
+    "u": "https://wvhunt.com"
+   },
+   "hunt": {
+    "res": 19,
+    "non": 119,
+    "t": "Hunting and Trapping (Class A) / Nonresident Statewide Hunting/Trapping License (Class E)"
+   },
+   "combo": {
+    "res": 35,
+    "non": null,
+    "t": "Sportsman Hunting/Fishing/Trapping (Class X), ages 18 through 64"
+   },
+   "fish": null,
+   "deer": {
+    "res": 10,
+    "non": 27,
+    "t": "Antlerless Deer Hunting Stamp (Class N / Class NN)"
+   },
+   "tag": "Per the license table, the base license plus stamp (A+CS resident, E+CS/LE nonresident) covers buck firearms deer; antlerless deer need a Class N/NN stamp and additional deer need RB/RG/RM stamps.",
+   "online": "Licenses are sold at about 175 retail agents and county clerks, on WVhunt.com ($2 fee per transaction), or by phone at (304) 558-6200.",
+   "src": [
+    {
+     "t": "West Virginia Hunting and Trapping Regulations Summary July 2026-June 2027 (WVDNR)",
+     "u": "https://wvdnr.gov/wp-content/uploads/2026/07/Pub_Regs_HuntTrap_202627_DNR_WILD_20260724.pdf"
+    }
+   ]
+  },
+  {
+   "code": "WY",
+   "name": "Wyoming",
+   "agency": "Wyoming Game and Fish Department",
+   "short": "WGFD",
+   "status": "read",
+   "reason": null,
+   "buy": {
+    "t": "Electronic License Service Online (ELSO)",
+    "u": "https://wgfapps.wyo.gov/elso/ELSOWelcome.aspx"
+   },
+   "hunt": {
+    "res": 27.0,
+    "non": 74.0,
+    "t": "Game Bird/Small Game 12-Month"
+   },
+   "combo": null,
+   "fish": {
+    "res": 27.0,
+    "non": 102.0,
+    "t": "Fish 12-Month"
+   },
+   "deer": {
+    "res": 42.0,
+    "non": 374.0,
+    "t": "Resident Deer / Nonresident Deer"
+   },
+   "tag": "Deer is a separate license; if applied for through the drawing, an application fee ($5 resident, $15 nonresident) must also be remitted.",
+   "online": null,
+   "src": [
+    {
+     "t": "License Fee List | Wyoming Game & Fish Department",
+     "u": "https://wgfd.wyo.gov/licenses-applications/license-fee-list"
+    }
+   ]
+  }
+ ]
+}

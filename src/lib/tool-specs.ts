@@ -11,6 +11,7 @@ import {
   type Species, type Method, type State,
 } from './engine/seasons';
 import { formatMoney } from './format';
+import { LSTATES, LREAD, READ_STATES, lByCode, price, ranked, comboSaving, type LState, type Who } from './engine/licenses';
 
 const s = (v: V, k: string) => String(v[k]);
 const n = (v: V, k: string) => Number(v[k]) || 0;
@@ -188,7 +189,100 @@ function licenseAnswer(v: V): ToolOut {
   };
 }
 
+/* ---------- 50-state licenses (src/data/licenses.json, read on 2026-11-14) ---------- */
+const L_OPTS = LSTATES.map((x) => ({ value: x.code, label: x.status === 'blocked' ? `${x.name} (prices to check)` : x.name }));
+const L_STATE = (def = 'TX'): Input => ({ kind: 'select', id: 'st', label: 'State', def, options: L_OPTS, help: `${LSTATES.length} states, prices read in ${READ_STATES.length}` });
+const WHO = (def = 'res'): Input => ({ kind: 'choice', id: 'who', label: 'You are', def, options: [{ value: 'res', label: 'Resident' }, { value: 'non', label: 'Nonresident' }] });
+const pr = (x: number | null) => (x === null ? 'not printed' : usd(x));
+const whoWord = (w: Who) => (w === 'res' ? 'resident' : 'nonresident');
+const lnote = (st: LState) => (st.status === 'blocked'
+  ? `The ${st.short} site refused our reader on ${longDay(LREAD)} (${st.reason ?? 'blocked'}): prices to check on the agency store.`
+  : `As printed by the ${st.agency} (${st.src.map((x) => x.t).join('; ')}), read on ${longDay(LREAD)}. Vendor and processing fees are not included.`);
+const storeRow = (st: LState): [string, string] => ['Where to buy', st.buy ? `${st.buy.t} (official, run by ${st.short})` : 'agency page to check'];
+
+/** Base annual hunting license of a state, with combination, deer license and the official store. */
+function buyAnswer(v: V): ToolOut {
+  const st = lByCode(s(v, 'st')), who = s(v, 'who') as Who, p = price(st.hunt, who);
+  const all = ranked('hunt', who);
+  const rank = all.findIndex((x) => x.s.code === st.code);
+  return {
+    label: `${st.name}: annual hunting license for an adult ${whoWord(who)}`,
+    value: st.status === 'blocked' ? 'To check' : p === null ? 'Not printed' : usd(p),
+    sub: st.hunt ? `${st.hunt.t}${rank >= 0 ? ` · ${rank + 1} of ${all.length} states, cheapest first` : ''}` : 'No base hunting license price read for this state',
+    rows: [
+      ...(st.combo ? [[`Hunting and fishing: ${st.combo.t}`, pr(price(st.combo, who))] as [string, string]] : []),
+      ...(st.deer ? [[`Deer: ${st.deer.t}`, pr(price(st.deer, who))] as [string, string]] : []),
+      storeRow(st),
+      ...(st.online ? [['How it is sold', st.online] as [string, string]] : []),
+    ],
+    table: {
+      caption: `Adult ${whoWord(who)} annual hunting license in the ${all.length} states where it was printed, cheapest first`,
+      headers: ['State', 'Price', 'License'],
+      rows: all.map((x) => [x.s.name, usd(x.p), x.s.hunt!.t]),
+      align: ['l', 'r', 'l'],
+    },
+    note: lnote(st),
+    example: `Example: a ${whoWord(who)} of ${st.name}`,
+  };
+}
+
+/** Hunting and fishing: combination license against the two licenses bought apart. */
+function comboAnswer(v: V): ToolOut {
+  const st = lByCode(s(v, 'st')), who = s(v, 'who') as Who, c = comboSaving(st, who);
+  const h = price(st.hunt, who), f = price(st.fish, who), k = price(st.combo, who);
+  const list = LSTATES.map((x) => ({ x, c: comboSaving(x, who) })).filter((y) => y.c).sort((p, q) => q.c!.saving - p.c!.saving);
+  return {
+    label: `${st.name}: hunting and fishing for an adult ${whoWord(who)}`,
+    value: st.status === 'blocked' ? 'To check' : c ? (c.saving > 0 ? `${usd(c.saving)} saved` : c.saving === 0 ? 'Same price' : `${usd(-c.saving)} more`) : k !== null ? usd(k) : h !== null && f !== null ? usd(h + f) : 'Not printed',
+    sub: c ? (c.saving >= 0 ? `combination ${usd(c.combo)} against ${usd(c.apart)} for the two licenses bought apart` : `the ${st.combo!.t} costs ${usd(c.combo)}, ${usd(c.apart)} for the two base licenses: it bundles more, check what it includes`) : k !== null ? `combination license (${st.combo!.t}); a price for one of the separate licenses was not printed` : st.combo ? 'Combination license not sold to this residency' : 'No combination license printed: hunting and fishing licenses bought apart',
+    rows: [
+      ['Hunting license', st.hunt ? `${pr(h)} (${st.hunt.t})` : 'not read'],
+      ['Fishing license', st.fish ? `${pr(f)} (${st.fish.t})` : 'not read'],
+      ['Combination license', st.combo ? `${pr(k)} (${st.combo.t})` : 'none printed'],
+      storeRow(st),
+    ],
+    table: {
+      caption: `States where hunting, fishing and combination prices were all printed for a ${whoWord(who)}, biggest saving first`,
+      headers: ['State', 'Apart', 'Combination', 'Saving'],
+      rows: list.map(({ x, c: y }) => [x.name, usd(y!.apart), usd(y!.combo), usd(y!.saving)]),
+      align: ['l', 'r', 'r', 'r'],
+    },
+    note: lnote(st),
+    example: `Example: a ${whoWord(who)} of ${st.name} who hunts and fishes`,
+  };
+}
+
+/** Deer license or tag of a state, and what it adds to the base license. */
+function tagAnswer(v: V): ToolOut {
+  const st = lByCode(s(v, 'st')), who = s(v, 'who') as Who, d = price(st.deer, who), h = price(st.hunt, who);
+  const all = ranked('deer', who);
+  return {
+    label: `${st.name}: deer license or tag for an adult ${whoWord(who)}`,
+    value: st.status === 'blocked' ? 'To check' : d === null ? 'Not printed' : d === 0 ? 'Included' : usd(d),
+    sub: st.deer ? st.deer.t : 'No deer license or tag price read for this state',
+    rows: [
+      ['Base hunting license', st.hunt ? `${pr(h)} (${st.hunt.t})` : 'not read'],
+      ...(st.tag ? [['How deer tags work', st.tag] as [string, string]] : []),
+      storeRow(st),
+    ],
+    table: {
+      caption: `Deer license or tag for an adult ${whoWord(who)}, as printed in ${all.length} states, cheapest first`,
+      headers: ['State', 'Price', 'Deer license or tag'],
+      rows: all.map((x) => [x.s.name, x.p === 0 ? 'included' : usd(x.p), x.s.deer!.t]),
+      align: ['l', 'r', 'l'],
+    },
+    note: `${lnote(st)} What each state calls a deer license, tag or permit differs: some cover any deer, some only antlerless deer, some are drawn.`,
+    example: `Example: a ${whoWord(who)} of ${st.name}`,
+  };
+}
+
 const SPECS: Record<string, (arg?: Arg) => ToolSpec> = {
+  /** 50 states: base hunting license and official store. */
+  buy: (arg = {}) => spec([L_STATE(), WHO()], arg, buyAnswer, false),
+  /** Hunting and fishing combination against licenses bought apart. */
+  combo: (arg = {}) => spec([L_STATE('OK'), WHO()], arg, comboAnswer, false),
+  /** Deer license or tag. */
+  tags: (arg = {}) => spec([L_STATE('NM'), WHO('non')], arg, tagAnswer, false),
   /** Home and state pages: is it open on that date? */
   open: (arg = {}) => spec([STATE(), SPECIES(), MONTH(), DAY(), METHOD()], arg, openAnswer),
   /** Species pages: every state on one date. */

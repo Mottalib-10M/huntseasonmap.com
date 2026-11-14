@@ -11,7 +11,7 @@ const cell = (c: { total: number | null }) => (c.total === null ? 'not read' : K
 export default definePage({
   id: 'hunting-license-cost-by-state', group: 'guides', order: 105, slug: 'hunting-license-cost-by-state',
   nav: 'License cost by state', card: 'What an adult resident and nonresident pay to hunt deer, and to fish, in the states read.',
-  title: 'Hunting License Cost by State 2026: Resident and Nonresident',
+  title: 'Hunting License Cost by State 2026: Deer Hunting License',
   description: 'Hunting license cost by state for 2026-27: what an adult resident and a nonresident pay to hunt deer in 12 states, with the fishing license where it was read.',
   h1: 'Hunting license cost by state: deer, resident and nonresident',
   intro: `Hunting license cost by state for a deer hunt in 2026-27: from ${K.usd(res[0].c.total!)} for a resident of ${res[0].s.name} to ${K.usd(non[non.length - 1].c.total!)} for a nonresident in ${non[non.length - 1].s.name}. Pick a state to see the items.`,

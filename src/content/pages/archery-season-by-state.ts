@@ -18,7 +18,7 @@ const sept = rows.filter((r) => r.start < '2026-10-01');
 export default definePage({
   id: 'archery-season-by-state', group: 'guides', order: 102, slug: 'archery-season-by-state',
   nav: 'Archery season by state', card: 'When bowhunting for deer opens and closes in each state read, and how many days it lasts.',
-  title: 'Archery Season by State 2026-27: Bow Deer Dates and Days',
+  title: 'Archery Season by State 2026-27: Bow Season Deer Dates',
   description: 'Archery season by state for 2026-27: when bowhunting for deer opens and closes in 24 states, the pauses for gun weeks, and how many days a bow may be used.',
   h1: 'Archery season by state: bow deer dates for 2026-27',
   intro: `Archery season by state opens between ${K.d(rows[0].start)} in ${rows[0].s.name} and ${K.d(rows[rows.length - 1].start)} in ${rows[rows.length - 1].s.name}. Pick a date to see where a bow is legal.`,

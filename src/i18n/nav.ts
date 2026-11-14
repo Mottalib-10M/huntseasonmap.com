@@ -5,6 +5,7 @@ export interface NavLink { href: string; label: string } export interface NavCat
 const CORE: Record<string, string> = { home: 'Season checker by state', method: 'How the dates were read', about: 'About', widget: 'Embed the checker', contact: 'Contact', editorial: 'Editorial policy', privacy: 'Privacy', terms: 'Legal notice', cookies: 'Cookies' };
 export const GROUPS: Array<{ id: Group; label: string }> = [
   { id: 'guides', label: 'Seasons and licenses' },
+  { id: 'licenses', label: 'Hunting license by state' },
   { id: 'states', label: 'Deer season by state' },
 ];
 export const label = (id: string, _lang?: Locale) => CORE[id] ?? pageById(id)?.nav ?? id;
@@ -20,4 +21,4 @@ export const footerColumns = (lang: Locale): NavCategory[] => [
   { label: 'This site', links: ['home', 'method', 'about', 'contact', 'editorial', 'widget', 'terms', 'privacy', 'cookies'].map((i) => link(i, lang)) },
 ];
 /** The national guides from the footer: one click from any page (RECETTE §18.2). */
-export const popularLinks = (lang: Locale): NavLink[] => ['deer-season-by-state', 'archery-season-by-state', 'turkey-season-by-state', 'duck-season-by-state', 'hunting-license-cost-by-state', 'days-until-deer-season'].filter((id) => pageById(id)).map((id) => link(id, lang));
+export const popularLinks = (lang: Locale): NavLink[] => ['hunting-license', 'hunting-tags', 'hunting-and-fishing-license', 'deer-season-by-state', 'archery-season-by-state', 'turkey-season-by-state', 'duck-season-by-state', 'hunting-license-cost-by-state', 'days-until-deer-season'].filter((id) => pageById(id)).map((id) => link(id, lang));

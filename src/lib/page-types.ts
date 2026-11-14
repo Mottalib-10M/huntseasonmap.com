@@ -22,8 +22,9 @@ export interface Helpers extends Kit {
   mini: (kind: string, opts?: MiniOpts) => string;
 }
 
-/** guides: cross-state pages (deer, archery, turkey, duck, license cost, countdown); states: one page per state read. */
-export type Group = 'guides' | 'states';
+/** licenses: 50-state license, tag and combination pages, and the license pages of single agencies (read 2026-11-14).
+ *  guides: cross-state pages (deer, archery, turkey, duck, license cost, countdown); states: one page per state read. */
+export type Group = 'guides' | 'licenses' | 'states';
 
 export interface PageDef {
   id: string; group: Group; order: number;

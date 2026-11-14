@@ -9,6 +9,8 @@ import { PLANNED_IDS } from './planned';
 
 const esc = (s: string | number) => String(s).replace(/&(?!(?:[a-z]+|#\d+);)/g, '&amp;').replace(/</g, '&lt;');
 import D from '../data/seasons.json';
+import LJ from '../data/licenses.json';
+type LSt = { code: string; agency: string; buy: { t: string; u: string } | null; src: Array<{ t: string; u: string }> };
 type St = { code: string; name: string; agency: string; read: string; src: Array<{ t: string; u: string }>; lic?: { src: Array<{ t: string; u: string }> } };
 /** Source registry: params-2026.json (federal rules), plus each page the season dates (st_TX_0, st_TX_1…) and the
  *  license prices (lic_TX_0…) were read on. */
@@ -17,6 +19,11 @@ export const SOURCES: Record<string, { url: string; label: string }> = Object.fr
   ...(D as unknown as { states: St[] }).states.flatMap((s) => [
     ...s.src.map((x, i) => [`st_${s.code}_${i}`, { url: x.u, label: `${s.agency}: ${x.t} (read November 13, 2026)` }]),
     ...(s.lic?.src ?? []).filter((x) => !s.src.some((y) => y.u === x.u)).map((x, i) => [`lic_${s.code}_${i}`, { url: x.u, label: `${s.agency}: ${x.t} (read November 13, 2026)` }]),
+  ]),
+  // 50-state license fees (src/data/licenses.json, read on 2026-11-14): lj_TX_0… and the official store buy_TX.
+  ...(LJ as unknown as { states: LSt[] }).states.flatMap((s) => [
+    ...s.src.map((x, i) => [`lj_${s.code}_${i}`, { url: x.u, label: `${s.agency}: ${x.t} (read November 14, 2026)` }]),
+    ...(s.buy ? [[`buy_${s.code}`, { url: s.buy.u, label: `${s.agency}: ${s.buy.t}, official license store (read November 14, 2026)` }]] : []),
   ]),
 ]);
 /** Source keys of one state, for the sources block of a page. */

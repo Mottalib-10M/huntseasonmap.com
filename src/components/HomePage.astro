@@ -27,9 +27,9 @@ const sources = x.sources.map((k) => ({ name: SOURCES[k].label, url: SOURCES[k].
 const jsonLd = [websiteSchema(lang), organizationSchema(lang), webPageSchema({ name: x.h1, description: x.description, path, lang }), webApplicationSchema({ name: x.h1, description: x.description, path, lang }), faqSchema(x.faqs, lang)];
 const doors = [
   { label: 'When does gun season open in each state?', href: route('deer-season-by-state', lang) },
-  { label: 'Bowhunting: archery dates by state', href: route('archery-season-by-state', lang) },
-  { label: 'How many days until my opener?', href: route('days-until-deer-season', lang) },
   { label: 'What does a license cost a nonresident?', href: route('hunting-license-cost-by-state', lang) },
+  { label: 'Where do I buy a hunting license?', href: route('hunting-license', lang) },
+  { label: 'Hunting tags: what a deer tag costs', href: route('hunting-tags', lang) },
 ];
 ---
 <PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={x.faqs} sources={sources} faqOuverte={0}>

@@ -13,7 +13,7 @@ const october = rows.filter((r) => r.g.r[0][0] < '2026-11-01');
 export default definePage({
   id: 'deer-season-by-state', group: 'guides', order: 101, slug: 'deer-season-by-state',
   nav: 'Deer season by state', card: 'Gun, archery and muzzleloader openers of the 24 states read, side by side.',
-  title: 'Deer Season by State 2026-27: Gun and Archery Openers',
+  title: 'Deer Season by State 2026-27: Deer Hunting Season Openers',
   description: 'Deer season by state for 2026-27: the gun opener, the first archery day, muzzleloader dates and the last day in 24 states, read on the state agency sites.',
   h1: 'Deer season by state: 2026-27 gun and archery openers',
   intro: `Deer season by state for 2026-27 starts with gun openers from ${K.d(earliest.g.r[0][0])} in ${earliest.s.name} to ${K.d(latest.g.r[0][0])} in ${latest.s.name}. Pick a date to see which states are open.`,
