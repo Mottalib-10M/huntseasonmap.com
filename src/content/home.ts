@@ -2,6 +2,9 @@
 import { KIT as K } from '../lib/kit';
 import { BUILD } from '../lib/tool-specs';
 import type { FAQ, Helpers } from '../lib/page-types';
+import { gunUnread } from '../lib/engine/seasons';
+import { zonesOf, zoneList } from '../lib/engine/zones';
+import { fit } from '../lib/state-pages';
 
 const ST = K.STATES;
 const sorted = [...ST].sort((a, b) => a.name.localeCompare(b.name));
@@ -17,19 +20,39 @@ function gunToday(s: (typeof ST)[number]): string {
   if (S.open.length) { const e = S.ends[S.ends.length - 1]; return `Open: ${S.ends.length > 1 ? `${S.ends.length} periods, the last` : e.season.s} until ${K.d(e.end)} (${e.season.a})`; }
   return S.next ? `Closed, next opens ${K.d(S.next.start)} (${S.next.season.a})` : 'Closed';
 }
+/** States whose gun deer dates cover some zones only (Alabama: Zone A), and what was read there. */
+const PART = ST.filter((s) => gunUnread(s).length).map((s) => `${s.name} (all but ${zoneList(zonesOf(s)!.zones.filter((z) => !gunUnread(s).includes(z)))})`);
+const andList = (xs: string[]) => (xs.length <= 1 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
 const MISSING = 'Michigan, Minnesota, New York, Florida, Kansas, Kentucky, Indiana, Nebraska, Tennessee, New Jersey, Maryland, Massachusetts, New Hampshire, Idaho, California and South Carolina';
+
+const MISSING_N = MISSING.split(/, | and /).length;
+
+/** What the site has and does not have (naive testers, 2026-11-14, 4th round). */
+const HOME_COVER = {
+    /** One line under the answer (first screen, check-premier-ecran); the details open the section under the checker. */
+    short: `Covered: deer in ${ST.length} states, turkey in ${T.length}, duck in ${D.length}; ${PART.map((x) => x.replace(/ \(.*$/, '')).join(', ')}: some gun zones only.`,
+    has: `deer dates for ${ST.length} states, turkey for ${T.length}, duck for ${D.length}.`,
+    missing: `gun deer dates for some zones: ${andList(PART)}, and ${MISSING_N} states not covered yet, such as ${MISSING.split(', ').slice(0, 3).join(', ')} (full list under "States not covered" below). Each state page links to its agency page for the rest; no date is guessed.`,
+};
 
 /** The value sentence (RECETTE §2.4), shown on the home page, the About page and the method page. */
 export const VALUE = `Search results for hunting season dates send you to fifty agency sites, each with its own zones and PDF, or to blog posts that copy last year's dates and sell an app. This site reads the 2026-27 season pages of each state wildlife agency it can reach, keeps the dates as printed, and tells you whether a season is open on any date you pick, how many days remain until an opener, and how states compare. It sells nothing and asks for nothing.`;
 
 export const HOME = {
-  title: 'Hunting Season Dates by State 2026-27: Deer, Turkey, Duck',
-  description: 'Hunting season dates by state for 2026-27: deer, turkey and duck seasons in 24 states as the agencies printed them, and a checker that says if a season is open.',
+  // Naive testers, 2026-11-14, 4th round: Google promised "deer, turkey and duck seasons in 24 states"; turkey and duck
+  // are read in fewer states, and some gun dates in one zone only. Title and description say the real coverage.
+  title: fit([`Hunting Season Dates by State 2026-27: Deer in ${ST.length} States`], 50, 60, 'home title'),
+  description: fit([
+    `Hunting season dates by state for 2026-27, as the agencies printed them: deer in ${ST.length} states, turkey in ${T.length}, duck in ${D.length}, and an open-or-closed checker.`,
+    `Hunting season dates by state for 2026-27: deer in ${ST.length} states, turkey in ${T.length}, duck in ${D.length}, as the agencies printed them, and a checker that says if it is open.`,
+    `Hunting season dates by state for 2026-27: deer in ${ST.length} states, turkey in ${T.length} and duck in ${D.length}, as printed by the agencies, with an open-or-closed checker.`,
+  ], 150, 160, 'home description'),
   h1: 'Hunting season dates by state: is it open today?',
   /** The answer in one sentence, one figure. */
   answer: `On ${K.day(BUILD)}, gun deer season is open, at least in some zones, in ${gunNow.length} of the ${ST.length} states whose 2026-27 hunting season dates we read; counting bow and youth hunts, ${openNow.length === ST.length ? `all ${ST.length}` : openNow.length} have a deer season open.`,
   intro: `The checker opens on ${ex.name}, gun deer season, today: pick your own state, method and zone. Dates read: deer in all ${ST.length} states, turkey in ${T.length}, duck in ${D.length}.`,
-  resume: `Each state wildlife agency sets its own hunting seasons, by species, method and zone, and publishes them in its own regulations. We read the 2026-27 season pages and PDFs of ${ST.length} state agencies on ${K.day(K.READ)}: deer in all ${ST.length}, turkey in ${T.length}, ducks in ${D.length}, and license prices in ${K.LIC.length}. The headline gun deer season opens between ${K.d(K.mainGun(byGun[0]).r[0][0])} (${byGun[0].name}) and ${K.d(K.mainGun(byGun[byGun.length - 1]).r[0][0])} (${byGun[byGun.length - 1].name}); archery opens earlier everywhere, from mid-August in Utah. In ${ex.name}, the example on this page, the ${exG.s.toLowerCase()} season (${exG.a}) runs ${K.range(exG)}. ${MISSING.split(', ').length} more states could not be read on their agency sites, which refused automated readers or did not publish 2026-27 dates in a page we could open; they are not shown rather than guessed.`,
+  cover: HOME_COVER,
+  resume: `Each state wildlife agency sets its own hunting seasons, by species, method and zone, and publishes them in its own regulations. We read the 2026-27 season pages and PDFs of ${ST.length} state agencies on ${K.day(K.READ)}: deer in all ${ST.length}, turkey in ${T.length}, ducks in ${D.length}, and license prices in ${K.LIC.length}. The headline gun deer season opens between ${K.d(K.mainGun(byGun[0]).r[0][0])} (${byGun[0].name}) and ${K.d(K.mainGun(byGun[byGun.length - 1]).r[0][0])} (${byGun[byGun.length - 1].name}); archery opens earlier everywhere, from mid-August in Utah. In ${ex.name}, the example on this page, the ${exG.s.toLowerCase()} season (${exG.a}) runs ${K.range(exG)}. ${MISSING_N} more states could not be read on their agency sites, which refused automated readers or did not publish 2026-27 dates in a page we could open; they are not shown rather than guessed.`,
   faqs: [
     { q: 'Is deer season open today in my state?', a: 'Pick your state, deer, your method and your zone in the checker at the top: it fills in today\'s date and says Open or Closed for that method in that zone, gives the last day of each open period, and the next opener. Right under the answer, it lists the other periods open that day, such as a youth gun weekend or archery. Gun is chosen first; pick archery, muzzleloader, youth hunts or any method to change it.' },
     { q: 'Is this an official government site?', a: 'No. Hunt Season Map is an independent site published by Radif Partners. It is not a state wildlife agency, sells no license and links to each agency page it read, so you can check the source before you go. It is paid by no one: no license fee, no affiliate link and no paid placement.' },
@@ -41,6 +64,7 @@ export const HOME = {
   /** Right under the calculator: how to read the answer. */
   start: (h: Helpers) => `
 <h2>Reading the answer for your state</h2>
+<p><strong>On this site:</strong> ${HOME_COVER.has} <strong>Not on this site:</strong> ${HOME_COVER.missing}</p>
 <p>The large words give the status for your method on the date shown, and the zone it holds for. Left on all zones, the answer gives one line per zone. Right under it, in bold, the other periods open that day, such as a youth gun weekend. The table lists every period read, with its status that day.</p>
 <p>Words you will meet: a muzzleloader is an old-style gun loaded from the front with black powder; antlerless deer are does and young bucks without antlers; stalk hunting is hunting on foot, without dogs; a draw is a lottery for licenses, which you may or may not win.</p>
 <p>A Sunday inside a Maine season is shown closed, since Maine forbids hunting on Sunday, and so is a Sunday inside a Pennsylvania duck season. The ${h.a('method', 'method page')} explains how periods are classified as archery, muzzleloader, gun or youth hunts.</p>

@@ -25,7 +25,7 @@ export default definePage({
   ],
   body: (h) => `
 <h2>Deer season by state, opener by opener</h2>
-<p>The table lists, for each state, the headline gun season and its zone, the first day any archery season opens, the first muzzleloader day and the last day of any deer season. Click a state for every period and zone.</p>
+<p>The table lists, for each state, the headline gun season and its zone, the first day any archery season opens, the first muzzleloader day and the last day of any deer season. Click a state for all the periods and zones read there.</p>
 ${h.table(['State', 'Gun season (zone)', 'Gun opens', 'Archery opens', 'Muzzleloader', 'Last day'], rows.map((r) => [h.a(r.s.slug, r.s.name), `${r.g.s} (${r.g.a})`, K.d(r.g.r[0][0]), r.a ? K.d(r.a.start) : 'none read', r.m ? K.d(r.m.start) : 'none read', K.d(r.end)]), `Deer seasons 2026-27 in ${ST.length} states, read on ${K.day(K.READ)}`)}
 <h2>Three ways states schedule the gun opener</h2>
 <p>Some openers sit around Thanksgiving: in 2026 Wisconsin opens its nine-day season on the Saturday before it, West Virginia on the Monday of Thanksgiving week and Pennsylvania on the Saturday after it. Others stagger by zone: North Carolina moves from Oct. 17 in the east to Nov. 28 in the west, and Louisiana from Oct. 17 in Area 3 to Nov. 21 in Area 1. A third group holds short, separate seasons: Illinois hunts three days in November and four in December, Iowa five and nine days in December.</p>

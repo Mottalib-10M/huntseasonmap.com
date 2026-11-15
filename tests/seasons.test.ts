@@ -102,7 +102,7 @@ describe('status follows the method, each date names its period', () => {
     // Only Zone 1 gun dates were read (AGFC): the title says so, the other 16 zones are "not on this site", not closed.
     expect(out.value).toBe('Open for gun hunters in Zone 1');
     expect(out.rows).toContainEqual(['Zone 1', 'open: Modern gun until Dec. 6, 2026']);
-    expect(out.rows).toContainEqual(['The other 16 zones', 'gun / rifle dates not on this site (AGFC sets them)']);
+    expect(out.rows).toContainEqual(['The other 16 zones', 'gun / rifle dates not on this site: see the agency page linked below']);
     expect(out.sub).toBe('Pick your zone above for its own dates and next opener.');
     expect(JSON.stringify(out.rows)).not.toContain('Feb. 28');
     expect(out.flags?.join(' ')).toMatch(/Also open (today|on Nov\. 14, 2026) for: Archery/);
@@ -131,7 +131,7 @@ describe('status follows the method, each date names its period', () => {
     expect(out.flags?.[0]).toContain('Special youth gun (under 16)');
     expect(out.flags?.[0]).toContain('Archery (stalk hunting)');
     expect(out.rows).toContainEqual(['Zone A', 'closed, opens Nov. 21, 2026, in 7 days (Gun, stalk hunting, private or leased land)']);
-    expect(out.rows).toContainEqual(['Zones B, C, D, E and the CWD zone', 'gun / rifle dates not on this site (Outdoor Alabama sets them)']);
+    expect(out.rows).toContainEqual(['Zones B, C, D, E and the CWD zone', 'gun / rifle dates not on this site: see the agency page linked below']);
     const S = statusOn(byCode('AL'), 'deer', '2026-11-14', 'gun', 'A');
     expect(S.open).toHaveLength(0);
     expect(S.next?.inDays).toBe(7);
@@ -187,5 +187,29 @@ describe('pages', () => {
   it('every body renders and links only to known pages', () => {
     const h = helpers();
     for (const p of PAGES) expect(p.body(h).length).toBeGreaterThan(200);
+  });
+});
+
+describe('coverage said up front (naive testers, 2026-11-14, 4th round)', () => {
+  it('gun dates read for some zones only in Alabama, Arkansas and Louisiana, nowhere else', async () => {
+    const { gunUnread } = await import('../src/lib/engine/seasons');
+    expect(STATES.filter((s) => gunUnread(s).length).map((s) => s.code)).toEqual(['AL', 'AR', 'LA']);
+    expect(gunUnread(byCode('AL')).map((z) => z.id)).toEqual(['B', 'C', 'D', 'E', 'CWD']);
+  });
+  it('state pages say what is missing, link a source of the state, and never promise every zone', async () => {
+    const { coverOf } = await import('../src/lib/state-pages');
+    const al = coverOf(byCode('AL')), ar = coverOf(byCode('AR')), tx = coverOf(byCode('TX'));
+    expect(al.missing).toContain('Zones B, C, D, E and the CWD zone');
+    expect(ar.missing).toMatch(/other 16 zones; turkey and duck/);
+    expect(tx.missing).toBeUndefined();
+    for (const s of STATES) expect(s.src.map((x) => x.u)).toContain(coverOf(s).href);
+    for (const p of PAGES) expect(p.h1).not.toMatch(/every period, zone/);
+  });
+  it('the checker links the agency page in a state with zones, and its help follows the method', () => {
+    const t = getTool('open', { st: 'AL', z: 'B' });
+    const v = Object.fromEntries(t.inputs.map((i) => [i.id, i.def]));
+    expect(t.run(v).link?.href).toBe(byCode('AL').src[0].u);
+    const m = t.inputs.find((i) => i.id === 'm')!;
+    expect(m.kind === 'select' && m.dynHelp?.({ ...v, m: 'archery' })).toMatch(/^Archery/);
   });
 });

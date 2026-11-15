@@ -3,7 +3,7 @@
  * state wildlife agencies, read on 2026-11-13. Pure functions, no clock: the date to test is always passed in.
  */
 import D from '../../data/seasons.json';
-import { inZone } from './zones';
+import { inZone, zonesOf, type Zone } from './zones';
 
 export type Species = 'deer' | 'turkey' | 'duck';
 export type Method = 'archery' | 'muzzleloader' | 'gun' | 'youth' | 'other';
@@ -119,6 +119,9 @@ export const inZoneOf = (st: State, sp: Species, zone: string) => (s: Season) =>
 /** Were dates of that method read for that zone? (Alabama Zone B gun: no, only Zone A's were printed.) */
 export const zoneRead = (st: State, method: Method | 'any', zone: string) =>
   st.deer.some((s) => (method === 'any' || methodOf(s) === method) && inZone(st, s, methodOf(s), zone));
+/** Zones of a state with no gun deer dates read (Alabama: B to E and the CWD zone). Naive testers, 2026-11-14, 4th round:
+ *  say it at the top of the page and in Google's snippet, never let the reader find it in the detail. */
+export const gunUnread = (st: State): Zone[] => zonesOf(st)?.zones.filter((z) => !zoneRead(st, 'gun', z.id)) ?? [];
 export function statusOn(st: State, sp: Species, iso: string, method: Method | 'any' = 'any', zone = 'all'): Status {
   const every = seasonsOf(st, sp).filter(inZoneOf(st, sp, zone));
   const all = every.filter((s) => method === 'any' || methodOf(s) === method);

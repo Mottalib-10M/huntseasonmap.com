@@ -5,8 +5,9 @@
 import type { FAQ, PageDef } from './page-types';
 import {
   STATES, METHOD_LABEL, mainGun, lastEnd, openerOf, rangesText, dayText, seasonsOf, totalDays, methodOf, licenseCost, sundayClosed,
-  type State, type Species,
+  gunUnread, speciesOf, type State, type Species,
 } from './engine/seasons';
+import { zonesOf, zoneList } from './engine/zones';
 import { formatMoney } from './format';
 import { NOTES_1 } from '../content/states/notes-1';
 import { NOTES_2 } from '../content/states/notes-2';
@@ -35,8 +36,32 @@ export function fit(cands: string[], min: number, max: number, what: string): st
 const usd = (x: number) => formatMoney(x, Number.isInteger(x) ? 0 : 2);
 const lower = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const andList = (xs: string[]) => (xs.length <= 1 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
+
+/**
+ * What the page has and does not have, said under the intro (naive testers, 2026-11-14, 4th round: "Zones B, C, D, E: gun
+ * dates not on this site" was found in the detail, after a title promising every zone). Computed from the data only.
+ */
+export function coverOf(st: State): NonNullable<PageDef['cover']> {
+  const Z = zonesOf(st), un = gunUnread(st), read = Z ? Z.zones.filter((z) => !un.includes(z)) : [];
+  const other = speciesOf(st).filter((x) => x !== 'deer'), absent = (['turkey', 'duck'] as Species[]).filter((x) => !other.includes(x));
+  const deer = !Z ? `deer, the ${st.deer.length} periods read on the ${st.short} pages for 2026-27`
+    : un.length ? `deer, with gun dates for ${zoneList(read)} only (other methods as listed in the table)`
+      : `deer, for ${Z.zones.length === 2 ? 'both' : `all ${Z.zones.length}`} ${Z.noun} (pick yours in the checker)`;
+  const missing = [...(un.length ? [`gun deer dates for ${zoneList(un)}`] : []), ...(absent.length ? [`${andList(absent)} seasons`] : [])];
+  return {
+    has: `${cap(deer)}${other.length ? `; ${andList(other)} dates, lower on this page` : ''}.`,
+    missing: missing.length ? `${cap(missing.join('; '))}. The ${st.agency} publishes them; no date is guessed here.` : undefined,
+    href: st.src[0].u,
+    label: `${Z ? 'Find your zone and its dates' : 'The agency page we read'}: ${st.agency}, ${st.src[0].t}`,
+  };
+}
+
 export function titleOf(st: State): string {
   const N = st.name;
+  // A state whose gun dates cover some zones only does not promise "Dates by Zone" (naive testers, 4th round).
+  if (gunUnread(st).length) return fit([`${N} Deer Season 2026-27: Dates and Opening Days`, `${N} Deer Season 2026-27: Dates and Openers`], 50, 60, `title ${st.code}`);
   return fit([
     `${N} Deer Season 2026-27: Dates by Zone and Opening Days`,
     `${N} Deer Season 2026-27: Dates, Zones and Opening Days`,
@@ -67,8 +92,18 @@ export function descriptionOf(st: State): string {
     ' Every period, read on the agency site.',
     ' Every period.',
   ];
+  const un = gunUnread(st);
+  const read = un.length ? zoneList(zonesOf(st)!.zones.filter((z) => !un.includes(z))) : '';
+  const partial = [
+    ` Gun dates read for ${read} only, other zones on the agency site, and a date checker.`,
+    ` Gun dates read for ${read} only; other zones on the agency site, and a checker.`,
+    ` Gun dates for ${read} only, from the state agency, and a checker for any date.`,
+    ` Gun dates for ${read} only, from the state agency, and a date checker.`,
+    ` Gun dates for ${read} only; other zones on the agency site.`,
+    ` Gun dates for ${read} only, from the state agency.`,
+  ];
   const cands: string[] = [];
-  for (const h of heads) for (const t of tails) cands.push(`${h}${t}`);
+  for (const h of heads) for (const t of un.length ? partial : tails) cands.push(`${h}${t}`);
   return fit(cands, 150, 160, `description ${st.code}`);
 }
 
@@ -94,7 +129,8 @@ export function statePages(): PageDef[] {
       nav: st.name,
       card: `${g.s}: ${rangesText(g)}.`,
       title: titleOf(st), description: descriptionOf(st),
-      h1: `${kw} 2026-27: every period, zone and opening day`,
+      h1: `${kw} 2026-27: dates and opening days`,
+      cover: coverOf(st),
       intro: `The ${kw} for 2026-27 starts with ${lower(first.x.s)} on ${dayText(first.d)}; the headline gun season, ${lower(g.s.replace(/\s*\(.*\)$/, ''))}, runs ${rangesText(g)} (${g.a}), one of ${st.deer.length} deer periods listed below.`,
       resume: `${note.resume} Source: ${st.agency}, read on November 13, 2026.`.replace(/\s+/g, ' '),
       faqs: [faqOpen, ...note.faqs],

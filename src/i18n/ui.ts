@@ -7,7 +7,7 @@ const en = {
   footerBrowser: 'The checker runs in your browser · no name, phone or e-mail asked · no license sold',
   footerDisclaimer: 'Independent site published by Radif Partners: not a government site, not a state wildlife agency, and not affiliated with any state agency or the U.S. Fish and Wildlife Service. Information for guidance only, not legal advice: the regulations of your state agency govern.',
   footerPopular: 'Seasons and licenses',
-  notFound: 'This address leads nowhere. The checker on the home page says whether deer, turkey or duck season is open on any date in 24 states, from the dates their wildlife agencies printed for 2026-27.',
+  notFound: 'This address leads nowhere. The checker on the home page says whether deer season is open on any date in 24 states (turkey in 12, duck in 6), from the dates their wildlife agencies printed for 2026-27.',
   readMore: 'Read the full answer',
   estimate: 'The answers apply the 2026-27 dates printed by each state wildlife agency, read on November 13, 2026. Agencies can change dates: the regulations of your state govern.',
 };

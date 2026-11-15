@@ -2,7 +2,7 @@
 export type V = Record<string, number | string>;
 export interface NumIn { kind?: 'num'; id: string; label: string; def: number; unit?: string; max?: number; decimals?: number; help?: string; adv?: boolean; wide?: boolean; /** Short name in the summary of the folded fields. */ short?: string }
 export interface ChoiceIn { kind: 'choice'; id: string; label: string; def: string; options: Array<{ value: string; label: string }>; help?: string; adv?: boolean; wide?: boolean; short?: string }
-export interface SelectIn { kind: 'select'; id: string; label: string; def: string; options: Array<{ value: string; label: string }>; /** Options that depend on the other fields (states priced for the chosen trade). */ dyn?: (v: V) => Array<{ value: string; label: string }>; /** Not shown when it has nothing to choose (no zones in that state). */ hidden?: (v: V) => boolean; help?: string; adv?: boolean; wide?: boolean; short?: string }
+export interface SelectIn { kind: 'select'; id: string; label: string; def: string; options: Array<{ value: string; label: string }>; /** Options that depend on the other fields (states priced for the chosen trade). */ dyn?: (v: V) => Array<{ value: string; label: string }>; /** Not shown when it has nothing to choose (no zones in that state). */ hidden?: (v: V) => boolean; help?: string; /** Help that follows the other fields (the method chosen). */ dynHelp?: (v: V) => string; adv?: boolean; wide?: boolean; short?: string }
 export type Input = NumIn | ChoiceIn | SelectIn;
 export interface ToolOut {
   label: string; value: string; sub?: string;
@@ -11,6 +11,8 @@ export interface ToolOut {
   rows: Array<[string, string, number?]>;
   table?: { caption?: string; headers: string[]; rows: string[][]; align?: Array<'l' | 'r'> };
   note?: string;
+  /** Official agency page for what the site does not have (other zones) and to find one's zone (naive testers, 4th round). */
+  link?: { href: string; label: string };
   /** What the example case assumes, in plain words ("Example: a $60,000 salary, plan paid by your employer"), shown
    *  while the reader has changed nothing (brief of 2026-11-09, second pass: never a vague "Example"). */
   example?: string;

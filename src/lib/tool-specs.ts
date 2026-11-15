@@ -52,7 +52,13 @@ const METHOD = (def: Method | 'any' = 'gun', adv = false): Input => ({
   options: METHODS.map(mOpt),
   dyn: (v) => (s(v, 'sp') === 'deer' ? METHODS.map(mOpt) : [{ value: 'any', label: 'All methods' }]),
   help: 'Gun / rifle: modern rifle or shotgun.',
+  // Naive testers, 2026-11-14, 4th round: "Archery" chosen, and the help still spoke of rifles.
+  dynHelp: (v) => (s(v, 'sp') !== 'deer' ? 'Every period of that game.' : M_HELP[s(v, 'm')] ?? 'Gun / rifle: modern rifle or shotgun.'),
 });
+const M_HELP: Record<string, string> = {
+  gun: 'Gun / rifle: modern rifle or shotgun.', archery: 'Archery: bow or crossbow periods.',
+  muzzleloader: 'Muzzleloader: black-powder gun periods.', youth: 'Youth, junior and special hunter days.', any: 'Any method: every deer period.',
+};
 /** The zone, beside the method (naive testers, 2026-11-14, second round): left on "All zones", one line per zone. */
 const zoneOpts = (st: State) => { const Z = zonesOf(st); return Z ? [{ value: 'all', label: `All ${Z.noun}, one line each` }, ...Z.zones.map((z) => ({ value: z.id, label: z.label }))] : [{ value: 'all', label: 'One calendar statewide' }]; };
 const ZONE = (): Input => ({
@@ -96,6 +102,8 @@ const when = (iso: string) => (iso === localToday() ? 'today' : `on ${dayText(is
 const names = (ss: Season[]) => [...new Set(ss.map((x) => x.s))].join(', ');
 /** The sentence of the deer note that says licenses are drawn (Colorado, Utah, the Dakotas), shown in bold. */
 const drawLine = (st: State, sp: Species) => (sp === 'deer' && st.deerNote ? st.deerNote.split(/(?<=\.)\s+(?=[A-Z])/).find((x) => /\bdraw|\bdrawn\b|lottery/i.test(x)) : undefined);
+/** The agency page read for the deer dates (src/data/seasons.json): to find one's zone, and the dates of zones not on this site. */
+const zoneLink = (st: State) => ({ href: st.src[0].u, label: `Find your zone and its dates: ${st.agency}, ${st.src[0].t}` });
 /** One zone in the summary: "open until Jan. 3, 2027", "closed, opens Nov. 21, 2026, in 7 days". */
 function zoneLine(st: State, sp: Species, iso: string, method: Method | 'any', z: Zone): string {
   if (!zoneRead(st, method, z.id)) return `${mWord(method)} dates not on this site`;
@@ -154,9 +162,10 @@ function openAnswer(v: V): ToolOut {
       sub: pick,
       rows: [
         ...read.map((z) => [z.label, zoneLine(st, sp, iso, method, z)] as [string, string]),
-        ...(unread.length ? [[cap(zoneList(unread)), `${mWord(method)} dates not on this site (${st.short} sets them)`] as [string, string]] : []),
+        ...(unread.length ? [[cap(zoneList(unread)), `${mWord(method)} dates not on this site: see the agency page linked below`] as [string, string]] : []),
         ...sundays,
       ],
+      link: zoneLink(st),
     };
   }
 
@@ -167,8 +176,9 @@ function openAnswer(v: V): ToolOut {
     return {
       ...base,
       value: `${Zc.label}: ${mWord(method)} dates not on this site`,
-      sub: `${st.short} prints its own ${mWord(method)} dates for ${Zc.label}; the ones read here are for ${zoneList(readZ) || 'other zones'}. Check the agency regulations linked below before you go.`,
+      sub: `${st.short} prints its own ${mWord(method)} dates for ${Zc.label}; the ones read here are for ${zoneList(readZ) || 'other zones'}. Read them on the agency page linked below.`,
       rows: [...sundays],
+      link: zoneLink(st),
     };
   }
   const nextVal = S.next ? nextText(S) : `no other ${method === 'any' ? '' : `${mWord(method)} `}period in 2026-27`;
@@ -178,6 +188,7 @@ function openAnswer(v: V): ToolOut {
   else if (!S.open.length) sub = S.next ? `${nextText(S)}.` : `No ${mWord(method)} period left in 2026-27${where}.`;
   return {
     ...base,
+    ...(Z ? { link: zoneLink(st) } : {}),
     value: `${S.open.length ? 'Open' : 'Closed'} for ${who}${where}`,
     sub,
     rows: [

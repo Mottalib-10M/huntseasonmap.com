@@ -36,6 +36,8 @@ export interface PageDef {
   /** 150 to 160 characters, year included. */
   description: string;
   h1: string; intro: string;
+  /** What the page has and does not have, right under the intro, with the agency page for the rest (naive testers, 4th round). */
+  cover?: { has: string; missing?: string; href: string; label: string };
   /** Link right under the intro to a case lower on the page (testers 2026-11-09: the 61 case came 7 screens down). */
   jump?: { href: string; label: string };
   /** ONE paragraph of 120 words or more: the direct answer with the figures (RECETTE §21). */

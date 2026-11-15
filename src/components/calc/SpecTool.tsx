@@ -71,7 +71,7 @@ export default function SpecTool({ kind, arg, methodHref, idPrefix = 't' }: Prop
     const id = `${idPrefix}-${i.id}`;
     const cls = i.wide ? 'sm:col-span-2' : '';
     if (i.kind === 'choice') return <div key={i.id} className={`grid grid-rows-subgrid row-span-3 ${cls}`}><Choice id={id} label={i.label} value={String(v[i.id])} options={i.options} onChange={set(i.id)} /></div>;
-    if (i.kind === 'select') return <SelectField key={i.id} id={id} label={i.label} value={String(v[i.id])} onChange={set(i.id)} options={i.dyn ? i.dyn(v) : i.options} help={i.help} className={cls} />;
+    if (i.kind === 'select') return <SelectField key={i.id} id={id} label={i.label} value={String(v[i.id])} onChange={set(i.id)} options={i.dyn ? i.dyn(v) : i.options} help={i.dynHelp ? i.dynHelp(v) : i.help} className={cls} />;
     return <NumberField key={i.id} id={id} label={i.label} value={Number(v[i.id])} onChange={set(i.id)} unit={i.unit} max={i.max} decimals={i.decimals} help={i.help} className={cls} />;
   };
   // A select with nothing to choose for the current state (no zones) is not shown.
@@ -104,6 +104,7 @@ export default function SpecTool({ kind, arg, methodHref, idPrefix = 't' }: Prop
         </form>
         <ResultCard label={out.label} value={out.value} sub={out.sub} flags={out.flags} mention={<MentionExemple lang="en" touched={touched} texte={out.example} aide={out.exampleAide} />}>
           <Rows rows={out.rows} />
+          {out.link && <p className="mt-2 text-sm"><a href={out.link.href} target="_blank" rel="noopener" className="font-medium text-accent-700 underline underline-offset-2">{out.link.label} ↗</a></p>}
           {out.note && <p className="mt-2 text-xs text-navy-600">{out.note}</p>}
           <ShareRow methodHref={methodHref} />
         </ResultCard>
