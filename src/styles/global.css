@@ -132,3 +132,6 @@ p[id$="-help"]:not([role="status"]), [data-fixe], [data-actuellement], [aria-liv
 
 /* Links inside the content tables (not-prose): underlined, so that a state name reads as a link (naive testers 2026-11-14, second round). */
 table.journal a { color: var(--color-accent-700); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Champs en subgrid : quand le formulaire est étiré à la hauteur du résultat voisin, ses rangées ne doivent pas s'étirer (trous entre libellé, case et aide). */
+:where(form, div, fieldset):has(> .grid-rows-subgrid) { align-content: start; }
